@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'BYekan';
+    /*تعریف یک نام برای فونت*/
+    src: url('BYekan.eot');
+    /*اکسپلورر 9 به بعد*/
+    src: local('bYekan'), /*بررسی نصب بودن فونت در سیستم کاربر*/
+    local('b Yekan'), /*برای برخی از مرورگرها مانند سافاری*/
+    url('BYekan.eot?#iefix') format('embedded-opentype'), /*هک برای اکسپلورر 8 و ماقبل*/
+    url('BYekan.woff') format('woff'), /*مرورگر های جدید*/
+    url('BYekan.ttf') format('truetype'), /*تمام مرورگرها به جزء اکسپلورر*/
+    url('BYekan.svg#BYekan') format('svg');
+    /*نسخه های قدیمی سیستم عامل iOS*/
+    font-style: normal;
+    font-weight: normal;
+}
+
+.post-titr {
+    font-family: BYekan, Tahoma, Geneva, sans-serif;
+}
+
+#nav-1 {
+    direction: rtl;
+    position: relative;
+    border: none;
+    border-radius: 5em;
+    display: flex;
+    list-style: none;
+    background: #74ebd5;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ACB6E5, #74ebd5);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 20px 40px 40px #000 33;
+    padding: 10px;
+    margin-top: -5px;
+    ;
+}
+
+#nav-1 li {
+    margin: 0px;
+}
+
+#nav-1 li a {
+    position: relative;
+    padding: 0.6em 2em;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    outline: none;
+    color: #333;
+    display: inline-block;
+    text-decoration: none;
+    z-index: 3;
+}
+
+#nav-1 .slide1,
+#nav-1 .slide2 {
+    position: absolute;
+    display: inline-block;
+    height: 3em;
+    color: #ddd;
+    border-radius: 10em;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1.05);
+}
+
+#nav-1 .slide1 {
+    background-color: rgb(17, 163, 139);
+    z-index: 2;
+    color: #ddd;
+}
+
+#nav-1 .slide2 {
+    opacity: 0;
+    background: #ddd;
+    z-index: 1;
+}
+
+#nav-1 .squeeze {
+    transform: scale(0.9);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    color: #ddd;
+}
