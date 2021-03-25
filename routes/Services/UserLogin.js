@@ -15,15 +15,18 @@ const User_Login = (req, res) => {
     console.log(User_Name, User_Password);
     User_Information.find({ User_Name: User_Name }, (err, existUser) => {
         if (err) return res.status(500).send();
-        if (existUser.length == 0) { if (err) return res.status(500).send(); }
-        bcrypt.compare(User_Password, existUser[0].User_Password, (err, result) => {
+        if (existUser.length == 0) { return res.status(500).send(); }
+        console.log(existUser);
+        let a = User_Password;
+        bcrypt.compare(a, existUser[0].User_Password, (err, result) => {
             if (err) return res.status(500).send();
+            console.log(result);
             if (result == true) {
                 existUser[0].User_Password = User_Password;
                 console.log(existUser);
                 req.session.user = existUser[0]._id
                 res.send("User Found :)")
-            } else {
+            } else if (result == false) {
                 return res.status(500).send();
             }
         })

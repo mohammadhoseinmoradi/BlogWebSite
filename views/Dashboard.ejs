@@ -12,17 +12,23 @@
     <link rel="stylesheet" href="../public/stylesheets/Dashboard.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous">
+
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
 
     <title>داشبورد</title>
 </head>
 
 <body>
-    <div class="page-wrapper chiller-theme toggled">
-        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <div class="page-wrapper chiller-theme toggled" style="direction: rtl;">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="direction: rtl;">
             <i class="fas fa-bars"></i>
         </a>
-        <nav id="sidebar" class="sidebar-wrapper">
-            <div class="sidebar-content">
+        <nav id="sidebar" class="sidebar-wrapper rtl" style="direction: rtl;">
+            <div class="sidebar-content" style="direction: rtl;">
                 <div class="sidebar-brand">
                     <a href="#">منو کاربری</a>
                     <div id="close-sidebar">
@@ -34,10 +40,11 @@
                         <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
                     </div>
                     <div class="user-info">
-                        <span class="user-name">Jhon
-                  <strong>Smith</strong>
+                        <span class="user-name">
+                            <%= existUser[0].User_First_Name %> <%= existUser[0].User_Last_Name %>
+                  <strong> <%= existUser[0].User_Name %></strong>
                 </span>
-                        <span class="user-role">Administrator</span>
+                        <span class="user-role"> <%= existUser[0].User_Role %></span>
                         <span class="user-status">
                   <i class="fa fa-circle"></i>
                   <span>Online</span>
@@ -71,18 +78,18 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="#">تغییر رمز عبور
+                                        <a id="Btn_Edit_Password">تغییر رمز عبور
                        
                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">تغیر عکس پروفایل</a>
+                                        <a>تغیر عکس پروفایل</a>
                                     </li>
                                     <li>
-                                        <a href="#">تغییر سایر اطلاعات</a>
+                                        <a id="Btn_Edit_Info">تغییر سایر اطلاعات</a>
                                     </li>
                                     <li>
-                                        <a href="#">حذف حساب کاربری</a>
+                                        <a href="/DashboardUser/DashboardDelete">حذف حساب کاربری</a>
                                     </li>
                                 </ul>
                             </div>
@@ -96,12 +103,12 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="#">همه مقالات
+                                        <a id="Articles">همه مقالات
       
                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">افزودن مقاله جدید</a>
+                                        <a id="Add_Article">افزودن مقاله جدید</a>
                                     </li>
                                 </ul>
                             </div>
@@ -111,10 +118,12 @@
                 <!-- sidebar-menu  -->
             </div>
             <!-- sidebar-content  -->
-            <div class="sidebar-footer">
-                <p style="color:rgb(206, 212, 218);margin-right: -110px;margin-left:80px">خروج</p>
-                <a href="#">
-                    <i class="fa fa-power-off"></i>
+            <div class="sidebar-footer" style="height: 100px;">
+
+                <a href="/DashboardUser/DashboardLogOut" style="display:flex;justify-content:flex-start;">
+
+                    <i class="fa fa-power-off fa-3x" style="margin-top:30px"></i>
+                    <p style="color:rgb(206, 212, 218);margin-top: 30px;font-size:35px">خروج</p>
                 </a>
             </div>
         </nav>
@@ -123,7 +132,7 @@
             <div class="container-fluid">
                 <h2>حساب کاربری من</h2>
                 <hr>
-                <div class="row">
+                <div id="New_Article" class="row" style="display: none;">
                     <div class="form-group col-md-12">
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">افزودن مقاله جدید</h4>
@@ -137,31 +146,165 @@
 
                     </div>
                 </div>
-                <h5>آخرین مقالات</h5>
-                <hr>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                        <div class="card rounded-0 p-0 shadow-sm">
-                            <img src="https://user-images.githubusercontent.com/25878302/58369568-a49b2480-7efc-11e9-9ca9-2be44afacda1.png" class="card-img-top rounded-0" alt="Angular pro sidebar">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">نام مقاله 1</h6>
-                                <a href="https://github.com/azouaoui-med/angular-pro-sidebar" target="_blank" class="btn btn-primary btn-sm">ویرایش</a>
-                                <a href="https://azouaoui-med.github.io/angular-pro-sidebar/demo/" target="_blank" class="btn btn-success btn-sm">حذف</a>
+                <div id="User_Articles" style="display: none;">
+                    <h5>آخرین مقالات</h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="card rounded-0 p-0 shadow-sm">
+                                <img src="https://user-images.githubusercontent.com/25878302/58369568-a49b2480-7efc-11e9-9ca9-2be44afacda1.png" class="card-img-top rounded-0" alt="Angular pro sidebar">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">نام مقاله 1</h6>
+                                    <a href="https://github.com/azouaoui-med/angular-pro-sidebar" target="_blank" class="btn btn-primary btn-sm">ویرایش</a>
+                                    <a href="https://azouaoui-med.github.io/angular-pro-sidebar/demo/" target="_blank" class="btn btn-success btn-sm">حذف</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="card rounded-0 p-0 shadow-sm">
+                                <img src="https://user-images.githubusercontent.com/25878302/58369258-33f20900-7ef8-11e9-8ff3-b277cb7ed7b4.PNG" class="card-img-top rounded-0" alt="Angular pro sidebar">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">نام مقاله 2</h6>
+                                    <a href="https://github.com/azouaoui-med/lightning-admin-angular" target="_blank" class="btn btn-primary btn-sm">ویرایش</a>
+                                    <a href="https://azouaoui-med.github.io/lightning-admin-angular/demo/" target="_blank" class="btn btn-success btn-sm">حذف</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                        <div class="card rounded-0 p-0 shadow-sm">
-                            <img src="https://user-images.githubusercontent.com/25878302/58369258-33f20900-7ef8-11e9-8ff3-b277cb7ed7b4.PNG" class="card-img-top rounded-0" alt="Angular pro sidebar">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">نام مقاله 2</h6>
-                                <a href="https://github.com/azouaoui-med/lightning-admin-angular" target="_blank" class="btn btn-primary btn-sm">ویرایش</a>
-                                <a href="https://azouaoui-med.github.io/lightning-admin-angular/demo/" target="_blank" class="btn btn-success btn-sm">حذف</a>
-                            </div>
-                        </div>
-                    </div>
+                    <hr>
                 </div>
-                <hr>
+                <div id="Edit_Info" style="display: none;">
+                    <label for='basicInfo' class='text-primary display-5'>ویرایش اطلاعات :</label>
+                    <div class='border border-dark p-4 rounded' id='basicInfo'>
+                        <div class='form-group'>
+                            <label for='User-Name' class='text-primary'>نام کاربری</label>
+                            <input type='text' class='form-control' value='<%= existUser[0].User_Name %>' id='User-Name'>
+                            <div class='text-danger collapse' id='valTitle'>Action Title is required.</div>
+                            <label for='User-FirstName' class='text-primary'>نام </label>
+                            <input type='text' class='form-control' value='<%= existUser[0].User_First_Name %>' id='User-FirstName'>
+                            <div class='text-danger collapse' id='valFirstName'>Action Title is required.</div>
+                            <label for='User-LastName' class='text-primary'>  نام خانوداگی</label>
+                            <input type='text' class='form-control' value='<%= existUser[0].User_Last_Name %>' id='User-LastName'>
+                            <div class='text-danger collapse' id='valLastName'>Action Title is required.</div>
+                            <label for='User-Email' class='text-primary'>ایمیل </label>
+                            <input type='text' class='form-control' value='<%= existUser[0].User_Email %>' id='User-Email' class='text-primary'>'>
+                            <div class='text-danger collapse' id='valEmail'>Action Title is required.</div>
+                            <label for='User-Number' class='text-primary'>شماره همراه </label>
+                            <input type='text' class='form-control' value='<%= existUser[0].User_Number %>' id='User-Number'>
+                            <div class='text-danger collapse' id='valNumber'>Action Title is required.</div>
+
+                        </div>
+
+                        <!-- Begin Action Dept/Due/Assigned -->
+                        <div class='form-group row'>
+                            <div class='col'>
+                                <label for='samsDept' class='text-primary'> جنسیت </label>
+                                <select class='form-control' id='Gender'>
+                                    <option value=0>جنسیت خود را انتخاب کنید</option>
+                                        <option value=1>مرد</option>
+                                        <option value=2>زن</option>
+                                        <option value=3>سایر موارد</option>
+                                    </select>
+                                <div class='text-danger collapse' id='valDept'>Department is required.</div>
+                            </div>
+                            <!-- Begin Action Dept/Due/Assigned -->
+
+                        </div>
+                        <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Submit'>
+                            اعمال تغییرات</a>
+                    </div>
+
+                    <!-- Begin Sub-Actions -->
+                    <div class='form-group newAction'>
+                        <div id='subActions' class='collapse form-group p-4' data-toggle='collapse'>
+                            <label for='subActionDiv' class='text-primary'>Sub Actions</label>
+                            <div class='border-4 border-dark rounded' id='subActionDiv'>
+                                <div class='row d-flex justify-content-end m-2'>
+                                    <button type='button' class='btn btn-primary btn-sm' id='addRow'>Add Row</button>
+                                </div>
+                                <table class='table'>
+                                    <thead>
+                                        <tr>
+                                            <th scope='col'>Title</th>
+                                            <th scope='col'>Description</th>
+                                            <th scope='col'>Assigned To</th>
+                                            <th scope='col'>Due Date</th>
+                                            <th scope='col'>Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id='subTable'>
+                                        <tr>
+                                            <td><input type='text' class='form-control subTitle'></td>
+                                            <td><textarea type='text' class='form-control subDesc'></textarea></td>
+                                            <td>
+                                                <div class='subAssigned' id='row-1'></div>
+                                            </td>
+                                            <td><input type='text' class='form-control subDue' id='dueDate'></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Begin Sub-Actions -->
+
+                </div>
+                <div id="Edit_Password" style="display: none;">
+                    <label for='basicInfo' class='text-primary display-5'> تغییر رمز عبور</label>
+                    <div class='border border-dark p-4 rounded' id='basicInfo'>
+                        <div class='form-group'>
+                            <label for='OldPassword' class='text-primary'>رمز عبور :</label>
+                            <input type='text' class='form-control' placeholder='رمز عبور فعلی خود را وارد کنید' id='OldPassword'>
+                            <div class='text-danger collapse' id='valTitle'>Action Title is required.</div>
+                            <label for='NewPassword' class='text-primary'>رمز عبور جدبد</label>
+                            <input type='text' class='form-control' placeholder='رمز عبور جدید خود را وارد کنید' id='NewPassword'>
+                            <div class='text-danger collapse' id='valNewPassword'>Action Title is required.</div>
+                            <label for='VerifyNewPassword' class='text-primary'>  تکرار رمز عبور جدید</label>
+                            <input type='text' class='form-control' placeholder='رمز عبور جدید خود را تکرار کنید' id='VerifyNewPassword'>
+                            <div class='text-danger collapse' id='valVerifyNewPassword'>Action Title is required.</div>
+
+
+                        </div>
+
+                        <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Password_Submit'>
+                            اعمال تغییرات</a>
+                    </div>
+
+                    <!-- Begin Sub-Actions -->
+                    <div class='form-group newAction'>
+                        <div id='subActions' class='collapse form-group p-4' data-toggle='collapse'>
+                            <label for='subActionDiv' class='text-primary'>Sub Actions</label>
+                            <div class='border-4 border-dark rounded' id='subActionDiv'>
+                                <div class='row d-flex justify-content-end m-2'>
+                                    <button type='button' class='btn btn-primary btn-sm' id='addRow'>Add Row</button>
+                                </div>
+                                <table class='table'>
+                                    <thead>
+                                        <tr>
+                                            <th scope='col'>Title</th>
+                                            <th scope='col'>Description</th>
+                                            <th scope='col'>Assigned To</th>
+                                            <th scope='col'>Due Date</th>
+                                            <th scope='col'>Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id='subTable'>
+                                        <tr>
+                                            <td><input type='text' class='form-control subTitle'></td>
+                                            <td><textarea type='text' class='form-control subDesc'></textarea></td>
+                                            <td>
+                                                <div class='subAssigned' id='row-1'></div>
+                                            </td>
+                                            <td><input type='text' class='form-control subDue' id='dueDate'></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Begin Sub-Actions -->
+
+                </div>
 
 
             </div>
@@ -172,6 +315,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
     <script src="../public/javascripts/Dashboard.js"></script>
 
 </body>

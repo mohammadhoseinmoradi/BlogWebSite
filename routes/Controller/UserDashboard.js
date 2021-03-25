@@ -5,5 +5,5 @@ router.get('/DashboardPage', DashboardPage)
 router.put('/DashboardEdit', DashboardEdit)
 router.put('/DashboardChangPassword', DashboardChangPassword)
 router.get('/DashboardLogOut', DashboardLogOut)
-router.delete('/DashboardDelete', DashboardDelete)
+router.get('/DashboardDelete', DashboardDelete)
 module.exports = router
