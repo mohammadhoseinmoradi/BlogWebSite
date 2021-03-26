@@ -76,7 +76,47 @@ jQuery(function($) {
 
         })
     })
+    $("body").on("click", "#Btn_Edit_Avatar_Submit", function() {
 
+        let New_Avatar = $("#New_User_Avatar").val();
+
+        if (New_Avatar == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                footer: '<a href>Why do I have this issue?</a>'
+            })
+        }
+        console.log(New_Avatar);
+        $.ajax({
+            type: "PUT",
+            url: "/DashboardUser/DashboardAvatar",
+            data: {
+                New_Avatar: New_Avatar,
+
+            },
+            success: function() {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                window.location.reload("/Dashboard/DashboardPage")
+            },
+            error: function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    footer: '<a href>Why do I have this issue?</a>'
+                })
+            }
+
+        })
+    })
     $("body").on("click", "#Btn_Submit", function() {
         let New_User_Name = $("#User-Name").val();
         let New_User_First_Name = $("#User-FirstName").val();
@@ -175,23 +215,34 @@ jQuery(function($) {
         $("#Edit_Info").css("display", "none")
         $("#New_Article").css("display", "none")
         $("#User_Articles").css("display", "none")
+        $("#Edit_Avatar").css("display", "none")
     })
     $("body").on("click", "#Btn_Edit_Info", function() {
         $("#Edit_Info").css("display", "block")
         $("#Edit_Password").css("display", "none")
         $("#New_Article").css("display", "none")
         $("#User_Articles").css("display", "none")
+        $("#Edit_Avatar").css("display", "none")
     })
     $("body").on("click", "#Articles", function() {
         $("#Edit_Info").css("display", "none")
         $("#Edit_Password").css("display", "none")
         $("#New_Article").css("display", "block")
         $("#User_Articles").css("display", "block")
+        $("#Edit_Avatar").css("display", "none")
     })
     $("body").on("click", "#Add_Article", function() {
         $("#Edit_Info").css("display", "none")
         $("#Edit_Password").css("display", "none")
         $("#User_Articles").css("display", "none")
         $("#New_Article").css("display", "block")
+        $("#Edit_Avatar").css("display", "none")
+    })
+    $("body").on("click", "#Btn_Edit_Avatar", function() {
+        $("#Edit_Info").css("display", "none")
+        $("#Edit_Password").css("display", "none")
+        $("#User_Articles").css("display", "none")
+        $("#New_Article").css("display", "none")
+        $("#Edit_Avatar").css("display", "block")
     })
 });

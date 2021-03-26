@@ -37,7 +37,7 @@
                 </div>
                 <div class="sidebar-header">
                     <div class="user-pic">
-                        <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+                        <img class="img-responsive img-rounded" src='<%= existUser[0].User_Avatar %>' alt="User picture">
                     </div>
                     <div class="user-info">
                         <span class="user-name">
@@ -83,7 +83,7 @@
                         </a>
                                     </li>
                                     <li>
-                                        <a>تغیر عکس پروفایل</a>
+                                        <a id="Btn_Edit_Avatar">تغیر عکس پروفایل</a>
                                     </li>
                                     <li>
                                         <a id="Btn_Edit_Info">تغییر سایر اطلاعات</a>
@@ -305,11 +305,29 @@
                     <!-- Begin Sub-Actions -->
 
                 </div>
+                <div id="Edit_Avatar">
+                    <label for='basicInfo' class='text-primary display-5'> عکس پروفایل خود را بارگزاری کنید.</label>
+                    <div class='border border-dark p-4 rounded' id='basicInfo'>
 
+                        <input type="file" name="avatar" value="" id="New_User_Avatar" />
+                        <br>
+                        <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Avatar_Submit' style='margin-top:30px'>
+                                اعمال تغییرات</a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Begin Sub-Actions -->
 
             </div>
-        </main>
-        <!-- page-content" -->
+
+
+
+    </div>
+    </main>
+    <!-- page-content" -->
     </div>
     <!-- page-wrapper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

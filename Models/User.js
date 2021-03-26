@@ -59,7 +59,8 @@ const UserSchema = new Schema({
         default: Date.now
     },
     User_Avatar: {
-        type: String
+        type: String,
+        default: 'https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg'
     }
 });
 module.exports = mongoose.model("User", UserSchema)

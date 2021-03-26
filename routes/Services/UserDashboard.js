@@ -2,6 +2,9 @@ const express = require('express')
 const User_Information = require('../../Models/User')
 const bcrypt = require('bcrypt')
 const Error_handling = require('../../tools/ErrorHandling/ErrorHandling')
+const Avatar = require('../../tools/Get_Avatar/Avatar')
+const path = require('path');
+const multer = require('multer');
 const saltRounds = 10;
 
 const DashboardPage = (req, res) => {
@@ -120,10 +123,49 @@ const DashboardDelete = (req, res) => {
         res.redirect('/LoginUser')
     })
 }
+const DashboardAvatar = (req, res) => {
+    console.log(req.body);
+    let avatar = req.body.New_Avatar
+    const upload = Avatar.uploadAvatar.single(`${avatar}`);
+    upload(req, res, function(err) {
+        if (err instanceof multer.MulterError) {
+            console.log(111111111);
+            res.status(500).send('Server Error!')
+        } else if (err) {
+            res.status(404).send(err.message)
+        } else {
+            User_Information.findByIdAndUpdate({ _id: req.session.user }, { $set: { User_Avatar: req.file.filename } }, (err, user) => {
+                if (err) {
+                    console.log(2222222222);
+                    res.status(500).json({ msg: 'Server Error!' })
+                } else {
+                    if (user[0].User_Avatar) {
+                        fs.unlink(path.join(__dirname, '../public/images/avatars', user[0].User_Avatar), err => {
+                            if (err) {
+                                console.log(3333333333);
+                                res.status(500).json({ msg: 'Server Error!' })
+                            } else {
+                                req.session.user = user;
+
+                                res.send("avatar is ok")
+                            }
+                        })
+
+                    } else {
+                        req.session.user = user;
+
+                        res.send("avatar is ok")
+                    }
+                }
+            });
+        }
+    })
+}
 module.exports = {
     DashboardDelete,
     DashboardChangPassword,
     DashboardEdit,
     DashboardLogOut,
-    DashboardPage
+    DashboardPage,
+    DashboardAvatar
 }
