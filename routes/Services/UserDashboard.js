@@ -1,30 +1,44 @@
 const express = require('express')
 const User_Information = require('../../Models/User')
+const Article_Information = require('../../Models/Article')
 const bcrypt = require('bcrypt')
 const Error_handling = require('../../tools/ErrorHandling/ErrorHandling')
 const Avatar = require('../../tools/Get_Avatar/Avatar')
+const fs = require('fs')
 const path = require('path');
 const multer = require('multer');
 const saltRounds = 10;
 
 const DashboardPage = (req, res) => {
-    console.log("hhfhhggggggggggggggggggggggggggggggggggggggggggggggg");
+    console.log(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,");
     console.log(req.session.user);
-    User_Information.find({ _id: req.session.user }, (err, existUser) => {
-        console.log(existUser);
-        if (err) return res.status(500).send('Server Error :(')
-        if (existUser.length == 0) { return res.status(500).send('Server Error :(') }
-        res.render('Dashboard', { existUser })
+
+    Article_Information.find({ Article_Owner: req.session.user.User_id }, (err, existArticle) => {
+        if (err) return res.status(500).send('Server Error22222222222222222222222222 :(')
+        if (!existArticle) { return res.status(500).send('Server Erro333333333333333333333333333r :(') }
+        // res.render('Dashboard', { existArticle })
+        console.log(existArticle);
+
+        User_Information.find({ _id: req.session.user.User_id }, (err, existUser) => {
+            console.log(existUser);
+            console.log("............................................................................");
+            if (err) return res.status(500).send('Server Error gfhfhgfhgf:(')
+
+            res.render('Dashboard', { existUser, existArticle })
+        })
+
     })
+
+
 }
 const DashboardEdit = (req, res) => {
-    console.log(1212121212121212121);
-    console.log(req.body);
+
+
     let Body_Keys = Object.keys(req.body)
-    console.log(Body_Keys);
+
     if (Body_Keys.length == 5) {
         User_Information.findOneAndUpdate({
-            _id: req.session.user
+            _id: req.session.user.User_id
         }, {
             $set: {
 
@@ -42,7 +56,7 @@ const DashboardEdit = (req, res) => {
         })
     } else if (Body_Keys.length == 6) {
         User_Information.findOneAndUpdate({
-            _id: req.session.user
+            _id: req.session.user.User_id
         }, {
             $set: {
 
@@ -66,12 +80,12 @@ const DashboardEdit = (req, res) => {
 }
 
 const DashboardChangPassword = (req, res) => {
-    console.log(53453453454345345345);
-    console.log(req.body);
+
+
 
     New_Password = req.body.New_Password
     Old_Password = req.body.Old_Password
-    User_Information.find({ _id: req.session.user }, (err, existUser) => {
+    User_Information.find({ _id: req.session.user.User_id }, (err, existUser) => {
         if (err) return res.status(500).send();
         if (existUser.length == 0) return res.status(500).send();
         bcrypt.compare(Old_Password, existUser[0].User_Password, function(err, result) {
@@ -81,7 +95,7 @@ const DashboardChangPassword = (req, res) => {
                 bcrypt.hash(New_Password, saltRounds, function(err, HashPassword) {
                     if (err) return res.status(500).send();
                     User_Information.findOneAndUpdate({
-                        _id: req.session.user
+                        _id: req.session.user.User_id
                     }, {
                         $set: {
                             User_Password: HashPassword,
@@ -114,7 +128,7 @@ const DashboardLogOut = (req, res) => {
     res.redirect('/LoginUser')
 }
 const DashboardDelete = (req, res) => {
-    User_Information.findOneAndDelete({ _id: req.session.user }, (err, existUser) => {
+    User_Information.findOneAndDelete({ _id: req.session.user.User_id }, (err, existUser) => {
         if (err) return res.status(500).send();
         if (!existUser) return res.status(500).send();
         req.session.destroy(function(err) {
@@ -124,42 +138,45 @@ const DashboardDelete = (req, res) => {
     })
 }
 const DashboardAvatar = (req, res) => {
-    console.log(req.body);
-    let avatar = req.body.New_Avatar
-    const upload = Avatar.uploadAvatar.single(`${avatar}`);
+
+    const upload = Avatar.uploadAvatar.single('avatar');
     upload(req, res, function(err) {
         if (err instanceof multer.MulterError) {
-            console.log(111111111);
+
             res.status(500).send('Server Error!')
         } else if (err) {
             res.status(404).send(err.message)
         } else {
-            User_Information.findByIdAndUpdate({ _id: req.session.user }, { $set: { User_Avatar: req.file.filename } }, (err, user) => {
+
+            User_Information.findByIdAndUpdate(req.session.user.User_id, { User_Avatar: req.file.filename }, { new: true }, (err, user) => {
+
+
                 if (err) {
-                    console.log(2222222222);
                     res.status(500).json({ msg: 'Server Error!' })
                 } else {
-                    if (user[0].User_Avatar) {
-                        fs.unlink(path.join(__dirname, '../public/images/avatars', user[0].User_Avatar), err => {
-                            if (err) {
-                                console.log(3333333333);
-                                res.status(500).json({ msg: 'Server Error!' })
-                            } else {
-                                req.session.user = user;
+                    if (req.session.user.User_Avatar && req.session.user.User_Avatar !== "Default.png") {
 
-                                res.send("avatar is ok")
+
+                        fs.unlink(path.join(__dirname, '../../public/images/avatars', req.session.user.User_Avatar), err => {
+                            if (err) {
+                                res.status(500).json({ msg: err.message })
+                            } else {
+                                req.session.user.User_Avatar = req.session.user.User_Avatar;
+
+                                res.redirect('/DashboardUser/DashboardPage');
                             }
                         })
 
                     } else {
-                        req.session.user = user;
+                        req.session.user.User_Avatar = req.session.user.User_Avatar;
 
-                        res.send("avatar is ok")
+                        res.redirect('/DashboardUser/DashboardPage');
                     }
                 }
             });
         }
     })
+
 }
 module.exports = {
     DashboardDelete,

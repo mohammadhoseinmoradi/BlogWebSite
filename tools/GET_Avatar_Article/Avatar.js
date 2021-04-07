@@ -8,12 +8,12 @@ const upload_Avatar = {};
 
 const avatarStorage = multer.diskStorage({
     destination: function(req, file, cb) {
-        let a = path.join(__dirname, '/../../public/images/avatars');
-        cb(null, path.join(__dirname, '/../../public/images/avatars'))
+        let a = path.join(__dirname, '/../../public/images/ArticleAvatar');
+        cb(null, path.join(__dirname, '/../../public/images/ArticleAvatar'))
     },
     filename: function(req, file, cb) {
-        let a = `${req.session.user[0]}-${Date.now()}-${file.originalname}`;
-        cb(null, `${req.session.user[0]}-${Date.now()}-${file.originalname}`)
+        let a = `${req.session.user.User_id}-${req.session.user.Article_Id}-${Date.now()}-${file.originalname}`;
+        cb(null, `${req.session.user.User_id}-${req.session.user.Article_Id}-${Date.now()}-${file.originalname}`)
     }
 });
 

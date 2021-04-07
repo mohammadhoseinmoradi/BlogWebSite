@@ -9,7 +9,9 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="../public/stylesheets/Dashboard.css">
+
+    <link rel="stylesheet" href="/stylesheets/Dashboard.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- CSS -->
@@ -18,127 +20,141 @@
     <!-- jQuery and JS bundle w/ Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
-
+    <!--             تکس ادیتور -->
+    <script src="https://cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
     <title>داشبورد</title>
 </head>
 
 <body>
+
     <div class="page-wrapper chiller-theme toggled" style="direction: rtl;">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" style="direction: rtl;">
             <i class="fas fa-bars"></i>
         </a>
-        <nav id="sidebar" class="sidebar-wrapper rtl" style="direction: rtl;">
-            <div class="sidebar-content" style="direction: rtl;">
-                <div class="sidebar-brand">
-                    <a href="#">منو کاربری</a>
-                    <div id="close-sidebar">
-                        <i class="fas fa-times"></i>
+        <div>
+            <nav id="sidebar" class="sidebar-wrapper rtl" style="direction: rtl; ">
+                <div class="sidebar-content" style="direction: rtl;   ">
+                    <div class="sidebar-brand">
+                        <a href="#" style="width: 50%;"> حالت شب</a>
+                        <div class="container  d-flex" style="width: 200px;">
+                            <div class="one-quarter" id="switch" style="color:aliceblue;padding-bottom: 20px;">
+                                <input type="checkbox" class="checkbox" id="chk" />
+                                <label class="label" for="chk">
+                                  <i class="fas fa-moon" style="margin-left: 10px;"></i>
+                                  <i class="fas fa-sun"></i>
+                                  <div class="ball"></div>
+                              </label>
+                            </div>
+                        </div>
+                        <div id="close-sidebar">
+                            <i class="fas fa-times"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="sidebar-header">
-                    <div class="user-pic">
-                        <img class="img-responsive img-rounded" src='<%= existUser[0].User_Avatar %>' alt="User picture">
-                    </div>
-                    <div class="user-info">
-                        <span class="user-name">
-                            <%= existUser[0].User_First_Name %> <%= existUser[0].User_Last_Name %>
-                  <strong> <%= existUser[0].User_Name %></strong>
-                </span>
-                        <span class="user-role"> <%= existUser[0].User_Role %></span>
-                        <span class="user-status">
-                  <i class="fa fa-circle"></i>
-                  <span>Online</span>
-                        </span>
-                    </div>
-                </div>
-                <!-- sidebar-header  -->
-                <div class="sidebar-search">
-                    <div>
-                        <div class="input-group">
-                            <input type="text" class="form-control search-menu" placeholder="Search...">
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                      <i class="fa fa-search" aria-hidden="true"></i>
+                    <div class="sidebar-header">
+                        <div class="user-pic">
+                            <img class="img-responsive img-rounded" src='/images/avatars/<%= existUser[0].User_Avatar %>' alt="User picture">
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">
+                                <%= existUser[0].User_First_Name %> <%= existUser[0].User_Last_Name %>
+                      <strong> <%= existUser[0].User_Name %></strong>
                     </span>
+                            <span class="user-role"> <%= existUser[0].User_Role %></span>
+                            <span class="user-status">
+                      <i class="fa fa-circle"></i>
+                      <span>Online</span>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- sidebar-header  -->
+                    <div class="sidebar-search">
+                        <div>
+                            <div class="input-group">
+                                <input type="text" class="form-control search-menu" placeholder="Search...">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                          <i class="fa fa-search" aria-hidden="true"></i>
+                        </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- sidebar-search  -->
-                <div class="sidebar-menu">
-                    <ul>
-                        <li class="header-menu">
-                            <span>دسترسی ها</span>
-                        </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fas fa-edit"></i>
-                                <span>ویرایش اطلاعات</span>
+                    <!-- sidebar-search  -->
+                    <div class="sidebar-menu">
+                        <ul>
+                            <li class="header-menu">
+                                <span>دسترسی ها</span>
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+                                    <i class="fas fa-edit"></i>
+                                    <span>ویرایش اطلاعات</span>
+                                </a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a id="Btn_Edit_Password">تغییر رمز عبور
+                           
                             </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a id="Btn_Edit_Password">تغییر رمز عبور
-                       
-                        </a>
-                                    </li>
-                                    <li>
-                                        <a id="Btn_Edit_Avatar">تغیر عکس پروفایل</a>
-                                    </li>
-                                    <li>
-                                        <a id="Btn_Edit_Info">تغییر سایر اطلاعات</a>
-                                    </li>
-                                    <li>
-                                        <a href="/DashboardUser/DashboardDelete">حذف حساب کاربری</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-book"></i>
-                                <span>مقالات من</span>
+                                        </li>
+                                        <li>
+                                            <a id="Btn_Edit_Avatar">تغیر عکس پروفایل</a>
+                                        </li>
+                                        <li>
+                                            <a id="Btn_Edit_Info">تغییر سایر اطلاعات</a>
+                                        </li>
+                                        <li>
+                                            <a href="/DashboardUser/DashboardDelete">حذف حساب کاربری</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+                                    <i class="fa fa-book"></i>
+                                    <span>مقالات من</span>
 
+                                </a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a id="Articles">همه مقالات
+          
                             </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a id="Articles">همه مقالات
-      
-                        </a>
-                                    </li>
-                                    <li>
-                                        <a id="Add_Article">افزودن مقاله جدید</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
+                                        </li>
+                                        <li>
+                                            <a id="Add_Article">افزودن مقاله جدید</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- sidebar-menu  -->
                 </div>
-                <!-- sidebar-menu  -->
-            </div>
-            <!-- sidebar-content  -->
-            <div class="sidebar-footer" style="height: 100px;">
+                <!-- sidebar-content  -->
+                <div class="sidebar-footer" style="height: 100px;">
 
-                <a href="/DashboardUser/DashboardLogOut" style="display:flex;justify-content:flex-start;">
+                    <a href="/DashboardUser/DashboardLogOut" style="display:flex;justify-content:flex-start;">
 
-                    <i class="fa fa-power-off fa-3x" style="margin-top:30px"></i>
-                    <p style="color:rgb(206, 212, 218);margin-top: 30px;font-size:35px">خروج</p>
-                </a>
-            </div>
-        </nav>
+                        <i class="fa fa-power-off fa-3x" style="margin-top:30px"></i>
+                        <p style="color:rgb(206, 212, 218);margin-top: 30px;font-size:35px">خروج</p>
+                    </a>
+                </div>
+            </nav>
+        </div>
+
         <!-- sidebar-wrapper  -->
         <main class="page-content">
             <div class="container-fluid">
                 <h2>حساب کاربری من</h2>
                 <hr>
-                <div id="New_Article" class="row" style="display: none;">
+                <div id="New_Article" class="row" style="display: none ;">
                     <div class="form-group col-md-12">
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">افزودن مقاله جدید</h4>
-                            <p>برای ایجاد مقاله جدید بر روی دکمه ایجاد کلیلک کنید
-                            </p>
-                            <a target="_blank" class="btn btn-sm btn-primary mr-2">
+
+                            <a target="_blank" class="btn btn-sm btn-primary mr-2" id="btn-AddArticle">
                     ایجاد</a>
 
 
@@ -146,30 +162,34 @@
 
                     </div>
                 </div>
-                <div id="User_Articles" style="display: none;">
+                <div id="User_Articles" style="display:block;margin-top:250px">
                     <h5>آخرین مقالات</h5>
                     <hr>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                            <div class="card rounded-0 p-0 shadow-sm">
-                                <img src="https://user-images.githubusercontent.com/25878302/58369568-a49b2480-7efc-11e9-9ca9-2be44afacda1.png" class="card-img-top rounded-0" alt="Angular pro sidebar">
-                                <div class="card-body text-center">
-                                    <h6 class="card-title">نام مقاله 1</h6>
-                                    <a href="https://github.com/azouaoui-med/angular-pro-sidebar" target="_blank" class="btn btn-primary btn-sm">ویرایش</a>
-                                    <a href="https://azouaoui-med.github.io/angular-pro-sidebar/demo/" target="_blank" class="btn btn-success btn-sm">حذف</a>
-                                </div>
-                            </div>
+
+                            <!-- /.blog-card -->
+
+                            <% if(existArticle.length>0){ %>
+                                <% for(let i = 0; i < existArticle.length; i++){ %>
+
+                                    <div class="card rounded-0 p-0 shadow-sm">
+                                        <img src='/images/ArticleAvatar/<%= existArticle[i].Article_Avatar %>' class="card-img-top rounded-0" alt="Angular pro sidebar" style="width: 100%; height:50%">
+                                        <div class="card-body text-center">
+
+                                            <h6 class="card-title">
+                                                <%= existArticle[i].Article_Title %>
+                                            </h6>
+                                            <p class="card-title">
+                                                <%= existArticle[i].Article_Summary %>
+                                            </p>
+                                            <a href="https://github.com/azouaoui-med/angular-pro-sidebar" target="_blank" class="btn btn-primary btn-sm">ویرایش</a>
+                                            <a href="https://azouaoui-med.github.io/angular-pro-sidebar/demo/" target="_blank" class="btn btn-success btn-sm">حذف</a>
+                                        </div>
+                                    </div>
+                                    <% }}%>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                            <div class="card rounded-0 p-0 shadow-sm">
-                                <img src="https://user-images.githubusercontent.com/25878302/58369258-33f20900-7ef8-11e9-8ff3-b277cb7ed7b4.PNG" class="card-img-top rounded-0" alt="Angular pro sidebar">
-                                <div class="card-body text-center">
-                                    <h6 class="card-title">نام مقاله 2</h6>
-                                    <a href="https://github.com/azouaoui-med/lightning-admin-angular" target="_blank" class="btn btn-primary btn-sm">ویرایش</a>
-                                    <a href="https://azouaoui-med.github.io/lightning-admin-angular/demo/" target="_blank" class="btn btn-success btn-sm">حذف</a>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <hr>
                 </div>
@@ -305,39 +325,138 @@
                     <!-- Begin Sub-Actions -->
 
                 </div>
-                <div id="Edit_Avatar">
+                <div id="Edit_Avatar" style="display: none;">
                     <label for='basicInfo' class='text-primary display-5'> عکس پروفایل خود را بارگزاری کنید.</label>
                     <div class='border border-dark p-4 rounded' id='basicInfo'>
 
-                        <input type="file" name="avatar" value="" id="New_User_Avatar" />
+                        <!-- <input type="file" name="avatar" value="" id="New_User_Avatar" /> -->
+                        <form action="/DashboardUser/DashboardAvatar" method="post" enctype="multipart/form-data">
+                            <input type="text" name="username" />
+                            <input type="file" name="avatar" />
+                            <input type="submit" value="submit" />
+                        </form>
                         <br>
-                        <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Avatar_Submit' style='margin-top:30px'>
-                                اعمال تغییرات</a>
+                        <!-- <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Avatar_Submit' style='margin-top:30px'>
+                                اعمال تغییرات</a> -->
 
                     </div>
 
                 </div>
+                <div id="AddArticle" style="display: none;">
+                    <div>
+                        <div id="AddName" style="display: none">
+                            <label for='basicInfo' class='text-primary display-5'>مقاله جدید :</label>
+                            <div class='border border-dark p-4 rounded' id='basicInfo'>
+                                <div class='form-group'>
+                                    <label for='User-Name' class='text-primary'>نام مقاله جدید</label>
+                                    <input type='text' class='form-control' placeholder='نام مقاله خود را وارد کنید.' id='Article_Name'>
+                                </div>
+
+                                <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Add_Avatar_Article' style='margin-top:30px'>
+                                            مرحله بعد</a>
+                            </div>
+                        </div>
+                        <div id="ArticleAvatar" style="display: none;">
+
+                            <label for='basicInfo' class='text-primary display-5'> عکس مقاله خود را بارگزاری کنید.</label>
+                            <div class='border border-dark p-4 rounded' id='basicInfo'>
+                                <!-- 
+                                <form action="../Articles/UploadAvatarArticle" method="post" enctype="multipart/form-data">
+                                
+                                    <input class="btn btn-sm btn-primary mr-2" type="submit" value="submit" id='Btn_Add_Article' />
+                                 
+                                </form> -->
+                                <input type="file" name="avatar" id="ArticleAvatars" />
+                                <br>
+
+                                <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Back_Name_Article' style='margin-top:30px'>
+                                    مرحله قبل</a>
+                                <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Add_Article' style='margin-top:30px'>
+                                            مرحله بعد </a>
+
+                            </div>
+
+                        </div>
+                        <div id="TextEditor" style="display: none;">
+                            <form action="../Articles/SubmitArticle" method="post" enctype="multipart/form-data">
+                                <textarea name="editor1"></textarea>
 
 
-                <!-- Begin Sub-Actions -->
+                                <script>
+                                    CKEDITOR.replace('editor1', {
+                                        uiColor: '#9AB8F3',
 
-            </div>
+                                        filebrowserUploadUrl: '/Articles/AddArticlesPhotos',
+
+                                    })
+                                </script>
+                                <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Avatatr'>
+                                مرحله قبل</a>
+                                <a target="_blank" class="btn btn-sm btn-primary mr-2" id="btn-submit-AddArticle">
+                             ایجاد مقاله</a>
+                        </div>
+
+                        <br>
 
 
 
-    </div>
-    </main>
-    <!-- page-content" -->
-    </div>
-    <!-- page-wrapper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
-    <script src="../public/javascripts/Dashboard.js"></script>
+                    </div>
+
+
+
+                </div>
+                <div class="background"></div>
+                <div id="curve" class="card">
+                    <div class="footer">
+                        <div class="connections">
+                            <div class="connection facebook">
+                                <div class="icon"></div>
+                            </div>
+                            <div class="connection twitter">
+                                <div class="icon"></div>
+                            </div>
+                            <div class="connection behance">
+                                <div class="icon"></div>
+                            </div>
+                        </div>
+                        <svg id="curve">
+                            <path id="p" d="M0,200 Q80,100 400,200 V150 H0 V50" transform="translate(0 300)" />
+                            <rect id="dummyRect" x="0" y="0" height="450" width="400"
+                          fill="transparent"  />
+                            <!-- slide up-->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,100 400,50 V150 H0 V50" fill="freeze" begin="dummyRect.mouseover" end="dummyRect.mouseout" dur="0.1s" id="bounce1" />
+                            <!-- slide up and curve in -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,0 400,50 V150 H0 V50" fill="freeze" begin="bounce1.end" end="dummyRect.mouseout" dur="0.15s" id="bounce2" />
+                            <!-- slide down and curve in -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,80 400,50 V150 H0 V50" fill="freeze" begin="bounce2.end" end="dummyRect.mouseout" dur="0.15s" id="bounce3" />
+                            <!-- slide down and curve out -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,45 400,50 V150 H0 V50" fill="freeze" begin="bounce3.end" end="dummyRect.mouseout" dur="0.1s" id="bounce4" />
+                            <!-- curve in -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,50 400,50 V150 H0 V50" fill="freeze" begin="bounce4.end" end="dummyRect.mouseout" dur="0.05s" id="bounce5" />
+                
+                            <animate xlink:href="#p" attributeName="d" to="M0,200 Q80,100 400,200 V150 H0 V50" fill="freeze" begin="dummyRect.mouseout" dur="0.15s" id="bounceOut" />
+                        </svg>
+                        <div class="info">
+                            <div class="name">Filan Fisteku</div>
+                            <div class="job">Architect Manager</div>
+                        </div>
+                    </div>
+                    <div class="card-blur"></div>
+                </div>
+        </main>
+        <!-- page-content" -->
+        </div>
+        <!-- page-wrapper -->
+        <!-- <script src="https://cdn.ckeditor.com/[version.number]/[distribution]/ckeditor.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+        <!-- <script src="https://cdn.ckeditor.com/ckeditor5/[version.number]/[distribution]/ckeditor.js"></script> -->
+        <script src="/javascripts/Dashboard.js"></script>
 
 </body>
 

@@ -20,14 +20,14 @@ $(document).ready(function() {
                 User_Number: User_Info.User_Number
             },
             success: function() {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Your work has been saved',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-
+                // Swal.fire({
+                //     position: 'top-end',
+                //     icon: 'success',
+                //     title: 'Your work has been saved',
+                //     showConfirmButton: false,
+                //     timer: 1500
+                // })
+                console.log("LoginPage");
                 window.location.replace("/LoginUser")
             },
             error: function() {

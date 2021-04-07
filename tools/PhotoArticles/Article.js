@@ -1,32 +1,36 @@
 const path = require('path');
 const multer = require('multer');
 
-const upload_Avatar = {};
+const upload_PhotosArticle = {};
 
 
 
 
 const avatarStorage = multer.diskStorage({
     destination: function(req, file, cb) {
-        let a = path.join(__dirname, '/../../public/images/avatars');
-        cb(null, path.join(__dirname, '/../../public/images/avatars'))
+
+        cb(null, path.join(__dirname, '/../../public/images/ArticlesPhotos'))
     },
     filename: function(req, file, cb) {
-        let a = `${req.session.user[0]}-${Date.now()}-${file.originalname}`;
-        cb(null, `${req.session.user[0]}-${Date.now()}-${file.originalname}`)
+
+
+
+        cb(null, `${req.session.user.User_id}-${req.session.user.Article_Id}-${Date.now()}-${file.originalname}`)
     }
 });
 
 
-upload_Avatar.uploadAvatar = multer({
+upload_PhotosArticle.uploadAvatar = multer({
     storage: avatarStorage,
     fileFilter: function(req, file, cb) {
+        console.log(3000000000000000000000000000000000000000000000);
         if (file.mimetype === 'image/png' ||
             file.mimetype === 'image/jpg' ||
             file.mimetype === 'image/jpeg') {
             cb(null, true)
 
         } else {
+            console.log(40000000000000000000000000000000000000000000000);
             cb(new Error('invalid type!'), false);
 
         }
@@ -37,4 +41,4 @@ upload_Avatar.uploadAvatar = multer({
 
 
 
-module.exports = upload_Avatar;
+module.exports = upload_PhotosArticle;

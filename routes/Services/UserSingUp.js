@@ -21,17 +21,10 @@ const SingUpPage = (req, res) => {
 
 
 const User_Register = (req, res) => {
-    console.log(254523435);
-    console.log(req.body);
     let a = Object.keys(req.body);
-    console.log(a);
-    console.log(45646464564);
     let Body_Keys = Object.keys(req.body)
-    console.log(Body_Keys);
-    console.log(5456456);
     const Check_Fields_Result = Fields_Pattern.every((field) => Body_Keys.includes(field))
     if (!Check_Fields_Result || Body_Keys.length !== 7) {
-        console.log(1122112211);
         return res.status(500).send();
     }
     User_Information.find({
@@ -39,19 +32,15 @@ const User_Register = (req, res) => {
     }, (err, existUser) => {
 
         if (err) {
-            console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
             if (err) return res.status(500).send();
 
         }
         if (existUser.length != 0) {
-            console.log(existUser);
             return res.status(500).send();
 
         }
         bcrypt.hash(req.body.User_Password, saltRounds, (err, HashPassword) => {
-            console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwhhhhhhhhhhhhhhhhhhh");
             if (err) {
-                console.log("43523452352352345345235");
                 if (err) return res.status(500).send();
 
             }
@@ -65,11 +54,14 @@ const User_Register = (req, res) => {
                 User_Number: req.body.User_Number
             })
             New_User.save({}, (err, UserSaved) => {
-                console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwdfdfffffffffffffff");
-                console.log(UserSaved);
                 if (err) return res.status(500).send();
-                req.session.user = UserSaved
-                console.log(res.session);
+                console.log("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[");
+                console.log(UserSaved);
+                req.session.user = {
+                    User_id: UserSaved._id,
+                    User_Avatar: UserSaved.User_Avatar
+                }
+
                 res.send("User Has Been Created :)")
             })
         })
