@@ -118,7 +118,7 @@ body {
 /*----------------show sidebar button----------------*/
 
 #show-sidebar {
-    background-color: goldenrod;
+    /* background-color: goldenrod; */
     position: fixed;
     left: 0;
     top: 10px;
@@ -460,7 +460,7 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-header,
 .chiller-theme .sidebar-wrapper .sidebar-search,
 .chiller-theme .sidebar-wrapper .sidebar-menu {
-    background-color: goldenrod;
+    /* background-color: goldenrod; */
     border-top: 1px solid #3a3f48;
 }
 
@@ -477,7 +477,7 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-brand>a,
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
 .chiller-theme .sidebar-footer>a {
-    background-color: goldenrod;
+    /* background-color: goldenrod; */
     color: #818896;
 }
 
@@ -486,7 +486,7 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-header .user-info,
 .chiller-theme .sidebar-wrapper .sidebar-brand>a:hover,
 .chiller-theme .sidebar-footer>a:hover i {
-    color: #b8bfce;
+    /* color: #b8bfce; */
 }
 
 .page-wrapper.chiller-theme.toggled #close-sidebar {
@@ -517,8 +517,8 @@ body {
 }
 
 .chiller-theme .sidebar-footer {
-    background: #3a3f48;
-    box-shadow: 0px -1px 5px #282c33;
+    /* background: #3a3f48; */
+    box-shadow: 0 2px 10px 0 rgba(31, 38, 135, 0.37);
     border-top: 1px solid #464a52;
 }
 
