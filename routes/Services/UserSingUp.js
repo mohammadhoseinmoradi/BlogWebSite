@@ -55,8 +55,7 @@ const User_Register = (req, res) => {
             })
             New_User.save({}, (err, UserSaved) => {
                 if (err) return res.status(500).send();
-                console.log("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[");
-                console.log(UserSaved);
+
                 req.session.user = {
                     User_id: UserSaved._id,
                     User_Avatar: UserSaved.User_Avatar

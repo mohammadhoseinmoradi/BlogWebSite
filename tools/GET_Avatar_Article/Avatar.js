@@ -13,6 +13,7 @@ const avatarStorage = multer.diskStorage({
     },
     filename: function(req, file, cb) {
         let a = `${req.session.user.User_id}-${req.session.user.Article_Id}-${Date.now()}-${file.originalname}`;
+        console.log(a);
         cb(null, `${req.session.user.User_id}-${req.session.user.Article_Id}-${Date.now()}-${file.originalname}`)
     }
 });

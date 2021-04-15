@@ -18,6 +18,17 @@ const avatarStorage = multer.diskStorage({
         cb(null, `${req.session.user.User_id}-${req.session.user.Article_Id}-${Date.now()}-${file.originalname}`)
     }
 });
+const EditAvatarStorage = multer.diskStorage({
+    destination: function(req, file, cb) {
+
+        cb(null, path.join(__dirname, '/../../public/images/ArticlesPhotos'))
+    },
+    filename: function(req, file, cb) {
+        console.log("req.parame===>");
+        console.log(req.params.id);
+        cb(null, `${req.session.user.User_id}-${req.params.id}-${Date.now()}-${file.originalname}`)
+    }
+});
 
 
 upload_PhotosArticle.uploadAvatar = multer({
@@ -36,6 +47,24 @@ upload_PhotosArticle.uploadAvatar = multer({
         }
     }
 })
+
+upload_PhotosArticle.EditAvatar = multer({
+    storage: EditAvatarStorage,
+    fileFilter: function(req, file, cb) {
+        console.log(3000000000000000000000000000000000000000000000);
+        if (file.mimetype === 'image/png' ||
+            file.mimetype === 'image/jpg' ||
+            file.mimetype === 'image/jpeg') {
+            cb(null, true)
+
+        } else {
+            console.log(40000000000000000000000000000000000000000000000);
+            cb(new Error('invalid type!'), false);
+
+        }
+    }
+})
+
 
 
 

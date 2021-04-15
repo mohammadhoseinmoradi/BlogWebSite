@@ -4,7 +4,6 @@ const Article_Information = require('../../Models/Article')
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs')
-
 const PhotoArticle = require('../../tools/PhotoArticles/Article')
 const AvatarArticle = require('../../tools/GET_Avatar_Article/Avatar')
 const AddArticles = (req, res) => {
@@ -45,7 +44,19 @@ const AddArticles = (req, res) => {
 
 }
 const PersonalArticle = (req, res) => {
+    Article_Information.findOne({ _id: req.params.id }, (err, ArticleInfo) => {
 
+        if (err) return res.status(500).send();
+
+        if (!ArticleInfo) return res.status(500).send()
+
+        req.session.user.Article_Id = ArticleInfo._id
+        req.session.user.Article_Avatar = ArticleInfo.Article_Avatar
+        req.session.user.Article_File_Location = ArticleInfo.Article_File_Location
+
+        res.json(ArticleInfo)
+
+    })
 }
 const UploadPhotos = (req, res) => {
 
@@ -60,7 +71,27 @@ const UploadPhotos = (req, res) => {
         } else {
 
             let Url = req.file.destination.split('public')
-            console.log(Url);
+
+            res.json({ uploaded: 1, url: `${Url[1]}/${req.file.filename}` })
+
+        }
+    })
+
+}
+const EditPhotos = (req, res) => {
+
+    const upload = PhotoArticle.EditAvatar.single('upload');
+    upload(req, res, function(err) {
+        if (err instanceof multer.MulterError) {
+
+            res.status(500).send('Server Error!')
+        } else if (err) {
+
+            res.status(404).send(err.message)
+        } else {
+
+            let Url = req.file.destination.split('public')
+
             res.json({ uploaded: 1, url: `${Url[1]}/${req.file.filename}` })
 
         }
@@ -71,24 +102,28 @@ const UploadAvatar = (req, res) => {
     const upload = AvatarArticle.uploadAvatar.single('avatar');
     upload(req, res, function(err) {
         if (err instanceof multer.MulterError) {
-            console.log(err);
+
             res.status(500).send('Server Error!')
         } else if (err) {
-            console.log(err);
+
             res.status(404).send(err.message)
         } else {
-
+            console.log("Submit Data");
+            console.log(req.file.filename);
             Article_Information.findByIdAndUpdate(req.session.user.Article_Id, { Article_Avatar: req.file.filename }, { new: true }, (err, user) => {
-
-
+                console.log(err);
+                console.log(user);
                 if (err) {
+                    console.log(".......................................sdsdsdsdsd");
                     res.status(500).json({ msg: 'Server Error!' })
                 } else {
+                    console.log("submot");
                     if (req.session.user.Article_Avatar && req.session.user.Article_Avatar !== "Default.png") {
 
 
                         fs.unlink(path.join(__dirname, '../../public/images/ArticleAvatar', req.session.user.Article_Avatar), err => {
                             if (err) {
+                                console.log("asasasasa......................................");
                                 res.status(500).json({ msg: err.message })
                             } else {
                                 req.session.user.Article_Avatar = req.session.user.Article_Avatar;
@@ -110,9 +145,6 @@ const UploadAvatar = (req, res) => {
 }
 const SubmitArticle = (req, res) => {
 
-    console.log(req.body);
-    console.log(typeof(req.body));
-    console.log(req.body.length);
     let data = req.body.Data
     let Location = path.join(__dirname, '../../public/ArticlePages');
     let ArticleName = `${req.session.user.User_id}-${req.session.user.Article_Id}-${Date.now()}-Article.html`
@@ -128,34 +160,54 @@ const SubmitArticle = (req, res) => {
             }, { new: true }, (err, user) => {
 
                 if (err) {
-                    res.status(500).json({ msg: 'Server Error!' })
+                    return res.status(500).json({ msg: 'Server Error!' })
                 } else {
+                    console.log("Submit Article");
+                    console.log(req.session.user.Article_File_Location);
+                    let lastLocation = req.session.user.Article_File_Location.split("ArticlePages")
                     if (req.session.user.Article_File_Location && req.session.user.Article_File_Location !== "default.html") {
+                        console.log("dsdsdsds");
 
-
-                        fs.unlink(path.join(__dirname, '../../public/ArticlePage', req.session.user.Article_File_Location), err => {
+                        fs.unlink(path.join(req.session.user.Article_File_Location), err => {
                             if (err) {
-                                res.status(500).json({ msg: err.message })
+                                console.log(err);
+                                return res.status(500).json({ msg: err.message })
                             } else {
                                 req.session.user.Article_File_Location = req.session.user.Article_File_Location;
-
-                                res.end()
+                                console.log("set1");
+                                return res.end()
                             }
                         })
 
                     } else {
+                        console.log("set2");
                         req.session.user.Article_File_Location = req.session.user.Article_File_Location;
-                        res.end()
+                        return res.end()
                     }
+
                 }
             });
         });
-    res.send("OK")
+
 }
+
+const EditArticleTitle = (req, res) => {
+    Article_Information.findByIdAndUpdate(req.session.user.Article_Id, { Article_Title: req.body.Article_Title }, { new: true }, (err, user) => {
+        if (err) {
+            console.log(err);
+            res.status(500).json({ msg: 'Server Error!' })
+        } else {
+            res.send("ok");
+        }
+    });
+}
+
 module.exports = {
     PersonalArticle,
     AddArticles,
     UploadPhotos,
     SubmitArticle,
-    UploadAvatar
+    UploadAvatar,
+    EditArticleTitle,
+    EditPhotos,
 }

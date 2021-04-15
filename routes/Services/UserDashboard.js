@@ -10,18 +10,15 @@ const multer = require('multer');
 const saltRounds = 10;
 
 const DashboardPage = (req, res) => {
-    console.log(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,");
-    console.log(req.session.user);
+
 
     Article_Information.find({ Article_Owner: req.session.user.User_id }, (err, existArticle) => {
         if (err) return res.status(500).send('Server Error22222222222222222222222222 :(')
         if (!existArticle) { return res.status(500).send('Server Erro333333333333333333333333333r :(') }
-        // res.render('Dashboard', { existArticle })
-        console.log(existArticle);
+
 
         User_Information.find({ _id: req.session.user.User_id }, (err, existUser) => {
-            console.log(existUser);
-            console.log("............................................................................");
+
             if (err) return res.status(500).send('Server Error gfhfhgfhgf:(')
 
             res.render('Dashboard', { existUser, existArticle })

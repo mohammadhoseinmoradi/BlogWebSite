@@ -165,289 +165,291 @@
                 <div id="User_Articles" style="display:block;margin-top:250px">
                     <h5>آخرین مقالات</h5>
                     <hr>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-
-                            <!-- /.blog-card -->
-
+                    <section class="container">
+                        <div class="row active-with-click">
                             <% if(existArticle.length>0){ %>
                                 <% for(let i = 0; i < existArticle.length; i++){ %>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
 
-                                    <div class="card rounded-0 p-0 shadow-sm">
-                                        <img src='/images/ArticleAvatar/<%= existArticle[i].Article_Avatar %>' class="card-img-top rounded-0" alt="Angular pro sidebar" style="width: 100%; height:50%">
-                                        <div class="card-body text-center">
+                                        <article class="material-card Red">
+                                            <h2>
+                                                <span><img  src='/images/avatars/<%= existUser[0].User_Avatar %>' alt="Avatar" class="avatar" style="vertical-align: middle; width: 50px;  height: 50px;  border-radius: 50%;"><%= existArticle[i].Article_Title %></span>
 
-                                            <h6 class="card-title">
-                                                <%= existArticle[i].Article_Title %>
-                                            </h6>
-                                            <p class="card-title">
-                                                <%= existArticle[i].Article_Summary %>
-                                            </p>
-                                            <a href="https://github.com/azouaoui-med/angular-pro-sidebar" target="_blank" class="btn btn-primary btn-sm">ویرایش</a>
-                                            <a href="https://azouaoui-med.github.io/angular-pro-sidebar/demo/" target="_blank" class="btn btn-success btn-sm">حذف</a>
-                                        </div>
+                                                <button type="button" class="btn btn-info" style="margin-right: 80px;">اطلاعات بیشتر</button>
+                                            </h2>
+
+                                            <div class="mc-content">
+                                                <div class="img-container" style=" background-size:cover;">
+                                                    <img class="img-responsive" src='/images/ArticleAvatar/<%= existArticle[i].Article_Avatar %>'>
+                                                </div>
+                                                <div class="mc-description">
+                                                    <%= existArticle[i].Article_Summary %>
+                                                </div>
+                                            </div>
+                                            <a class="mc-btn-action">
+                                                <i class="fa fa-bars"></i>
+                                            </a>
+                                            <div class="mc-footer">
+                                                <button style="margin-right: 50px;" type="button" class="btn btn-danger">حذف مقاله </button>
+                                                <button onclick="EditeArticle('<%= existArticle[i]._id %>')" id='Edit_Article_Info' type="button" class="btn btn-success"> ویرایش مقاله </button>
+
+                                            </div>
+                                        </article>
+
                                     </div>
                                     <% }}%>
                         </div>
+                    </section>
+
+
+
+                </div>
+
+            </div>
+            <hr>
+            <div id="Edit_Info" style="display: none;">
+                <label for='basicInfo' class='text-primary display-5'>ویرایش اطلاعات :</label>
+                <div class='border border-dark p-4 rounded' id='basicInfo'>
+                    <div class='form-group'>
+                        <label for='User-Name' class='text-primary'>نام کاربری</label>
+                        <input type='text' class='form-control' value='<%= existUser[0].User_Name %>' id='User-Name'>
+                        <div class='text-danger collapse' id='valTitle'>Action Title is required.</div>
+                        <label for='User-FirstName' class='text-primary'>نام </label>
+                        <input type='text' class='form-control' value='<%= existUser[0].User_First_Name %>' id='User-FirstName'>
+                        <div class='text-danger collapse' id='valFirstName'>Action Title is required.</div>
+                        <label for='User-LastName' class='text-primary'>  نام خانوداگی</label>
+                        <input type='text' class='form-control' value='<%= existUser[0].User_Last_Name %>' id='User-LastName'>
+                        <div class='text-danger collapse' id='valLastName'>Action Title is required.</div>
+                        <label for='User-Email' class='text-primary'>ایمیل </label>
+                        <input type='text' class='form-control' value='<%= existUser[0].User_Email %>' id='User-Email' class='text-primary'>'>
+                        <div class='text-danger collapse' id='valEmail'>Action Title is required.</div>
+                        <label for='User-Number' class='text-primary'>شماره همراه </label>
+                        <input type='text' class='form-control' value='<%= existUser[0].User_Number %>' id='User-Number'>
+                        <div class='text-danger collapse' id='valNumber'>Action Title is required.</div>
 
                     </div>
-                    <hr>
-                </div>
-                <div id="Edit_Info" style="display: none;">
-                    <label for='basicInfo' class='text-primary display-5'>ویرایش اطلاعات :</label>
-                    <div class='border border-dark p-4 rounded' id='basicInfo'>
-                        <div class='form-group'>
-                            <label for='User-Name' class='text-primary'>نام کاربری</label>
-                            <input type='text' class='form-control' value='<%= existUser[0].User_Name %>' id='User-Name'>
-                            <div class='text-danger collapse' id='valTitle'>Action Title is required.</div>
-                            <label for='User-FirstName' class='text-primary'>نام </label>
-                            <input type='text' class='form-control' value='<%= existUser[0].User_First_Name %>' id='User-FirstName'>
-                            <div class='text-danger collapse' id='valFirstName'>Action Title is required.</div>
-                            <label for='User-LastName' class='text-primary'>  نام خانوداگی</label>
-                            <input type='text' class='form-control' value='<%= existUser[0].User_Last_Name %>' id='User-LastName'>
-                            <div class='text-danger collapse' id='valLastName'>Action Title is required.</div>
-                            <label for='User-Email' class='text-primary'>ایمیل </label>
-                            <input type='text' class='form-control' value='<%= existUser[0].User_Email %>' id='User-Email' class='text-primary'>'>
-                            <div class='text-danger collapse' id='valEmail'>Action Title is required.</div>
-                            <label for='User-Number' class='text-primary'>شماره همراه </label>
-                            <input type='text' class='form-control' value='<%= existUser[0].User_Number %>' id='User-Number'>
-                            <div class='text-danger collapse' id='valNumber'>Action Title is required.</div>
 
-                        </div>
-
-                        <!-- Begin Action Dept/Due/Assigned -->
-                        <div class='form-group row'>
-                            <div class='col'>
-                                <label for='samsDept' class='text-primary'> جنسیت </label>
-                                <select class='form-control' id='Gender'>
+                    <!-- Begin Action Dept/Due/Assigned -->
+                    <div class='form-group row'>
+                        <div class='col'>
+                            <label for='samsDept' class='text-primary'> جنسیت </label>
+                            <select class='form-control' id='Gender'>
                                     <option value=0>جنسیت خود را انتخاب کنید</option>
                                         <option value=1>مرد</option>
                                         <option value=2>زن</option>
                                         <option value=3>سایر موارد</option>
                                     </select>
-                                <div class='text-danger collapse' id='valDept'>Department is required.</div>
-                            </div>
-                            <!-- Begin Action Dept/Due/Assigned -->
-
+                            <div class='text-danger collapse' id='valDept'>Department is required.</div>
                         </div>
-                        <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Submit'>
+                        <!-- Begin Action Dept/Due/Assigned -->
+
+                    </div>
+                    <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Submit'>
                             اعمال تغییرات</a>
-                    </div>
-
-                    <!-- Begin Sub-Actions -->
-                    <div class='form-group newAction'>
-                        <div id='subActions' class='collapse form-group p-4' data-toggle='collapse'>
-                            <label for='subActionDiv' class='text-primary'>Sub Actions</label>
-                            <div class='border-4 border-dark rounded' id='subActionDiv'>
-                                <div class='row d-flex justify-content-end m-2'>
-                                    <button type='button' class='btn btn-primary btn-sm' id='addRow'>Add Row</button>
-                                </div>
-                                <table class='table'>
-                                    <thead>
-                                        <tr>
-                                            <th scope='col'>Title</th>
-                                            <th scope='col'>Description</th>
-                                            <th scope='col'>Assigned To</th>
-                                            <th scope='col'>Due Date</th>
-                                            <th scope='col'>Remove</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id='subTable'>
-                                        <tr>
-                                            <td><input type='text' class='form-control subTitle'></td>
-                                            <td><textarea type='text' class='form-control subDesc'></textarea></td>
-                                            <td>
-                                                <div class='subAssigned' id='row-1'></div>
-                                            </td>
-                                            <td><input type='text' class='form-control subDue' id='dueDate'></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Begin Sub-Actions -->
-
                 </div>
-                <div id="Edit_Password" style="display: none;">
-                    <label for='basicInfo' class='text-primary display-5'> تغییر رمز عبور</label>
-                    <div class='border border-dark p-4 rounded' id='basicInfo'>
-                        <div class='form-group'>
-                            <label for='OldPassword' class='text-primary'>رمز عبور :</label>
-                            <input type='text' class='form-control' placeholder='رمز عبور فعلی خود را وارد کنید' id='OldPassword'>
-                            <div class='text-danger collapse' id='valTitle'>Action Title is required.</div>
-                            <label for='NewPassword' class='text-primary'>رمز عبور جدبد</label>
-                            <input type='text' class='form-control' placeholder='رمز عبور جدید خود را وارد کنید' id='NewPassword'>
-                            <div class='text-danger collapse' id='valNewPassword'>Action Title is required.</div>
-                            <label for='VerifyNewPassword' class='text-primary'>  تکرار رمز عبور جدید</label>
-                            <input type='text' class='form-control' placeholder='رمز عبور جدید خود را تکرار کنید' id='VerifyNewPassword'>
-                            <div class='text-danger collapse' id='valVerifyNewPassword'>Action Title is required.</div>
 
-
+                <!-- Begin Sub-Actions -->
+                <div class='form-group newAction'>
+                    <div id='subActions' class='collapse form-group p-4' data-toggle='collapse'>
+                        <label for='subActionDiv' class='text-primary'>Sub Actions</label>
+                        <div class='border-4 border-dark rounded' id='subActionDiv'>
+                            <div class='row d-flex justify-content-end m-2'>
+                                <button type='button' class='btn btn-primary btn-sm' id='addRow'>Add Row</button>
+                            </div>
+                            <table class='table'>
+                                <thead>
+                                    <tr>
+                                        <th scope='col'>Title</th>
+                                        <th scope='col'>Description</th>
+                                        <th scope='col'>Assigned To</th>
+                                        <th scope='col'>Due Date</th>
+                                        <th scope='col'>Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody id='subTable'>
+                                    <tr>
+                                        <td><input type='text' class='form-control subTitle'></td>
+                                        <td><textarea type='text' class='form-control subDesc'></textarea></td>
+                                        <td>
+                                            <div class='subAssigned' id='row-1'></div>
+                                        </td>
+                                        <td><input type='text' class='form-control subDue' id='dueDate'></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
+                    </div>
+                </div>
+                <!-- Begin Sub-Actions -->
 
-                        <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Password_Submit'>
+            </div>
+            <div id="Edit_Password" style="display: none;">
+                <label for='basicInfo' class='text-primary display-5'> تغییر رمز عبور</label>
+                <div class='border border-dark p-4 rounded' id='basicInfo'>
+                    <div class='form-group'>
+                        <label for='OldPassword' class='text-primary'>رمز عبور :</label>
+                        <input type='text' class='form-control' placeholder='رمز عبور فعلی خود را وارد کنید' id='OldPassword'>
+                        <div class='text-danger collapse' id='valTitle'>Action Title is required.</div>
+                        <label for='NewPassword' class='text-primary'>رمز عبور جدبد</label>
+                        <input type='text' class='form-control' placeholder='رمز عبور جدید خود را وارد کنید' id='NewPassword'>
+                        <div class='text-danger collapse' id='valNewPassword'>Action Title is required.</div>
+                        <label for='VerifyNewPassword' class='text-primary'>  تکرار رمز عبور جدید</label>
+                        <input type='text' class='form-control' placeholder='رمز عبور جدید خود را تکرار کنید' id='VerifyNewPassword'>
+                        <div class='text-danger collapse' id='valVerifyNewPassword'>Action Title is required.</div>
+
+
+                    </div>
+
+                    <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Password_Submit'>
                             اعمال تغییرات</a>
-                    </div>
+                </div>
 
-                    <!-- Begin Sub-Actions -->
-                    <div class='form-group newAction'>
-                        <div id='subActions' class='collapse form-group p-4' data-toggle='collapse'>
-                            <label for='subActionDiv' class='text-primary'>Sub Actions</label>
-                            <div class='border-4 border-dark rounded' id='subActionDiv'>
-                                <div class='row d-flex justify-content-end m-2'>
-                                    <button type='button' class='btn btn-primary btn-sm' id='addRow'>Add Row</button>
-                                </div>
-                                <table class='table'>
-                                    <thead>
-                                        <tr>
-                                            <th scope='col'>Title</th>
-                                            <th scope='col'>Description</th>
-                                            <th scope='col'>Assigned To</th>
-                                            <th scope='col'>Due Date</th>
-                                            <th scope='col'>Remove</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id='subTable'>
-                                        <tr>
-                                            <td><input type='text' class='form-control subTitle'></td>
-                                            <td><textarea type='text' class='form-control subDesc'></textarea></td>
-                                            <td>
-                                                <div class='subAssigned' id='row-1'></div>
-                                            </td>
-                                            <td><input type='text' class='form-control subDue' id='dueDate'></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                <!-- Begin Sub-Actions -->
+                <div class='form-group newAction'>
+                    <div id='subActions' class='collapse form-group p-4' data-toggle='collapse'>
+                        <label for='subActionDiv' class='text-primary'>Sub Actions</label>
+                        <div class='border-4 border-dark rounded' id='subActionDiv'>
+                            <div class='row d-flex justify-content-end m-2'>
+                                <button type='button' class='btn btn-primary btn-sm' id='addRow'>Add Row</button>
                             </div>
+                            <table class='table'>
+                                <thead>
+                                    <tr>
+                                        <th scope='col'>Title</th>
+                                        <th scope='col'>Description</th>
+                                        <th scope='col'>Assigned To</th>
+                                        <th scope='col'>Due Date</th>
+                                        <th scope='col'>Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody id='subTable'>
+                                    <tr>
+                                        <td><input type='text' class='form-control subTitle'></td>
+                                        <td><textarea type='text' class='form-control subDesc'></textarea></td>
+                                        <td>
+                                            <div class='subAssigned' id='row-1'></div>
+                                        </td>
+                                        <td><input type='text' class='form-control subDue' id='dueDate'></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <!-- Begin Sub-Actions -->
-
                 </div>
-                <div id="Edit_Avatar" style="display: none;">
-                    <label for='basicInfo' class='text-primary display-5'> عکس پروفایل خود را بارگزاری کنید.</label>
-                    <div class='border border-dark p-4 rounded' id='basicInfo'>
+                <!-- Begin Sub-Actions -->
 
-                        <!-- <input type="file" name="avatar" value="" id="New_User_Avatar" /> -->
-                        <form action="/DashboardUser/DashboardAvatar" method="post" enctype="multipart/form-data">
-                            <input type="text" name="username" />
-                            <input type="file" name="avatar" />
-                            <input type="submit" value="submit" />
-                        </form>
-                        <br>
-                        <!-- <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Avatar_Submit' style='margin-top:30px'>
+            </div>
+            <div id="Edit_Avatar" style="display: none;">
+                <label for='basicInfo' class='text-primary display-5'> عکس پروفایل خود را بارگزاری کنید.</label>
+                <div class='border border-dark p-4 rounded' id='basicInfo'>
+
+                    <!-- <input type="file" name="avatar" value="" id="New_User_Avatar" /> -->
+                    <form action="/DashboardUser/DashboardAvatar" method="post" enctype="multipart/form-data">
+                        <input type="text" name="username" />
+                        <input type="file" name="avatar" />
+                        <input type="submit" value="submit" />
+                    </form>
+                    <br>
+                    <!-- <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Avatar_Submit' style='margin-top:30px'>
                                 اعمال تغییرات</a> -->
 
-                    </div>
-
                 </div>
-                <div id="AddArticle" style="display: none;">
-                    <div>
-                        <div id="AddName" style="display: none">
-                            <label for='basicInfo' class='text-primary display-5'>مقاله جدید :</label>
-                            <div class='border border-dark p-4 rounded' id='basicInfo'>
-                                <div class='form-group'>
-                                    <label for='User-Name' class='text-primary'>نام مقاله جدید</label>
-                                    <input type='text' class='form-control' placeholder='نام مقاله خود را وارد کنید.' id='Article_Name'>
-                                </div>
 
-                                <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Add_Avatar_Article' style='margin-top:30px'>
-                                            مرحله بعد</a>
+            </div>
+            <div id="AddArticle" style="display: none;">
+                <div>
+                    <div id="AddName" style="display: none">
+                        <label for='basicInfo' class='text-primary display-5'>مقاله جدید :</label>
+                        <div class='border border-dark p-4 rounded' id='basicInfo'>
+                            <div class='form-group'>
+                                <label for='User-Name' class='text-primary'>نام مقاله جدید</label>
+                                <input type='text' class='form-control' placeholder='نام مقاله خود را وارد کنید.' id='Article_Name'>
                             </div>
+
+                            <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Add_Avatar_Article' style='margin-top:30px'>
+                                            مرحله بعد</a>
                         </div>
-                        <div id="ArticleAvatar" style="display: none;">
+                    </div>
+                    <div id="ArticleAvatar" style="display: none;">
 
-                            <label for='basicInfo' class='text-primary display-5'> عکس مقاله خود را بارگزاری کنید.</label>
-                            <div class='border border-dark p-4 rounded' id='basicInfo'>
-                                <!-- 
-                                <form action="../Articles/UploadAvatarArticle" method="post" enctype="multipart/form-data">
-                                
-                                    <input class="btn btn-sm btn-primary mr-2" type="submit" value="submit" id='Btn_Add_Article' />
-                                 
-                                </form> -->
-                                <input type="file" name="avatar" id="ArticleAvatars" />
-                                <br>
+                        <label for='basicInfo' class='text-primary display-5'> عکس مقاله خود را بارگزاری کنید.</label>
+                        <div class='border border-dark p-4 rounded' id='basicInfo'>
 
-                                <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Back_Name_Article' style='margin-top:30px'>
+                            <input type="file" name="avatar" id="ArticleAvatars" />
+                            <br>
+
+                            <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Back_Name_Article' style='margin-top:30px'>
                                     مرحله قبل</a>
-                                <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Add_Article' style='margin-top:30px'>
+                            <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Add_Article' style='margin-top:30px'>
                                             مرحله بعد </a>
 
-                            </div>
-
                         </div>
-                        <div id="TextEditor" style="display: none;">
-                            <form action="../Articles/SubmitArticle" method="post" enctype="multipart/form-data">
-                                <textarea name="editor1"></textarea>
+
+                    </div>
+                    <div id="TextEditor" style="display: none;">
+                        <form action="../Articles/SubmitArticle" method="post" enctype="multipart/form-data">
+                            <textarea name="editor1"></textarea>
 
 
-                                <script>
-                                    CKEDITOR.replace('editor1', {
-                                        uiColor: '#9AB8F3',
+                            <script>
+                                CKEDITOR.replace('editor1', {
+                                    uiColor: '#9AB8F3',
 
-                                        filebrowserUploadUrl: '/Articles/AddArticlesPhotos',
+                                    filebrowserUploadUrl: '/Articles/AddArticlesPhotos',
 
-                                    })
-                                </script>
-                                <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Avatatr'>
+                                })
+                            </script>
+                            <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Avatatr'>
                                 مرحله قبل</a>
-                                <a target="_blank" class="btn btn-sm btn-primary mr-2" id="btn-submit-AddArticle">
+                            <a target="_blank" class="btn btn-sm btn-primary mr-2" id="btn-submit-AddArticle">
                              ایجاد مقاله</a>
-                        </div>
-
-                        <br>
-
-
-
                     </div>
+
+                    <br>
 
 
 
                 </div>
-                <div class="background"></div>
-                <div id="curve" class="card">
-                    <div class="footer">
-                        <div class="connections">
-                            <div class="connection facebook">
-                                <div class="icon"></div>
-                            </div>
-                            <div class="connection twitter">
-                                <div class="icon"></div>
-                            </div>
-                            <div class="connection behance">
-                                <div class="icon"></div>
-                            </div>
+            </div>
+            <div id="EditArticles" style="display: none;">
+                <div>
+                    <label for='basicInfo' class='text-primary display-5'>ویرایش مقاله :</label>
+
+                    <div class='border border-dark p-4 rounded' id='basicInfo'>
+                        <div class='form-group'>
+                            <label for='User-Name' class='text-primary'> نام مقاله خود را وارد کنید</label>
+                            <input type='text' class='form-control' placeholder='نام مقاله خود را وارد کنید.' id='Article_Edit_Name'>
+                            <a target="_blank" class="btn btn-sm btn-primary mr-2" id="btn-submit-EditArticleTitle">
+                                ذخیره </a>
                         </div>
-                        <svg id="curve">
-                            <path id="p" d="M0,200 Q80,100 400,200 V150 H0 V50" transform="translate(0 300)" />
-                            <rect id="dummyRect" x="0" y="0" height="450" width="400"
-                          fill="transparent"  />
-                            <!-- slide up-->
-                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,100 400,50 V150 H0 V50" fill="freeze" begin="dummyRect.mouseover" end="dummyRect.mouseout" dur="0.1s" id="bounce1" />
-                            <!-- slide up and curve in -->
-                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,0 400,50 V150 H0 V50" fill="freeze" begin="bounce1.end" end="dummyRect.mouseout" dur="0.15s" id="bounce2" />
-                            <!-- slide down and curve in -->
-                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,80 400,50 V150 H0 V50" fill="freeze" begin="bounce2.end" end="dummyRect.mouseout" dur="0.15s" id="bounce3" />
-                            <!-- slide down and curve out -->
-                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,45 400,50 V150 H0 V50" fill="freeze" begin="bounce3.end" end="dummyRect.mouseout" dur="0.1s" id="bounce4" />
-                            <!-- curve in -->
-                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,50 400,50 V150 H0 V50" fill="freeze" begin="bounce4.end" end="dummyRect.mouseout" dur="0.05s" id="bounce5" />
-                
-                            <animate xlink:href="#p" attributeName="d" to="M0,200 Q80,100 400,200 V150 H0 V50" fill="freeze" begin="dummyRect.mouseout" dur="0.15s" id="bounceOut" />
-                        </svg>
-                        <div class="info">
-                            <div class="name">Filan Fisteku</div>
-                            <div class="job">Architect Manager</div>
-                        </div>
+
                     </div>
-                    <div class="card-blur"></div>
+                    <br>
+                    <div class='border border-dark p-4 rounded' id='basicInfo'>
+                        <label for='basicInfo' class='text-primary display-5'> عکس مقاله خود را بارگزاری کنید.</label>
+                        <input type="file" name="avatar" id="ArticleEditAvatars" />
+                        <a target="_blank" class="btn btn-sm btn-primary mr-2" id="btn-submit-EditArticleAvatar">
+                            ذخیره </a>
+                        <span>  <p> عکس در حال حاضر مقاله</p><img id="Article_Edite_Avatar" alt="Avatar" class="avatar" style="vertical-align: middle; width: 50px;  height: 50px;  border-radius: 50%;"></span>
+
+                    </div>
+                    <br>
+                    <div class='border border-dark p-4 rounded' id='basicInfo'>
+                        <textarea name="editor2"></textarea>
+                        <script>
+                        </script>
+
+                        <a target="_blank" class="btn btn-sm btn-primary mr-2" id="btn-submit-EditArticleData">
+                              ذخیره </a>
+                    </div>
+
                 </div>
+
+            </div>
+
+
         </main>
-        <!-- page-content" -->
-        </div>
-        <!-- page-wrapper -->
-        <!-- <script src="https://cdn.ckeditor.com/[version.number]/[distribution]/ckeditor.js"></script> -->
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
