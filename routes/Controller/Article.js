@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 
-const { AddArticles, PersonalArticle, UploadPhotos, SubmitArticle, UploadAvatar, EditArticleTitle, EditPhotos } = require('../Services/Article')
-
+const { AddArticles, PersonalArticle, UploadPhotos, SubmitArticle, UploadAvatar, EditArticleTitle, EditPhotos, ArticlePage, AllArticles } = require('../Services/Article')
+router.get('/', AllArticles)
+router.get('/ArticlePage/:id', ArticlePage)
 router.post('/AddArticles', AddArticles)
 router.get('/PersonalArticle/:id', PersonalArticle)
 router.post('/AddArticlesPhotos', UploadPhotos)

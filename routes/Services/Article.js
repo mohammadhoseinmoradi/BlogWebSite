@@ -5,7 +5,8 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs')
 const PhotoArticle = require('../../tools/PhotoArticles/Article')
-const AvatarArticle = require('../../tools/GET_Avatar_Article/Avatar')
+const AvatarArticle = require('../../tools/GET_Avatar_Article/Avatar');
+const Article = require('../../Models/Article');
 const AddArticles = (req, res) => {
 
 
@@ -201,7 +202,34 @@ const EditArticleTitle = (req, res) => {
         }
     });
 }
+const AllArticles = (req, res) => {
+    User_Information.find({}, (err, user) => {
+        if (err) return res.status(500).json({ msg: "Users Not Found" })
+        Article_Information.find().populate('Article_Owner').sort({ Article_CreatedAt: -1 }).exec((err, articles) => {
+            if (err) return res.status(500).json({ msg: "Article Not Found" })
+            console.log("Articles =============================================================================")
+            console.log(articles)
+            res.render('Articles', { articles })
+        })
 
+    })
+
+}
+const ArticlePage = (req, res) => {
+    User_Information.find({}, (err, user) => {
+        if (err) return res.status(500).json({ msg: "Users Not Found" })
+        Article_Information.find({ _id: req.params.id }).populate('Article_Owner').sort({ Article_CreatedAt: -1 }).exec((err, articles) => {
+            if (err) return res.status(500).json({ msg: "Article Not Found" })
+            console.log("Articles =============================================================================")
+            console.log(articles)
+            let url = articles[0].Article_File_Location.split('public')
+            articles[0].Article_File_Location = url[1]
+            res.render('ArticleInfo', { articles })
+        })
+
+    })
+
+}
 module.exports = {
     PersonalArticle,
     AddArticles,
@@ -210,4 +238,6 @@ module.exports = {
     UploadAvatar,
     EditArticleTitle,
     EditPhotos,
+    AllArticles,
+    ArticlePage
 }

@@ -30,7 +30,8 @@ const User_Login = (req, res) => {
 
                 req.session.user = {
                     User_id: existUser[0]._id,
-                    User_Avatar: existUser[0].User_Avatar
+                    User_Avatar: existUser[0].User_Avatar,
+                    User_Role: existUser[0].User_Role
                 }
 
 

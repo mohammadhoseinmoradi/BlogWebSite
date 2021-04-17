@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous">
+
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/Articles.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!------ Include the above in your HEAD tag ---------->
+
+
+    <%- include("Menu"); -%>
+        <section class="container">
+            <div class="row active-with-click">
+                <% if(articles.length>0){ %>
+                    <% for(let i = 0; i < articles.length; i++){ %>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+
+                            <article class="material-card Red">
+                                <h2>
+                                    <span><%= articles[i].Article_Title %><img  src='/images/avatars/<%= articles[i].Article_Owner.User_Avatar %>' alt="Avatar" class="avatar" style="vertical-align: middle; width: 50px;  height: 50px;  border-radius: 50%;"></span>
+
+                                    <div id="container">
+                                        <button class="learn-more">
+                                  <span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                  </span>
+                     <a href="/Articles/ArticlePage/<%= articles[i]._id %>" style="text-decoration: none;"><span class="button-text"> خواندن مقاله</span></a> 
+                                </button>
+                                    </div>
+                                </h2>
+
+                                <div class="mc-content">
+                                    <div class="img-container" style=" background-size:cover;">
+                                        <img class="img-responsive" src='/images/ArticleAvatar/<%= articles[i].Article_Avatar %>'>
+                                    </div>
+                                    <div class="mc-description">
+                                        <%= articles[i].Article_Summary %>
+                                    </div>
+                                </div>
+                                <a class="mc-btn-action">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                                <div class="mc-footer">
+                                    <p>
+                                        <%= articles[i].Article_Owner.User_Name %>
+                                            : نام نویسنده
+                                    </p>
+
+
+                                </div>
+                            </article>
+
+                        </div>
+                        <% }}%>
+            </div>
+        </section>
+
+
+
+        <script src="/javascripts/Articles.js"></script>
+</body>
+
+</html>

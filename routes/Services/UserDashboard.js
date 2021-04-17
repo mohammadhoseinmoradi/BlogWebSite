@@ -10,21 +10,36 @@ const multer = require('multer');
 const saltRounds = 10;
 
 const DashboardPage = (req, res) => {
-
-
-    Article_Information.find({ Article_Owner: req.session.user.User_id }, (err, existArticle) => {
-        if (err) return res.status(500).send('Server Error22222222222222222222222222 :(')
-        if (!existArticle) { return res.status(500).send('Server Erro333333333333333333333333333r :(') }
+    if (req.session.user.User_Role == "admin") {
 
 
         User_Information.find({ _id: req.session.user.User_id }, (err, existUser) => {
 
             if (err) return res.status(500).send('Server Error gfhfhgfhgf:(')
 
-            res.render('Dashboard', { existUser, existArticle })
+            res.render('DashboardAdmin')
         })
 
-    })
+
+    } else if (req.session.user.User_Role == "blogger") {
+        Article_Information.find({ Article_Owner: req.session.user.User_id }, (err, existArticle) => {
+            if (err) return res.status(500).send('Server Error22222222222222222222222222 :(')
+            if (!existArticle) { return res.status(500).send('Server Erro333333333333333333333333333r :(') }
+
+
+            User_Information.find({ _id: req.session.user.User_id }, (err, existUser) => {
+
+                if (err) return res.status(500).send('Server Error gfhfhgfhgf:(')
+
+                res.render('Dashboard', { existUser, existArticle })
+            })
+
+        })
+    } else {
+        return res.status(500).send('Server Error gfhfhgfhgf:(')
+    }
+
+
 
 
 }
