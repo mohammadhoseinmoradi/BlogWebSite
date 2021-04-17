@@ -21,10 +21,12 @@ const SingUpPage = (req, res) => {
 
 
 const User_Register = (req, res) => {
+
     let a = Object.keys(req.body);
     let Body_Keys = Object.keys(req.body)
     const Check_Fields_Result = Fields_Pattern.every((field) => Body_Keys.includes(field))
     if (!Check_Fields_Result || Body_Keys.length !== 7) {
+        console.log(err);
         return res.status(500).send();
     }
     User_Information.find({
@@ -32,15 +34,18 @@ const User_Register = (req, res) => {
     }, (err, existUser) => {
 
         if (err) {
+            console.log(err);
             if (err) return res.status(500).send();
 
         }
         if (existUser.length != 0) {
+            console.log(err);
             return res.status(500).send();
 
         }
         bcrypt.hash(req.body.User_Password, saltRounds, (err, HashPassword) => {
             if (err) {
+                console.log(err);
                 if (err) return res.status(500).send();
 
             }
@@ -54,8 +59,9 @@ const User_Register = (req, res) => {
                 User_Number: req.body.User_Number
             })
             New_User.save({}, (err, UserSaved) => {
+                console.log(err);
                 if (err) return res.status(500).send();
-                res.send("User Has Been Created :)")
+                res.json(UserSaved)
             })
         })
     })

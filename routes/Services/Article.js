@@ -1,6 +1,7 @@
 const express = require('express')
 const User_Information = require('../../Models/User')
 const Article_Information = require('../../Models/Article')
+const Comment_Information = require('../../Models/Comment')
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs')
@@ -220,15 +221,59 @@ const ArticlePage = (req, res) => {
         if (err) return res.status(500).json({ msg: "Users Not Found" })
         Article_Information.find({ _id: req.params.id }).populate('Article_Owner').sort({ Article_CreatedAt: -1 }).exec((err, articles) => {
             if (err) return res.status(500).json({ msg: "Article Not Found" })
-            console.log("Articles =============================================================================")
-            console.log(articles)
-            let url = articles[0].Article_File_Location.split('public')
-            articles[0].Article_File_Location = url[1]
-            res.render('ArticleInfo', { articles })
+            console.log(req.session.user);
+            let User = {};
+            if (!req.session.user) {
+                Comment_Information.find({ Comment_Article: req.params.id }).populate("Comment_Owner").sort({ Comment_CreatedAt: -1 }).exec((err, Comments) => {
+                    if (err) return res.status(500).json({ msg: "Not Found" })
+                    User = { UserLogin: "NotLogin" };
+                    let url = articles[0].Article_File_Location.split('public')
+                    articles[0].Article_File_Location = url[1]
+                    console.log("Not Login");
+                    res.render('ArticleInfo', { articles, User, Comments })
+                })
+
+            } else(
+                User_Information.findOne({ _id: req.session.user.User_id }, (err, existUser) => {
+                    if (err) return res.status(500).json({ msg: "Not Found" })
+                    User = existUser
+                    let url = articles[0].Article_File_Location.split('public')
+                    articles[0].Article_File_Location = url[1]
+                    Comment_Information.find({ Comment_Article: req.params.id }).populate("Comment_Owner").sort({ Comment_CreatedAt: -1 }).exec((err, Comments) => {
+                        if (err) return res.status(500).json({ msg: "Not Found" })
+                        res.render('ArticleInfo', { articles, User, Comments })
+                    })
+
+                })
+            )
+
         })
 
     })
 
+}
+const SubmitComment = (req, res) => {
+
+
+    let ArticleId = req.body.Article_Id
+    let CommentText = req.body.Comment
+    const New_Comment = new Comment_Information({
+        Comment_Article: ArticleId,
+        Comment_Owner: req.session.user.User_id,
+        Comment_Text: CommentText
+    })
+    New_Comment.save({}, (err, CommentSaved) => {
+        if (err) return res.status(500).send();
+        res.send("User Has Been Created :)")
+    })
+
+}
+const DeleteArticle = (req, res) => {
+    Article_Information.findOneAndDelete({ _id: req.params.id }, (err, existUser) => {
+        if (err) return res.status(500).send();
+        if (!existUser) return res.status(500).send();
+        res.send("Ok")
+    })
 }
 module.exports = {
     PersonalArticle,
@@ -239,5 +284,7 @@ module.exports = {
     EditArticleTitle,
     EditPhotos,
     AllArticles,
-    ArticlePage
+    ArticlePage,
+    SubmitComment,
+    DeleteArticle
 }

@@ -118,7 +118,7 @@
                                 <div class="sidebar-submenu">
                                     <ul>
                                         <li>
-                                            <a id="Articles">همه مقالات
+                                            <a href="/Articles" id="Articles">همه مقالات
           
                             </a>
                                         </li>
@@ -175,7 +175,7 @@
                                             <h2>
                                                 <span><img  src='/images/avatars/<%= existUser[0].User_Avatar %>' alt="Avatar" class="avatar" style="vertical-align: middle; width: 50px;  height: 50px;  border-radius: 50%;"><%= existArticle[i].Article_Title %></span>
 
-                                                <button type="button" class="btn btn-info" style="margin-right: 80px;">اطلاعات بیشتر</button>
+                                                <a href="/Articles/ArticlePage/<%= existArticle[i]._id %>" style="text-decoration: none"><button type="button" class="btn btn-info" style="margin-right: 80px;">اطلاعات بیشتر</button></a>
                                             </h2>
 
                                             <div class="mc-content">
@@ -190,7 +190,7 @@
                                                 <i class="fa fa-bars"></i>
                                             </a>
                                             <div class="mc-footer">
-                                                <button style="margin-right: 50px;" type="button" class="btn btn-danger">حذف مقاله </button>
+                                                <button onclick="DeleteArticle('<%= existArticle[i]._id %>')" style="margin-right: 50px;" type="button" class="btn btn-danger">حذف مقاله </button>
                                                 <button onclick="EditeArticle('<%= existArticle[i]._id %>')" id='Edit_Article_Info' type="button" class="btn btn-success"> ویرایش مقاله </button>
 
                                             </div>

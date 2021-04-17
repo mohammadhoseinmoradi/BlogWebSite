@@ -11,8 +11,6 @@ const User_Login = (req, res) => {
 
     let User_Name = req.body.User_Name;
     let User_Password = req.body.User_Password;
-
-
     User_Information.find({
         User_Name: User_Name
     }, (err, existUser) => {
@@ -35,7 +33,7 @@ const User_Login = (req, res) => {
                 }
 
 
-                res.send("User Found :)")
+                res.send(existUser[0])
             } else if (result == false) {
                 return res.status(500).send();
             }

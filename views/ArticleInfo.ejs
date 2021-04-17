@@ -43,11 +43,135 @@
     <div id="ArticleData">
         <div id="Summary">
             <%= articles[0].Article_Summary %>
-                <button onclick="setData('<%= articles[0].Article_File_Location %>')" type="button" class="btn btn-success"> ویرایش مقاله </button>
+                <button onclick="setData('<%= articles[0].Article_File_Location %>')" type="button" class="btn btn-success"> ادامه مطالب  </button>
 
         </div>
 
     </div>
+    <section class="content-item" id="comments">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <h3 class="pull-left">ثبت نظر </h3>
+
+                    <% if(User.UserLogin == "NotLogin"){ %>
+                        <button id="ModalLogin" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        نظر خود را ثبت کنید
+                      </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content" style="width: 900px;">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel"> برای ثبت نظر باید وارد حساب خود شوید</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                                    </div>
+                                    <div class="modal-body" style="width:900px;background-color: aqua;">
+                                        <div style="display: flex;justify-content: space-between;">
+                                            <div id="LoginUser" style="background-color: coral;margin-right: 20px;">
+                                                <input id="LoginUserName" type="text" placeholder="Username">
+                                                <input id="LoginPassword" type="password" placeholder="Password">
+                                                <button id="Login_User" type="button" class="btn btn-primary">ورود</button>
+                                            </div>
+                                            <div>
+                                                <div id="formLogin" style="background-color:darkgoldenrod;">
+                                                    <!-- <label style="position:absolute; top:20px;left:20px" for="Username" class="">User name :</label> -->
+                                                    <input id="Username" type="text" style="margin:2px 5px 25px 5px" type="text" placeholder="نام کاربری" />
+                                                    <div style="display: flex;justify-content: space-between;">
+                                                        <!-- <label style="position:absolute;top:100px;left:20px" for="FirstName" class="">First name :</label> -->
+                                                        <input id="FirstName" style="margin:2px 5px 25px 5px" type="text" placeholder="نام " />
+                                                        <!-- <label style="position:absolute;top:100px;left:230px" for="LastName" class="">Last name :</label> -->
+                                                        <input id="LastName" style="margin:2px 5px 25px 5px" type="text" placeholder="نام خانوادگی" />
+                                                    </div>
+                                                    <!-- <label style="position:absolute;top:175px;left:20px" for="UserEmail" class="">Email name :</label> -->
+                                                    <input id="UserEmail" style="margin:2px 5px 25px 5px" type="email" placeholder="ایمیل" />
+                                                    <!-- <label style="position:absolute;top:250px;left:20px" for="UserNumber" class="">Number name :</label> -->
+                                                    <input id="UserNumber" style="margin:2px 5px 25px 5px" type="text" placeholder="شماره همراه" />
+                                                    <div style="display: flex;justify-content: space-between;">
+
+                                                        <select id="UserGender" style="margin:2px -40px 25px 63px">
+                                                        <option value="0">جنسیت</option>
+                                                        <option value="1">مرد</option>
+                                                        <option value="2">زن</option>
+                                                        <option value="3">سایر موارد</option>
+                                                      </select>
+                                                    </div>
+                                                    <div style="display: flex;justify-content: space-between;">
+                                                        <input id="UserPassword" style="margin:2px 5px 25px 5px" type="password" placeholder="رمز عبور" />
+                                                        <input id="PasswordVerify" style="margin:2px 5px 25px 5px" type="password" placeholder="تکرار رمز عبور" />
+
+                                                    </div>
+                                                    <button id="Submit_User">ایجاد حساب </button>
+                                                    <!-- <button id="Submit_User" type="submit">Sign Up</button> -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <fieldset>
+                            <div class="row" style="display: none;">
+                                <div class="col-sm-3 col-lg-2 hidden-xs">
+                                    <img id="User_Avatar" style="vertical-align: middle; width: 150px;  height: 150px;  border-radius: 50%;" class="media-object" src="/images/avatars/Default.png" alt="">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                    <textarea id="Comment_Text" class="form-control" id="message" placeholder="Your message" required=""></textarea>
+                                </div>
+                                <button id="Submit_Comment" type="submit" class="btn btn-normal pull-right">افزودن نظر</button>
+                            </div>
+                        </fieldset>
+                        <% }else{%>
+                            <fieldset>
+                                <div class="row" style="display: block;">
+                                    <div class="col-sm-3 col-lg-2 hidden-xs">
+                                        <img id="User_Avatar" style="vertical-align: middle; width: 150px;  height: 150px;  border-radius: 50%;" class="media-object" src="/images/avatars/<%= User.User_Avatar %>" alt="">
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                        <textarea id="Comment_Text" class="form-control" id="message" placeholder="Your message" required=""></textarea>
+                                    </div>
+                                    <button id="Submit_Comment" type="submit" class="btn btn-normal pull-right">افزودن نظر</button>
+                                </div>
+                            </fieldset>
+                            <% } %>
+                                <h3>4 Comments</h3>
+
+                                <!-- COMMENT 1 - START -->
+                                <% for (var i = 0; i <Comments.length; i++) { %>
+                                    <div class="media">
+                                        <a class="pull-left" href="#"><img class="media-object" src="/images/avatars/<%= Comments[i].Comment_Owner.User_Avatar %>" alt=""></a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">
+                                                <%= Comments[i].Comment_Owner.User_Name %>
+                                            </h4>
+                                            <p>
+                                                <%= Comments[i].Comment_Text %>
+                                            </p>
+                                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                                <li><i class="fa fa-calendar"></i>27/02/2014</li>
+                                                <li><i class="fa fa-thumbs-up"></i>13</li>
+                                            </ul>
+                                            <ul class="list-unstyled list-inline media-detail pull-right">
+                                                <li class=""><a href="">Like</a></li>
+                                                <li class=""><a href="">Reply</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <%}%>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>

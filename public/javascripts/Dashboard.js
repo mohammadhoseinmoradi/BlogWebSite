@@ -545,3 +545,17 @@ function EditeArticle(event) {
 
 
 }
+
+function DeleteArticle(event) {
+    $.ajax({
+        type: 'DELETE',
+        url: `/Articles/${event}`,
+        success: function() {
+            alert('OK')
+            window.location.reload("/Dashboard/DashboardPage")
+        },
+        error: function() {
+            alert('Error')
+        }
+    })
+}
