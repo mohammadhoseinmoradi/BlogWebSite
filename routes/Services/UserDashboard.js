@@ -13,11 +13,12 @@ const DashboardPage = (req, res) => {
     if (req.session.user.User_Role == "admin") {
 
 
-        User_Information.find({ _id: req.session.user.User_id }, (err, existUser) => {
+        User_Information.findOne({ _id: req.session.user.User_id }, (err, existUser) => {
 
             if (err) return res.status(500).send('Server Error gfhfhgfhgf:(')
-
-            res.render('DashboardAdmin')
+            console.log("Admin Info");
+            console.log(existUser);
+            res.render('DashboardAdmin', { existUser })
         })
 
 
@@ -190,11 +191,20 @@ const DashboardAvatar = (req, res) => {
     })
 
 }
+const BloggerInfo = (req, res) => {
+    User_Information.find({}, (err, user) => {
+        if (err) return res.status(500).json({ msg: "Users Not Found" })
+        res.json(user)
+    })
+
+
+}
 module.exports = {
     DashboardDelete,
     DashboardChangPassword,
     DashboardEdit,
     DashboardLogOut,
     DashboardPage,
-    DashboardAvatar
+    DashboardAvatar,
+    BloggerInfo
 }
