@@ -18,7 +18,8 @@ const DashboardPage = (req, res) => {
             if (err) return res.status(500).send('Server Error gfhfhgfhgf:(')
             console.log("Admin Info");
             console.log(existUser);
-            res.render('DashboardAdmin', { existUser })
+            let admin = { moradi: "ali" }
+            res.render('DashboardAdmin', { existUser, admin })
         })
 
 
