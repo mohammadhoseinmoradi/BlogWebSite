@@ -8,6 +8,7 @@ const fs = require('fs')
 const PhotoArticle = require('../../tools/PhotoArticles/Article')
 const AvatarArticle = require('../../tools/GET_Avatar_Article/Avatar');
 const Article = require('../../Models/Article');
+const User = require('../../Models/User');
 const AddArticles = (req, res) => {
 
 
@@ -166,7 +167,7 @@ const SubmitArticle = (req, res) => {
                 } else {
                     console.log("Submit Article");
                     console.log(req.session.user.Article_File_Location);
-                    let lastLocation = req.session.user.Article_File_Location.split("ArticlePages")
+                    // let lastLocation = req.session.user.Article_File_Location.split("ArticlePages")
                     if (req.session.user.Article_File_Location && req.session.user.Article_File_Location !== "default.html") {
                         console.log("dsdsdsds");
 
@@ -275,6 +276,26 @@ const DeleteArticle = (req, res) => {
         res.send("Ok")
     })
 }
+const ArticlesUser = (req, res) => {
+    User_Information.find({ _id: req.session.user.User_id }, (err, user) => {
+        if (err) return res.status(500).send();
+        Article_Information.find({ Article_Owner: req.session.user.User_id }).populate('Article_Owner').sort({ Article_CreatedAt: -1 }).exec((err, articles) => {
+            if (err) return res.status(500).json({ msg: "Article Not Found" })
+            console.log("Articles =============================================================================")
+            console.log(articles)
+
+            for (var i = 0; i < articles.length; i++) {
+                let dat = articles[i].Article_LastUpdate.toString()
+                let s = dat.split("T")
+                articles[i].Article_LastUpdate = s[0];
+                console.log(articles[i].Article_LastUpdate);
+
+            }
+            res.json(articles)
+        })
+    })
+
+}
 module.exports = {
     PersonalArticle,
     AddArticles,
@@ -286,5 +307,6 @@ module.exports = {
     AllArticles,
     ArticlePage,
     SubmitComment,
-    DeleteArticle
+    DeleteArticle,
+    ArticlesUser
 }

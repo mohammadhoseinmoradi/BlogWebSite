@@ -1,6 +1,7 @@
 const express = require('express')
 const User_Information = require('../../Models/User')
 const Article_Information = require('../../Models/Article')
+const Comment_Information = require('../../Models/Comment')
 const bcrypt = require('bcrypt')
 const Error_handling = require('../../tools/ErrorHandling/ErrorHandling')
 const Avatar = require('../../tools/Get_Avatar/Avatar')
@@ -200,6 +201,51 @@ const BloggerInfo = (req, res) => {
 
 
 }
+const DeleteCommentsUsers = (req, res) => {
+    let User_Id = req.params.id
+    Comment_Information.deleteMany({ Comment_Owner: User_Id }, (err, comments) => {
+        if (err) return res.status(500).json({ msg: "Server Not Found" })
+        if (comments.length == 0) { return res.send("User Don't Have Comments") }
+        res.send('Comments User Deleted')
+    })
+}
+
+const ResetPassword = (req, res) => {
+
+    User_Information.findOne({
+        _id: req.params.id
+    }, (err, existUser) => {
+
+        if (err) {
+            console.log("33333333333333");
+            console.log(err);
+            if (err) return res.status(500).send();
+
+        }
+        console.log(existUser);
+        if (!existUser) {
+            console.log("22222222222222222");
+            console.log(err);
+            return res.status(500).send();
+
+        }
+        let NewPassword = existUser.User_Number
+        bcrypt.hash(NewPassword, saltRounds, (err, HashPassword) => {
+            if (err) {
+                console.log("3333333333333333");
+                console.log(err);
+                if (err) return res.status(500).send();
+
+            }
+            User_Information.updateOne({ _id: req.params.id }, { $set: { User_Password: HashPassword } }, (err, result) => {
+                if (err) return res.status(500).send();
+                console.log("===>hash");
+                console.log(HashPassword);
+                res.send("Password updated")
+            })
+        })
+    })
+}
 module.exports = {
     DashboardDelete,
     DashboardChangPassword,
@@ -207,5 +253,7 @@ module.exports = {
     DashboardLogOut,
     DashboardPage,
     DashboardAvatar,
-    BloggerInfo
+    BloggerInfo,
+    DeleteCommentsUsers,
+    ResetPassword
 }

@@ -66,6 +66,7 @@
     <link type="text/css" href="/Admin/html&css/css/volt.css" rel="stylesheet">
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+    <script src="https://cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
 
 </head>
 
@@ -104,42 +105,55 @@
             </div>
             <ul class="nav flex-column pt-3 pt-md-0">
                 <li class="nav-item">
-                    <a href="/Admin/html&css/index.html" class="nav-link d-flex align-items-center">
-                        <span class="sidebar-icon">
+
+                    <span class="sidebar-icon">
             <img src="/Admin/html&css/assets/img/brand/light.svg" height="20" width="20" alt="Volt Logo">
           </span>
-                        <span class="mt-1 ms-1 sidebar-text">داشبورد</span>
-                    </a>
+                    <span class="mt-1 ms-1 sidebar-text">داشبورد</span>
+
                 </li>
                 <li class="nav-item active ">
-                    <a class="nav-link">
+                    <a class="nav-link Admin_setting">
                         <span class="sidebar-icon"><span class="fas fa-cog"></span></span>
                         <span class="sidebar-text">اطلاعات  من</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a class="nav-link " id="BloggerGetInfo">
+                        <span class="sidebar-icon"><span class="fas fa-user-check"></span></span>
+                        <span class="sidebar-text">اطلاعات بلاگر ها</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#submenu-app">
           <span>
             <span class="sidebar-icon"><span class="fas fa-table"></span></span>
-                    <span class="sidebar-text">بلاگر ها</span>
+                    <span class="sidebar-text"> مقالات</span>
                     </span>
                     <span class="link-arrow"><span class="fas fa-chevron-right"></span></span>
                     </span>
                     <div class="multi-level collapse " role="list" id="submenu-app" aria-expanded="false">
                         <ul class="flex-column nav">
                             <li class="nav-item ">
-                                <a class="nav-link" id="BloggerGetInfo">
-                                    <span class="sidebar-text">اطلااهت بلاگر ها</span>
+                                <a class="nav-link">
+                                    <span class="sidebar-text" id="Btn_Add_Article">  افزودن مقاله جدیدی</span>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="/Admin/html&css/pages/tables/bootstrap-tables.html">
-                                    <span class="sidebar-text"> همه مقالات بلاگر ها</span>
+                                <a class="nav-link" id="myArticles">
+                                    <span class="sidebar-text">مقالات من    </span>
                                 </a>
                             </li>
+                            <li class="nav-item ">
+                                <a class="nav-link">
+                                    <span class="sidebar-text"> همه مقالات  </span>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </li>
+
 
                 <li class="nav-item">
                     <a href="/Admin/html&css/pages/upgrade-to-pro.html" class="btn btn-secondary d-flex align-items-center justify-content-center btn-upgrade-pro">
@@ -180,7 +194,7 @@
                             </a>
                             <div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-0">
                                 <a class="dropdown-item rounded-top fw-bold" href="#"><span class="far fa-user-circle"></span>داشبورد</a>
-                                <a class="dropdown-item fw-bold" href="#"><span class="fas fa-cog"></span>اطلاعات من</a>
+                                <a class="dropdown-item fw-bold Admin_setting"><span class="fas fa-cog"></span>اطلاعات من</a>
                                 <a class="dropdown-item fw-bold" href="#"><span class="fas fa-user-shield"></span>بلاگر ها</a>
                                 <div role="separator" class="dropdown-divider my-0"></div>
                                 <a class="dropdown-item rounded-bottom fw-bold" href="#"><span class="fas fa-sign-out-alt text-danger"></span>خروج</a>
@@ -351,9 +365,15 @@
 
         </div>
         <!-- ============================================================================= -->
+        <!-- =================================== ALL ARTICLES ADMIN ====================== -->
+        <div id="ArticlesAdmin" style="display: flex;justify-content: space-around;flex-wrap:wrap;">
+
+
+        </div>
+        <!-- ============================================================================= -->
         <!-- ================================== EDIT BLOGGER INFO ======================== -->
 
-        <div id="Blogger_Crud">
+        <div id="Blogger_Crud" style="display:none">
             <div class="card card-body shadow-sm table-wrapper table-responsive">
                 <div class="container">
                     <h2>لیست تمامی کاربران </h2>
@@ -411,6 +431,44 @@
 
 
                 <!--  Developed By Yasser Mas -->
+            </div>
+        </div>
+        <!-- ============================================================================= -->
+        <!-- ================================== ADD ARTICLE ============================== -->
+        <div id="AddArticle" style="display: none;">
+            <div class="card card-body shadow-sm mb-4">
+                <div id="AddName" style="display: none;">
+                    <div class="mb-4">
+                        <label for="email"> نام مقاله</label>
+                        <input type="text" class="form-control" id="Article_Name">
+                        <small id="emailHelp" class="form-text text-muted">نام مقاله خود را وارد کنید</small>
+                    </div>
+                    <button id='Stage_Add_Avatar_Article' class="btn btn-dark" type="button"><span class="fas fa-angle-left ms-2"> مرحله بعد</span></button>
+                </div>
+                <div id="AddAvatarArticle" style="display: none;">
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">   عکس شاخص مقاله خود را انتخاب کنید</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <button id='Stage_Add_Data_Article' class="btn btn-dark" type="button"><span class="fas fa-angle-left ms-2"> مرحله بعد</span></button>
+
+                    <button id='Stage_Add_Name_Article' class="btn btn-dark" type="button">مرحله قبل<span class="fas fa-angle-right ms-2">  </span></button>
+
+                </div>
+                <div id="AddArticleData" style="display: none;">
+                    <textarea name="editor3"></textarea>
+                    <script>
+                        CKEDITOR.replace('editor3', {
+                            uiColor: '#9AB8F3',
+
+                            filebrowserUploadUrl: '/Articles/AddArticlesPhotos',
+
+                        })
+                    </script>
+                    <button id='Submit_Article' class="btn btn-success " type="button"><span class="fas fa-angle-left ms-2">  ثبت مقاله</span></button>
+
+                    <button id='Stage_back_Avatar_Article' class="btn btn-dark" type="button">مرحله قبل<span class="fas fa-angle-right ms-2">  </span></button>
+                </div>
             </div>
         </div>
         <!-- ============================================================================= -->
