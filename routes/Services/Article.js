@@ -167,7 +167,6 @@ const SubmitArticle = (req, res) => {
                 } else {
                     console.log("Submit Article");
                     console.log(req.session.user.Article_File_Location);
-                    // let lastLocation = req.session.user.Article_File_Location.split("ArticlePages")
                     if (req.session.user.Article_File_Location && req.session.user.Article_File_Location !== "default.html") {
                         console.log("dsdsdsds");
 
@@ -231,7 +230,7 @@ const ArticlePage = (req, res) => {
                     let url = articles[0].Article_File_Location.split('public')
                     articles[0].Article_File_Location = url[1]
                     console.log("Not Login");
-                    res.render('ArticleInfo', { articles, User, Comments })
+                    res.render('ArticlePage', { articles, User, Comments })
                 })
 
             } else(
@@ -242,7 +241,7 @@ const ArticlePage = (req, res) => {
                     articles[0].Article_File_Location = url[1]
                     Comment_Information.find({ Comment_Article: req.params.id }).populate("Comment_Owner").sort({ Comment_CreatedAt: -1 }).exec((err, Comments) => {
                         if (err) return res.status(500).json({ msg: "Not Found" })
-                        res.render('ArticleInfo', { articles, User, Comments })
+                        res.render('ArticlePage', { articles, User, Comments })
                     })
 
                 })
@@ -276,24 +275,25 @@ const DeleteArticle = (req, res) => {
         res.send("Ok")
     })
 }
-const ArticlesUser = (req, res) => {
-    User_Information.find({ _id: req.session.user.User_id }, (err, user) => {
-        if (err) return res.status(500).send();
-        Article_Information.find({ Article_Owner: req.session.user.User_id }).populate('Article_Owner').sort({ Article_CreatedAt: -1 }).exec((err, articles) => {
-            if (err) return res.status(500).json({ msg: "Article Not Found" })
-            console.log("Articles =============================================================================")
-            console.log(articles)
 
-            for (var i = 0; i < articles.length; i++) {
-                let dat = articles[i].Article_LastUpdate.toString()
-                let s = dat.split("T")
-                articles[i].Article_LastUpdate = s[0];
-                console.log(articles[i].Article_LastUpdate);
+const UserArticles = (req, res) => {
 
-            }
-            res.json(articles)
+    if (req.session.user != undefined) {
+        User_Information.find({ _id: req.params.id }, (err, user) => {
+            if (err) return res.status(500).send();
+            Article_Information.find({ Article_Owner: req.params.id }).populate('Article_Owner').sort({ Article_CreatedAt: -1 }).exec((err, Articles) => {
+                if (err) return res.status(500).json({ msg: "Article Not Found" })
+                console.log("Articles ================================  session ============================================")
+                console.log(req.session.user);
+                let User_Online = req.session.user
+                console.log("UserOnline");
+                console.log(User_Online);
+                res.render('UserArticles', { Articles, User_Online })
+            })
         })
-    })
+    } else {
+        res.redirect('/LoginUser')
+    }
 
 }
 module.exports = {
@@ -308,5 +308,6 @@ module.exports = {
     ArticlePage,
     SubmitComment,
     DeleteArticle,
-    ArticlesUser
+
+    UserArticles
 }

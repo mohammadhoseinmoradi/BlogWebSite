@@ -143,13 +143,29 @@ const DashboardLogOut = (req, res) => {
     res.redirect('/LoginUser')
 }
 const DashboardDelete = (req, res) => {
-    User_Information.findOneAndDelete({ _id: req.session.user.User_id }, (err, existUser) => {
+
+    User_Information.findOneAndDelete({ _id: req.params.id }, (err, existUser) => {
+        console.log(err);
         if (err) return res.status(500).send();
-        if (!existUser) return res.status(500).send();
-        req.session.destroy(function(err) {
+        Article_Information.Delete({ Article_Owner: req.params.id }, (err, Articles) => {
             if (err) return res.status(500).send();
-        });
-        res.redirect('/LoginUser')
+            Comment_Information.Delete({ Comment_Owner: req.params.id }, (err, Comments) => {
+                if (err) return res.status(500).send()
+            })
+        })
+        if (req.session.user.User_Role == "admin") {
+            User_Information.find({}, (err, Users) => {
+                if (err) return res.status(500).send();
+                res.json(Users)
+            })
+
+        } else {
+            req.session.destroy(function(err) {
+                if (err) return res.status(500).send();
+            });
+            res.redirect('/LoginUser')
+        }
+
     })
 }
 const DashboardAvatar = (req, res) => {

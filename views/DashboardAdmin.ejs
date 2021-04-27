@@ -66,11 +66,11 @@
     <link type="text/css" href="/Admin/html&css/css/volt.css" rel="stylesheet">
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
-    <script src="https://cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 
 </head>
 
-<body>
+<body style="z-index: -1;">
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
@@ -140,12 +140,12 @@
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" id="myArticles">
+                                <a class="nav-link" href="/Articles/UserArticles/<%= existUser._id %>">
                                     <span class="sidebar-text">مقالات من    </span>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link">
+                                <a class="nav-link" href="/Articles">
                                     <span class="sidebar-text"> همه مقالات  </span>
                                 </a>
                             </li>
@@ -349,11 +349,14 @@
                                                 <span style="border:2px solid black;border-radius:30px" class="icon icon-md"><span class="fas fa-paperclip me-3"></span>عکس خود را بارگزاری کنید</span> <input id="User_Avatar" name="avatar" type="file">
                                                 <div class="d-md-block text-left">
                                                     <div class="fw-normal text-dark mb-1"></div>
-                                                    <button id="Edit_Admin_Avatar" type="submit" class="btn btn-dark">ویرایش</button>
+                                                    <br>
 
                                                 </div>
+
                                             </div>
                                         </div>
+                                        <button style="width:100%;margin-top: 15px;" id="Edit_Admin_Avatar" type="submit" class="btn btn-dark">ویرایش</button>
+
                                     </div>
                                 </div>
                             </div>
@@ -472,6 +475,41 @@
             </div>
         </div>
         <!-- ============================================================================= -->
+        <!-- ================================== EDIT ARTICLE ============================= -->
+        <div id="EditArticlesAdmin">
+            <div class="card card-body shadow-sm mb-4">
+                <div id="EditNameArticle">
+                    <div class="mb-4">
+                        <label for="email"> نام مقاله</label>
+                        <input type="text" class="form-control" id="Edit_Article_Name">
+                        <small id="emailHelp" class="form-text text-muted">نام جدید مقاله خود را وارد کنید</small>
+                    </div>
+                    <button id='UpdateNameArticle' class="btn btn-dark" type="button"><span class="fas fa-angle-left ms-2">  ویرایش</span></button>
+                </div>
+                <div id="ٍEditAvatarArticle">
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">   عکس شاخص مقاله خود را انتخاب کنید</label>
+                        <input class="form-control" type="file" id="formFileEdit">
+                    </div>
+                    <button id='updateAvatarArticle' class="btn btn-dark" type="button"><span class="fas fa-angle-left ms-2">  ویرایش عکس شاخص</span></button>
+                </div>
+                <div id="EditArticleData">
+                    <textarea name="editor9"></textarea>
+                    <script>
+                        CKEDITOR.replace('editor9', {
+
+
+                            filebrowserUploadUrl: '/Articles/AddArticlesPhotos',
+
+                        })
+                    </script>
+                    <button id='updateSubmitArticle' class="btn btn-success " type="button"><span class="fas fa-angle-left ms-2">  ویرایش مقاله</span></button>
+
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================================= -->
+
         <footer class="footer section py-5">
             <div class="row">
                 <div class="col-12 col-lg-6 mb-4 mb-lg-0">
@@ -498,6 +536,7 @@
             </div>
         </footer>
     </main>
+    <textarea name="editor13"></textarea>
 
     <!-- Core -->
     <script src="/Admin/html&css/vendor/@popperjs/core/dist/umd/popper.min.js"></script>

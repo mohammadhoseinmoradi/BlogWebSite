@@ -104,7 +104,7 @@
                                             <a id="Btn_Edit_Info">تغییر سایر اطلاعات</a>
                                         </li>
                                         <li>
-                                            <a href="/DashboardUser/DashboardDelete">حذف حساب کاربری</a>
+                                            <a href="/DashboardUser/DashboardDelete/<%= existUser[0]._id %>">حذف حساب کاربری</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -387,21 +387,21 @@
 
                     </div>
                     <div id="TextEditor" style="display: none;">
-                        <form action="../Articles/SubmitArticle" method="post" enctype="multipart/form-data">
-                            <textarea name="editor1"></textarea>
+
+                        <textarea name="editor1"></textarea>
 
 
-                            <script>
-                                CKEDITOR.replace('editor1', {
-                                    uiColor: '#9AB8F3',
+                        <script>
+                            CKEDITOR.replace('editor1', {
+                                uiColor: '#9AB8F3',
 
-                                    filebrowserUploadUrl: '/Articles/AddArticlesPhotos',
+                                filebrowserUploadUrl: '/Articles/AddArticlesPhotos',
 
-                                })
-                            </script>
-                            <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Avatatr'>
+                            })
+                        </script>
+                        <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Avatatr'>
                                 مرحله قبل</a>
-                            <a target="_blank" class="btn btn-sm btn-primary mr-2" id="btn-submit-AddArticle">
+                        <a target="_blank" class="btn btn-sm btn-primary mr-2" id="btn-submit-AddArticle">
                              ایجاد مقاله</a>
                     </div>
 

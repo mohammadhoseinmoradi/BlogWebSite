@@ -45,6 +45,7 @@ $(function() {
                             showConfirmButton: false,
                             timer: 1500
                         })
+                        alert("updated")
                         window.location.reload("/Dashboard/DashboardPage")
                     },
                     error: function() {
@@ -190,10 +191,13 @@ $(function() {
         $("#Blogger_Crud").css("display", "none")
         $("#Admin_Curd").css("display", "block")
         $("#AddArticle").css("display", "none")
+        $("#ArticlesAdmin").css("display", "none")
     })
     $('body').on("click", "#Btn_Add_Article", function() {
+        alert("add article")
         $("#Blogger_Crud").css("display", "none")
         $("#Admin_Curd").css("display", "none")
+        $("#ArticlesAdmin").css("display", "none")
         $("#AddName").css("display", "block")
         $("#AddArticle").css("display", "block")
     })
@@ -331,74 +335,16 @@ $(function() {
         $("#AddArticleData").css("display", "none")
         $("#AddArticle").css("display", "block")
     })
-    $('body').on("click", "#myArticles", function() {
-        $("#Blogger_Crud").css("display", "none")
-        $("#Admin_Curd").css("display", "none")
-        $("#AddName").css("display", "none")
-        $("#AddAvatarArticle").css("display", "none")
-        $("#AddArticleData").css("display", "none")
-        $("#AddArticle").css("display", "none")
-        $.ajax({
-            type: "GET",
-            url: "../Articles/ArticlesUser",
-            success: function(data) {
-                Set_Curd(data)
-            },
-            error: function() {
-                alert("Error")
-            }
-        })
-    })
 
-    function Set_Curd(data) {
-        console.log(data);
-        for (let i = 1; i < data.length; i++) {
-            console.log(data);
-            let row = `
-            <div class="card col-sm-5 shadow p-2 p-md-4" style="margin-top:10px">
-            <div class="card-header px-0">
-                <div class="post-meta">
-                    <div class="media d-flex align-items-center justify-content-between">
-                        <div class="post-group">
-                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="23k followers" data-bs-original-title="23k followers"><img class="avatar-lg me-2 img-fluid rounded-circle" src="/images/avatars/${data[i].Article_Owner.User_Avatar}" alt="avatar"></a>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="author-name text-dark fw-bold font-small me-4 d-none d-lg-block">Posted by <a href="#" class="me-2">${data[i].Article_Owner.User_Name}</a>
-                            <div class="btn-group"><button class="btn btn-link dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><i class="fas fa-ellipsis-h icon-dark"></i> </span><span class="sr-only">Toggle Dropdown</span></button>
-                                <div class="dropdown-menu py-0"><a class="dropdown-item rounded-top" href="#"><span class="fas fa-edit me-2"></span>Edit post</a> <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fa fa-trash me-2" aria-hidden="true"></span>Delete post</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body py-4 px-0">
-                <a href="#" style="hight:200px;overflow:hidden"><img src="/images/ArticleAvatar/${data[i].Article_Avatar}" class="card-img-top rounded" style="hight:100px" alt="blog image">
-                    <h4 class="my-4">${data[i].Article_Title} </h4>
-                </a>
-                <p class="card-text mb-4">${data[i].Article_Summary}...</p>
-            </div>
-            <div class="card-footer bg-white border-0 pt-0 px-0">
-                <div class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between">
-                    <div class="post-details mb-3 mb-lg-0">
-                    <button class="btn me-3 btn-link text-primary"><i class="fas fa-share me-2"></i>آخرین تغییرات :${data[i].Article_LastUpdate.split("T")}</button>
-                     </div>
-                    <div class="post-meta">
-                      <button class="btn btn-secondary"><i class="far fa-save me-2"></i>خواندن مقاله</button></div>
-                </div>
-            </div>
-        </div>
 
-            `
-            $("#ArticlesAdmin").append(row);
-        }
+})
 
-    }
+function Set_Table(data) {
+    $("#tableInfo").html("");
+    console.log(data);
+    for (let i = 1; i < data.length; i++) {
 
-    function Set_Table(data) {
-        console.log(data);
-        for (let i = 1; i < data.length; i++) {
-
-            let row = `
+        let row = `
             <tr>
             <td><span class="fw-normal">${i}</span></td>
             <td>
@@ -415,21 +361,30 @@ $(function() {
             </td>
             <td><span class="fw-normal text-success">${data[i].User_Number}</span></td>
             <td>
-                <div class="btn-group"><button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm pt-1"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
-                    <div class="dropdown-menu py-0"><a class="dropdown-item rounded-top" onclick="ResetPassword('${data[i]._id}')"><span class="fas fa-user-shield me-2"></span> تغییر پسور کاربر</a> 
-                    <a class="dropdown-item text-danger rounded-bottom" onclick="DeleteCommentsUsers('${data[i]._id}')"><span class="fas fa-user-times me-2"></span>حذف نظرات کاربر</a></div>
-                </div><span class="fas fa-times-circle text-danger ms-2" title="" data-bs-toggle="tooltip" data-bs-original-title="Delete" aria-label="Delete"></span></td>
+                <div class="btn-group">
+                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="icon icon-sm pt-1">
+                <span class="fas fa-ellipsis-h icon-dark"></span> 
+                </span>
+                <span class="sr-only">Toggle Dropdown</span></button>
+                    <div class="dropdown-menu py-0">
+                    <a class="dropdown-item rounded-top" onclick="ResetPassword('${data[i]._id}')"><span class="fas fa-user-shield me-2"></span> تغییر پسور کاربر</a> 
+                    <a class="dropdown-item text-danger rounded-bottom" onclick="DeleteCommentsUsers('${data[i]._id}')"><span class="fas fa-user-times me-2"></span>حذف نظرات کاربر</a>
+                    <a class="dropdown-item text-danger rounded-bottom" href="../Articles/UserArticles/${data[i]._id}"><span class="fas fa-user-times me-2"></span>حذف مقالات کاربر</a>
+                    <a class="dropdown-item text-danger rounded-bottom" onclick="DeleteUsers('${data[i]._id}')"><span class="fas fa-user-times me-2"></span>حذف  کاربر</a>
+
+                    </div>
+                </div>
         </tr>
             `
-            $("#tableInfo").append(row);
-        }
-        getPagination('#tableInfo', data.length)
-        $("#Blogger_Crud").css("display", "block")
-        $("#Admin_Curd").css("display", "none")
-        $("#AddArticle").css("display", "none")
+        $("#tableInfo").append(row);
     }
+    getPagination('#tableInfo', data.length)
+    $("#Blogger_Crud").css("display", "block")
+    $("#Admin_Curd").css("display", "none")
+    $("#AddArticle").css("display", "none")
+}
 
-})
 getPagination('#table-id');
 
 function getPagination(table, tableLength) {
@@ -583,6 +538,22 @@ function DeleteCommentsUsers(User_Id) {
         }
     })
 }
+
+function DeleteUsers(User_Id) {
+    console.log(User_Id);
+    $.ajax({
+        type: 'GET',
+        url: `../DashboardUser/DashboardDelete/${User_Id}`,
+        success: function(data) {
+            Set_Table(data)
+        },
+        error: function() {
+            alert('error')
+        }
+    })
+}
+
+
 
 function ResetPassword(User_Id) {
     console.log(User_Id);
