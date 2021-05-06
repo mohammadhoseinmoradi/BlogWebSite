@@ -258,36 +258,46 @@ $(function() {
         $("#AddName").css("display", "none")
         $("#AddArticle").css("display", "block")
         console.log($("#formFile")[0].files[0]);
-        var data = new FormData();
-        data.append('avatar', $("#formFile")[0].files[0]);
+        if (!$("#formFile")[0].files[0]) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                footer: '<a href>Why do I have this issue?</a>'
+            })
+        } else {
+            var data = new FormData();
+            data.append('avatar', $("#formFile")[0].files[0]);
 
-        $.ajax({
-            type: "POST",
-            url: '../Articles/UploadAvatarArticle',
-            data: data,
-            contentType: false,
-            processData: false,
-            success: function(response) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Your work has been saved',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                $("#AddAvatarArticle").css("display", "none")
-                $("#AddArticleData").css("display", "block")
+            $.ajax({
+                type: "POST",
+                url: '../Articles/UploadAvatarArticle',
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    $("#AddAvatarArticle").css("display", "none")
+                    $("#AddArticleData").css("display", "block")
 
-            },
-            error: function(jqXHR, textStatus, errorMessage) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href>Why do I have this issue?</a>'
-                })
-            }
-        });
+                },
+                error: function(jqXHR, textStatus, errorMessage) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        footer: '<a href>Why do I have this issue?</a>'
+                    })
+                }
+            });
+        }
+
 
     })
     $('body').on("click", "#Submit_Article", function() {

@@ -66,28 +66,759 @@
     <link type="text/css" href="/Admin/html&css/css/volt.css" rel="stylesheet">
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+    <link rel="stylesheet" href="/stylesheets/ArticlePage.css">
 
+    <link rel="canonical" href="https://themesberg.com/blog">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="The official Themesberg Blog. We help you with tips and resources about web development and web design using popular CSS frameworks such as Bootstrap or Tailwind CSS.">
+    <meta name="author" content="Themesberg">
+    <meta name="csrf-token" content="9nK8Hxr6jhVBPQ4L37Z91g6nw04KWoV0VS8aNlih">
+    <meta name="image" content="https://themesberg.com/img/thumbnail.jpg">
+    <meta itemprop="name" content="Web Development &amp; Design Blog by Themesberg">
+    <meta itemprop="description" content="The official Themesberg Blog. We help you with tips and resources about web development and web design using popular CSS frameworks such as Bootstrap or Tailwind CSS.">
+    <meta itemprop="image" content="https://themesberg.com/img/thumbnail.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Web Development &amp; Design Blog by Themesberg">
+    <meta name="twitter:description" content="The official Themesberg Blog. We help you with tips and resources about web development and web design using popular CSS frameworks such as Bootstrap or Tailwind CSS.">
+    <meta name="twitter:site" content="@themesberg">
+    <meta name="twitter:creator" content="@themesberg">
+    <meta name="twitter:image:src" content="https://themesberg.com/img/thumbnail.jpg">
+    <meta name="og:title" content="Web Development &amp; Design Blog by Themesberg">
+    <meta name="og:description" content="The official Themesberg Blog. We help you with tips and resources about web development and web design using popular CSS frameworks such as Bootstrap or Tailwind CSS.">
+    <meta name="og:url" content="https://themesberg.com/blog">
+    <meta name="og:site_name" content="Themesberg">
+    <meta name="fb:admins" content="214738555737136">
+    <meta name="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://themesberg.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://themesberg.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://themesberg.com/favicon-16x16.png">
+    <link rel="manifest" href="https://themesberg.com/site.webmanifest">
+    <link rel="mask-icon" href="https://themesberg.com/safari-pinned-tab.svg" color="#ff7f66">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-yJpxAFV0Ip/w63YkZfDWDTU6re/Oc3ZiVqMa97pi8uPt92y0wzeK3UFM2yQRhEom" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+    <link type="text/css" href="https://themesberg.com/css/themesberg.css" rel="stylesheet">
+    <script src="https://connect.facebook.net/en_US/sdk.js?hash=2ff1f5678f53ee5e5f548732d3a2094a&amp;ua=modern_es6" async="" crossorigin="anonymous"></script>
+    <script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+    <script id="facebook-jssdk" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v3.0"></script>
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-THQTXJ7"></script>
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-THQTXJ7');
+    </script>
+    <script async="" src="/cdn-cgi/bm/cv/669835187/api.js"></script>
+    <style></style>
+    <script id="_carbonads_projs" type="text/javascript" src="https://srv.carbonads.net/ads/CEBDT237.json?segment=placement:themesbergcom&amp;callback=_carbonads_go"></script>
+    <script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/683118612/?random=1620200053040&amp;cv=9&amp;fst=1620200053040&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470%2C2505059650&amp;u_h=864&amp;u_w=1536&amp;u_ah=864&amp;u_aw=1474&amp;u_cd=24&amp;u_his=3&amp;u_tz=270&amp;u_java=false&amp;u_nplug=3&amp;u_nmime=4&amp;gtm=2wg4l3&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fthemesberg.com%2Fblog&amp;ref=https%3A%2F%2Fdemo.themesberg.com%2F&amp;tiba=Web%20Development%20%26%20Design%20Blog%20by%20Themesberg&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+    <script src="https://https-themesberg-com.disqus.com/count-data.js?2=https%3A%2F%2Fthemesberg.com%2Fblog%2Fbootstrap%2Fbootstrap-5-beta&amp;2=https%3A%2F%2Fthemesberg.com%2Fblog%2Fdeals%2Fblack-friday-software-deals-2020&amp;2=https%3A%2F%2Fthemesberg.com%2Fblog%2Fdesign%2Fglassmorphism-ui&amp;2=https%3A%2F%2Fthemesberg.com%2Fblog%2Fdjango%2Fuser-profile-tutorial&amp;2=https%3A%2F%2Fthemesberg.com%2Fblog%2Fglassmorphism%2Fcss-library-forking-bootstrap-5&amp;2=https%3A%2F%2Fthemesberg.com%2Fblog%2Fglassmorphism%2Ficons-and-tech-stack&amp;2=https%3A%2F%2Fthemesberg.com%2Fblog%2Fglassmorphism%2Ftutorial&amp;2=https%3A%2F%2Fthemesberg.com%2Fblog%2Fmarketplace%2F2020-year-in-review&amp;2=https%3A%2F%2Fthemesberg.com%2Fblog%2Fmarketplace%2Fbootstrap-sponsorship-glassmorphism-ui-and-new-figma-project&amp;2=https%3A%2F%2Fthemesberg.com%2Fblog%2Ftutorial%2Freact-dashboard"></script>
+    <style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe">
+        .fb_hidden {
+            position: absolute;
+            top: -10000px;
+            z-index: 10001
+        }
+        
+        .fb_reposition {
+            overflow: hidden;
+            position: relative
+        }
+        
+        .fb_invisible {
+            display: none
+        }
+        
+        .fb_reset {
+            background: none;
+            border: 0;
+            border-spacing: 0;
+            color: #000;
+            cursor: auto;
+            direction: ltr;
+            font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+            font-size: 11px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            letter-spacing: normal;
+            line-height: 1;
+            margin: 0;
+            overflow: visible;
+            padding: 0;
+            text-align: left;
+            text-decoration: none;
+            text-indent: 0;
+            text-shadow: none;
+            text-transform: none;
+            visibility: visible;
+            white-space: normal;
+            word-spacing: normal
+        }
+        
+        .fb_reset>div {
+            overflow: hidden
+        }
+        
+        @keyframes fb_transform {
+            from {
+                opacity: 0;
+                transform: scale(.95)
+            }
+            to {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+        
+        .fb_animate {
+            animation: fb_transform .3s forwards
+        }
+        
+        .fb_dialog {
+            background: rgba(82, 82, 82, .7);
+            position: absolute;
+            top: -10000px;
+            z-index: 10001
+        }
+        
+        .fb_dialog_advanced {
+            border-radius: 8px;
+            padding: 10px
+        }
+        
+        .fb_dialog_content {
+            background: #fff;
+            color: #373737
+        }
+        
+        .fb_dialog_close_icon {
+            background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;
+            cursor: pointer;
+            display: block;
+            height: 15px;
+            position: absolute;
+            right: 18px;
+            top: 17px;
+            width: 15px
+        }
+        
+        .fb_dialog_mobile .fb_dialog_close_icon {
+            left: 5px;
+            right: auto;
+            top: 5px
+        }
+        
+        .fb_dialog_padding {
+            background-color: transparent;
+            position: absolute;
+            width: 1px;
+            z-index: -1
+        }
+        
+        .fb_dialog_close_icon:hover {
+            background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent
+        }
+        
+        .fb_dialog_close_icon:active {
+            background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent
+        }
+        
+        .fb_dialog_iframe {
+            line-height: 0
+        }
+        
+        .fb_dialog_content .dialog_title {
+            background: #6d84b4;
+            border: 1px solid #365899;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0
+        }
+        
+        .fb_dialog_content .dialog_title>span {
+            background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;
+            float: left;
+            padding: 5px 0 7px 26px
+        }
+        
+        body.fb_hidden {
+            height: 100%;
+            left: 0;
+            margin: 0;
+            overflow: visible;
+            position: absolute;
+            top: -10000px;
+            transform: none;
+            width: 100%
+        }
+        
+        .fb_dialog.fb_dialog_mobile.loading {
+            background: url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;
+            min-height: 100%;
+            min-width: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            z-index: 10001
+        }
+        
+        .fb_dialog.fb_dialog_mobile.loading.centered {
+            background: none;
+            height: auto;
+            min-height: initial;
+            min-width: initial;
+            width: auto
+        }
+        
+        .fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner {
+            width: 100%
+        }
+        
+        .fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content {
+            background: none
+        }
+        
+        .loading.centered #fb_dialog_loader_close {
+            clear: both;
+            color: #fff;
+            display: block;
+            font-size: 18px;
+            padding-top: 20px
+        }
+        
+        #fb-root #fb_dialog_ipad_overlay {
+            background: rgba(0, 0, 0, .4);
+            bottom: 0;
+            left: 0;
+            min-height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: 10000
+        }
+        
+        #fb-root #fb_dialog_ipad_overlay.hidden {
+            display: none
+        }
+        
+        .fb_dialog.fb_dialog_mobile.loading iframe {
+            visibility: hidden
+        }
+        
+        .fb_dialog_mobile .fb_dialog_iframe {
+            position: sticky;
+            top: 0
+        }
+        
+        .fb_dialog_content .dialog_header {
+            background: linear-gradient(from(#738aba), to(#2c4987));
+            border-bottom: 1px solid;
+            border-color: #043b87;
+            box-shadow: white 0 1px 1px -1px inset;
+            color: #fff;
+            font: bold 14px Helvetica, sans-serif;
+            text-overflow: ellipsis;
+            text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0;
+            vertical-align: middle;
+            white-space: nowrap
+        }
+        
+        .fb_dialog_content .dialog_header table {
+            height: 43px;
+            width: 100%
+        }
+        
+        .fb_dialog_content .dialog_header td.header_left {
+            font-size: 12px;
+            padding-left: 5px;
+            vertical-align: middle;
+            width: 60px
+        }
+        
+        .fb_dialog_content .dialog_header td.header_right {
+            font-size: 12px;
+            padding-right: 5px;
+            vertical-align: middle;
+            width: 60px
+        }
+        
+        .fb_dialog_content .touchable_button {
+            background: linear-gradient(from(#4267B2), to(#2a4887));
+            background-clip: padding-box;
+            border: 1px solid #29487d;
+            border-radius: 3px;
+            display: inline-block;
+            line-height: 18px;
+            margin-top: 3px;
+            max-width: 85px;
+            padding: 4px 12px;
+            position: relative
+        }
+        
+        .fb_dialog_content .dialog_header .touchable_button input {
+            background: none;
+            border: none;
+            color: #fff;
+            font: bold 12px Helvetica, sans-serif;
+            margin: 2px -12px;
+            padding: 2px 6px 3px 6px;
+            text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0
+        }
+        
+        .fb_dialog_content .dialog_header .header_center {
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 18px;
+            text-align: center;
+            vertical-align: middle
+        }
+        
+        .fb_dialog_content .dialog_content {
+            background: url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;
+            border: 1px solid #4a4a4a;
+            border-bottom: 0;
+            border-top: 0;
+            height: 150px
+        }
+        
+        .fb_dialog_content .dialog_footer {
+            background: #f5f6f7;
+            border: 1px solid #4a4a4a;
+            border-top-color: #ccc;
+            height: 40px
+        }
+        
+        #fb_dialog_loader_close {
+            float: left
+        }
+        
+        .fb_dialog.fb_dialog_mobile .fb_dialog_close_icon {
+            visibility: hidden
+        }
+        
+        #fb_dialog_loader_spinner {
+            animation: rotateSpinner 1.2s linear infinite;
+            background-color: transparent;
+            background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            height: 24px;
+            width: 24px
+        }
+        
+        @keyframes rotateSpinner {
+            0% {
+                transform: rotate(0deg)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+        
+        .fb_iframe_widget {
+            display: inline-block;
+            position: relative
+        }
+        
+        .fb_iframe_widget span {
+            display: inline-block;
+            position: relative;
+            text-align: justify
+        }
+        
+        .fb_iframe_widget iframe {
+            position: absolute
+        }
+        
+        .fb_iframe_widget_fluid_desktop,
+        .fb_iframe_widget_fluid_desktop span,
+        .fb_iframe_widget_fluid_desktop iframe {
+            max-width: 100%
+        }
+        
+        .fb_iframe_widget_fluid_desktop iframe {
+            min-width: 220px;
+            position: relative
+        }
+        
+        .fb_iframe_widget_lift {
+            z-index: 1
+        }
+        
+        .fb_iframe_widget_fluid {
+            display: inline
+        }
+        
+        .fb_iframe_widget_fluid span {
+            width: 100%
+        }
+        
+        .fb_mpn_mobile_landing_page_slide_out {
+            animation-duration: 200ms;
+            animation-name: fb_mpn_landing_page_slide_out;
+            transition-timing-function: ease-in
+        }
+        
+        .fb_mpn_mobile_landing_page_slide_out_from_left {
+            animation-duration: 200ms;
+            animation-name: fb_mpn_landing_page_slide_out_from_left;
+            transition-timing-function: ease-in
+        }
+        
+        .fb_mpn_mobile_landing_page_slide_up {
+            animation-duration: 500ms;
+            animation-name: fb_mpn_landing_page_slide_up;
+            transition-timing-function: ease-in
+        }
+        
+        .fb_mpn_mobile_bounce_in {
+            animation-duration: 300ms;
+            animation-name: fb_mpn_bounce_in;
+            transition-timing-function: ease-in
+        }
+        
+        .fb_mpn_mobile_bounce_out {
+            animation-duration: 300ms;
+            animation-name: fb_mpn_bounce_out;
+            transition-timing-function: ease-in
+        }
+        
+        .fb_mpn_mobile_bounce_out_v2 {
+            animation-duration: 300ms;
+            animation-name: fb_mpn_fade_out;
+            transition-timing-function: ease-in
+        }
+        
+        .fb_customer_chat_bounce_in_v2 {
+            animation-duration: 300ms;
+            animation-name: fb_bounce_in_v2;
+            transition-timing-function: ease-in
+        }
+        
+        .fb_customer_chat_bounce_in_from_left {
+            animation-duration: 300ms;
+            animation-name: fb_bounce_in_from_left;
+            transition-timing-function: ease-in
+        }
+        
+        .fb_customer_chat_bounce_out_v2 {
+            animation-duration: 300ms;
+            animation-name: fb_bounce_out_v2;
+            transition-timing-function: ease-in
+        }
+        
+        .fb_customer_chat_bounce_out_from_left {
+            animation-duration: 300ms;
+            animation-name: fb_bounce_out_from_left;
+            transition-timing-function: ease-in
+        }
+        
+        .fb_customer_chat_bubble_animated_no_badge {
+            box-shadow: 0 3px 12px rgba(0, 0, 0, .15);
+            transition: box-shadow 150ms linear
+        }
+        
+        .fb_customer_chat_bubble_animated_no_badge:hover {
+            box-shadow: 0 5px 24px rgba(0, 0, 0, .3)
+        }
+        
+        .fb_customer_chat_bubble_animated_with_badge {
+            box-shadow: -5px 4px 14px rgba(0, 0, 0, .15);
+            transition: box-shadow 150ms linear
+        }
+        
+        .fb_customer_chat_bubble_animated_with_badge:hover {
+            box-shadow: -5px 8px 24px rgba(0, 0, 0, .2)
+        }
+        
+        .fb_invisible_flow {
+            display: inherit;
+            height: 0;
+            overflow-x: hidden;
+            width: 0
+        }
+        
+        .fb_new_ui_mobile_overlay_active {
+            overflow: hidden
+        }
+        
+        @keyframes fb_mpn_landing_page_slide_in {
+            0% {
+                border-radius: 50%;
+                margin: 0 24px;
+                width: 60px
+            }
+            40% {
+                border-radius: 18px
+            }
+            100% {
+                margin: 0 12px;
+                width: 100% - 24px
+            }
+        }
+        
+        @keyframes fb_mpn_landing_page_slide_in_from_left {
+            0% {
+                border-radius: 50%;
+                left: 12px;
+                margin: 0 24px;
+                width: 60px
+            }
+            40% {
+                border-radius: 18px
+            }
+            100% {
+                left: 12px;
+                margin: 0 12px;
+                width: 100% - 24px
+            }
+        }
+        
+        @keyframes fb_mpn_landing_page_slide_out {
+            0% {
+                margin: 0 12px;
+                width: 100% - 24px
+            }
+            60% {
+                border-radius: 18px
+            }
+            100% {
+                border-radius: 50%;
+                margin: 0 24px;
+                width: 60px
+            }
+        }
+        
+        @keyframes fb_mpn_landing_page_slide_out_from_left {
+            0% {
+                left: 12px;
+                width: 100% - 24px
+            }
+            60% {
+                border-radius: 18px
+            }
+            100% {
+                border-radius: 50%;
+                left: 12px;
+                width: 60px
+            }
+        }
+        
+        @keyframes fb_mpn_landing_page_slide_up {
+            0% {
+                bottom: 0;
+                opacity: 0
+            }
+            100% {
+                bottom: 24px;
+                opacity: 1
+            }
+        }
+        
+        @keyframes fb_mpn_bounce_in {
+            0% {
+                opacity: .5;
+                top: 100%
+            }
+            100% {
+                opacity: 1;
+                top: 0
+            }
+        }
+        
+        @keyframes fb_mpn_fade_out {
+            0% {
+                bottom: 30px;
+                opacity: 1
+            }
+            100% {
+                bottom: 0;
+                opacity: 0
+            }
+        }
+        
+        @keyframes fb_mpn_bounce_out {
+            0% {
+                opacity: 1;
+                top: 0
+            }
+            100% {
+                opacity: .5;
+                top: 100%
+            }
+        }
+        
+        @keyframes fb_bounce_in_v2 {
+            0% {
+                opacity: 0;
+                transform: scale(0, 0);
+                transform-origin: bottom right
+            }
+            50% {
+                transform: scale(1.03, 1.03);
+                transform-origin: bottom right
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1, 1);
+                transform-origin: bottom right
+            }
+        }
+        
+        @keyframes fb_bounce_in_from_left {
+            0% {
+                opacity: 0;
+                transform: scale(0, 0);
+                transform-origin: bottom left
+            }
+            50% {
+                transform: scale(1.03, 1.03);
+                transform-origin: bottom left
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1, 1);
+                transform-origin: bottom left
+            }
+        }
+        
+        @keyframes fb_bounce_out_v2 {
+            0% {
+                opacity: 1;
+                transform: scale(1, 1);
+                transform-origin: bottom right
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0, 0);
+                transform-origin: bottom right
+            }
+        }
+        
+        @keyframes fb_bounce_out_from_left {
+            0% {
+                opacity: 1;
+                transform: scale(1, 1);
+                transform-origin: bottom left
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0, 0);
+                transform-origin: bottom left
+            }
+        }
+        
+        @keyframes fb_bounce_out_v2_mobile_chat_started {
+            0% {
+                opacity: 1;
+                top: 0
+            }
+            100% {
+                opacity: 0;
+                top: 20px
+            }
+        }
+        
+        @keyframes fb_customer_chat_bubble_bounce_in_animation {
+            0% {
+                bottom: 6pt;
+                opacity: 0;
+                transform: scale(0, 0);
+                transform-origin: center
+            }
+            70% {
+                bottom: 18pt;
+                opacity: 1;
+                transform: scale(1.2, 1.2)
+            }
+            100% {
+                transform: scale(1, 1)
+            }
+        }
+        
+        @keyframes slideInFromBottom {
+            0% {
+                opacity: .1;
+                transform: translateY(100%)
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+        
+        @keyframes slideInFromBottomDelay {
+            0% {
+                opacity: 0;
+                transform: translateY(100%)
+            }
+            97% {
+                opacity: 0;
+                transform: translateY(100%)
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
-
-
-
-    <main class="content" style="margin-left: 0px;">
-        <div class="col-12 col-lg-10" style="margin: auto;">
-            <!-- <div class="card shadow p-2 p-md-4">
+    <header>
+        <nav class="navbar navbar-main navbar-expand-lg navbar-light navbar-main-sticky">
+            <div class="container">
+                <a class="navbar-brand mr-lg-4" href="https://themesberg.com">
+                    <div class="d-flex align-items-center"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 64"><defs><style>.class-1{fill:#ff7f66;}.class-2,.class-4{fill:#2a344f;}.class-2{opacity:0.32;isolation:isolate;}.class-3{opacity:0.16;}</style></defs><title>logo</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_16" data-name="Group 16"><g id="Group_15" data-name="Group 15"><g id="Group_12" data-name="Group 12"><path id="Path_35" data-name="Path 35" class="class-1" d="M53.52,1.87l-22,5.39a1.61,1.61,0,0,1-1.23-.21L19.89.25a1.57,1.57,0,0,0-1.3-.19l-18,5.3A.77.77,0,0,0,0,6.09V16.87L18.59,11.4a1.57,1.57,0,0,1,1.3.19l10.4,6.79a1.53,1.53,0,0,0,1.23.21L54,13.09V2.23a.39.39,0,0,0-.39-.38Z"></path><path id="Path_36" data-name="Path 36" class="class-1" d="M40.25,27.84l-8.73,2.1a1.57,1.57,0,0,1-1.23-.21l-10.4-6.8a.37.37,0,0,0-.53.11.31.31,0,0,0-.07.2V33.47a.75.75,0,0,0,.34.63l10.66,7a1.57,1.57,0,0,0,1.23.2l9.23-2.21A6.86,6.86,0,0,0,46,32.45v-.21a4.62,4.62,0,0,0-4.68-4.55A4.93,4.93,0,0,0,40.25,27.84Z"></path><path id="Path_37" data-name="Path 37" class="class-1" d="M40.25,50.52l-8.73,2.1a1.61,1.61,0,0,1-1.23-.21l-10.4-6.8a.38.38,0,0,0-.53.1.35.35,0,0,0-.07.21V56.15a.75.75,0,0,0,.34.63l10.66,7a1.53,1.53,0,0,0,1.23.21l9.23-2.22A6.84,6.84,0,0,0,46,55.13v-.21a4.62,4.62,0,0,0-4.68-4.55A4.39,4.39,0,0,0,40.25,50.52Z"></path></g><path id="Path_38" data-name="Path 38" class="class-2" d="M30.86,41.29V30a1.63,1.63,0,0,0,.66,0L35.28,29l2.2,10.8-6,1.46A1.47,1.47,0,0,1,30.86,41.29Zm8.82,9.33-8.16,2a1.63,1.63,0,0,1-.66,0V64a1.63,1.63,0,0,0,.66,0l10.36-2.54Zm-8.82-32a1.63,1.63,0,0,0,.66,0l1.57-.38L30.86,7.28Z"></path><g id="Group_13" data-name="Group 13" class="class-3"><path id="Path_39" data-name="Path 39" class="class-4" d="M19.29,11.36a1.82,1.82,0,0,1,.6.23l10.4,6.8a1.41,1.41,0,0,0,.57.22V7.27a1.41,1.41,0,0,1-.57-.22L19.89.25a1.82,1.82,0,0,0-.6-.23Z"></path><path id="Path_40" data-name="Path 40" class="class-4" d="M30.86,52.64a1.67,1.67,0,0,1-.57-.23l-10.4-6.8a.39.39,0,0,0-.54.11.36.36,0,0,0-.06.2V56.15a.75.75,0,0,0,.34.63l10.66,7a1.73,1.73,0,0,0,.57.22Z"></path><path id="Path_41" data-name="Path 41" class="class-4" d="M19.89,22.93a.39.39,0,0,0-.54.11.36.36,0,0,0-.06.2V33.47a.75.75,0,0,0,.34.63l10.66,7a1.58,1.58,0,0,0,.57.22V30a1.43,1.43,0,0,1-.57-.23Z"></path></g></g></g></g></g></svg>
+                        <p class="ml-2 mb-0 logo-text ">Themesberg</p>
+                    </div>
+                </a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                <div class="collapse navbar-collapse pt-3 pt-lg-0" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"> <a href="https://themesberg.com/themes" class="nav-link">Themes</a> </li>
+                        <li class="nav-item"> <a href="https://themesberg.com/bundles/bootstrap" class="nav-link">Bundle<span class="badge badge-xs badge-primary text-white">New</span></a> </li>
+                        <li class="nav-item"> <a href="https://themesberg.com/blog" class="nav-link">Blog</a> </li>
+                        <li class="nav-item"> <a href="https://themesberg.com/contact" class="nav-link">Contact</a> </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                            <a href="https://themesberg.com/login" class="btn btn-sm btn-outline-primary mt-2 mt-lg-0" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Join 13102 developers to access Free Themes"> <i class="fad fa-sign-in-alt mr-2"></i>Login/Register </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="content" style="margin-left: 0px;margin-top:50px;">
+        <div class="col-12 col-lg-10" style="margin:auto;">
+            <div class="card shadow p-2 p-md-4">
                 <div class="card-header px-0">
                     <div class="post-meta">
                         <div class="media d-flex align-items-center justify-content-between">
                             <div class="post-group">
-                                <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="23k followers" data-bs-original-title="23k followers"><img class="avatar-sm me-2 img-fluid rounded-circle" src="/images/avatars/<%= Articles[0].Article_Owner.User_Avatar %>" alt="avatar"> </a>
+                                <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="23k followers" data-bs-original-title="23k followers"><img class="avatar img-fluid rounded-circle" src="/images/avatars/<%= articles[0].Article_Owner.User_Avatar %>" style="width: 100px; height: 100px" alt="avatar"> </a>
                             </div>
                             <div class="d-flex align-items-center">
                                 <div class="author-name text-dark fw-bold font-small me-4 d-none d-lg-block">Posted by
                                     <a href="#" class="me-2">
-                                        <%= Articles[0].Article_Owner.User_Name %>
+                                        <%= articles[0].Article_Owner.User_Name %>
                                     </a>5 hours ago</div>
                                 <div class="btn-group"><button class="btn btn-link dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><i class="fas fa-ellipsis-h icon-dark"></i> </span><span class="sr-only">Toggle Dropdown</span></button>
                                     <div class="dropdown-menu py-0"><a class="dropdown-item rounded-top" href="#"><span class="fas fa-edit me-2"></span>Edit post</a> <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fa fa-trash me-2" aria-hidden="true"></span>Delete post</a></div>
@@ -97,175 +828,240 @@
                     </div>
                 </div>
                 <div class="card-body py-4 px-0">
-                    <a href="#"><img src="/images/ArticleAvatar/<%= Articles[i].Article_Avatar %>" class="card-img-top rounded" alt="blog image">
-                        <h4 class="my-4"><%= Articles[i].Article_Title %></h4>
+                    <a href="#"><img src="/images/ArticleAvatar/<%= articles[0].Article_Avatar %>" class="card-img-top rounded" alt="blog image">
+                        <h4 class="my-4">
+                            <%= articles[0].Article_Title %>
+                        </h4>
                     </a>
-                    <p class="card-text mb-4" src="<%= Articles[i].Article_File_Location %>">s</p>
+                    <p id="Summary" class="card-text mb-4" link="<%= articles[0].Article_File_Location %>">
+                        <%= articles[0].Article_Summary %>
+                    </p>
                 </div>
                 <div class="card-footer bg-white border-0 pt-0 px-0">
-                    <div class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between">
-                        <div class="post-details mb-3 mb-lg-0"><button class="btn btn-sm btn-dark animate-hover me-2"><span class="fas fa-arrow-up me-2 animate-up-2"></span> 4</button> <button class="btn btn-sm btn-danger animate-hover"><span class="fas fa-arrow-down me-2 animate-down-2"></span> 1</button></div>
-                        <div class="post-meta"><a class="text-dark me-3" href="#"><i class="far fa-comments me-2"></i>33.7k</a> <button class="btn me-3 btn-link text-primary"><i class="fas fa-share me-2"></i>Share</button> <button class="btn btn-secondary"><i class="far fa-save me-2"></i>Save</button></div>
+                    <div>
+                        <div class="post-meta"> <button onclick="setData('<%= articles[0].Article_File_Location %>')" class="btn btn-secondary" style="width: 100%;"><i class="far fa-save me-2"></i>Save</button></div>
+
+
                     </div>
+
                 </div>
-            </div> -->
-        </div>
-        <section class="content-item" id="comments">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
+            </div>
 
-                        <h3 class="pull-left">ثبت نظر </h3>
 
-                        <% if(User.UserLogin == "NotLogin"){ %>
-                            <button id="ModalLogin" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            نظر خود را ثبت کنید
-                          </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content" style="width: 900px;">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel"> برای ثبت نظر باید وارد حساب خود شوید</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                        </div>
-                                        <div class="modal-body" style="width:900px;background-color: aqua;">
-                                            <div style="display: flex;justify-content: space-between;">
-                                                <div id="LoginUser" style="background-color: coral;margin-right: 20px;">
-                                                    <input id="LoginUserName" type="text" placeholder="Username">
-                                                    <input id="LoginPassword" type="password" placeholder="Password">
-                                                    <button id="Login_User" type="button" class="btn btn-primary">ورود</button>
-                                                </div>
-                                                <div>
-                                                    <div id="formLogin" style="background-color:darkgoldenrod;">
-                                                        <!-- <label style="position:absolute; top:20px;left:20px" for="Username" class="">User name :</label> -->
-                                                        <input id="Username" type="text" style="margin:2px 5px 25px 5px" type="text" placeholder="نام کاربری" />
-                                                        <div style="display: flex;justify-content: space-between;">
-                                                            <!-- <label style="position:absolute;top:100px;left:20px" for="FirstName" class="">First name :</label> -->
-                                                            <input id="FirstName" style="margin:2px 5px 25px 5px" type="text" placeholder="نام " />
-                                                            <!-- <label style="position:absolute;top:100px;left:230px" for="LastName" class="">Last name :</label> -->
-                                                            <input id="LastName" style="margin:2px 5px 25px 5px" type="text" placeholder="نام خانوادگی" />
-                                                        </div>
-                                                        <!-- <label style="position:absolute;top:175px;left:20px" for="UserEmail" class="">Email name :</label> -->
-                                                        <input id="UserEmail" style="margin:2px 5px 25px 5px" type="email" placeholder="ایمیل" />
-                                                        <!-- <label style="position:absolute;top:250px;left:20px" for="UserNumber" class="">Number name :</label> -->
-                                                        <input id="UserNumber" style="margin:2px 5px 25px 5px" type="text" placeholder="شماره همراه" />
-                                                        <div style="display: flex;justify-content: space-between;">
 
-                                                            <select id="UserGender" style="margin:2px -40px 25px 63px">
-                                                            <option value="0">جنسیت</option>
-                                                            <option value="1">مرد</option>
-                                                            <option value="2">زن</option>
-                                                            <option value="3">سایر موارد</option>
-                                                          </select>
-                                                        </div>
-                                                        <div style="display: flex;justify-content: space-between;">
-                                                            <input id="UserPassword" style="margin:2px 5px 25px 5px" type="password" placeholder="رمز عبور" />
-                                                            <input id="PasswordVerify" style="margin:2px 5px 25px 5px" type="password" placeholder="تکرار رمز عبور" />
 
-                                                        </div>
-                                                        <button id="Submit_User">ایجاد حساب </button>
-                                                        <!-- <button id="Submit_User" type="submit">Sign Up</button> -->
+
+            <div class="col-sm-12" id="comments">
+
+                <h3 class="pull-left">ثبت نظر </h3>
+
+                <% if(User.UserLogin == "NotLogin"){ %>
+                    <h2>Modal Example</h2>
+
+                    <!-- Trigger/Open The Modal -->
+                    <button id="myBtn">Open Modal</button>
+
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>جهت ثبت نظر خود یا وارد حساب کاربری خود شوید یا ثبت نام فرمایید</p>
+                            <div style="display: flex;justify-content: space-between;">
+                                <div class="modal-content border-light" style="width:600px;margin-left: 10px;">
+                                    <div class="modal-body p-0">
+                                        <div class="card p-3 p-lg-4"><button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <div class="card-header border-0 text-center pb-0">
+                                                <h2 class="mb-3 h5">ثبت نام </h2>
+                                            </div>
+                                            <div class="card-body p-0 pl-lg-3">
+
+                                                <div style=" display: flex;justify-content: space-between;">
+                                                    <div class="form-group mb-4"><label for="UserNAME">نام کاربری</label>
+                                                        <div class="input-group"><span class="input-group-text" id="basic-addon3"><span class="fas fa-user"></span></span> <input type="text" class="form-control" placeholder="نام کاربری خود را وارد کنید" id="Username" required=""></div>
+                                                    </div>
+                                                    <div class="form-group mb-4"><label for="email">نام </label>
+                                                        <div class="input-group"><span class="input-group-text" id="basic-addon3"><span class="fas fa-user"></span></span> <input type="text" class="form-control" placeholder="نام " id="FirstName" required=""></div>
                                                     </div>
                                                 </div>
+                                                <div style=" display: flex;justify-content: space-between;">
+
+                                                    <div class="form-group mb-4"><label for="email">نام خاواندگی</label>
+                                                        <div class="input-group"><span class="input-group-text" id="basic-addon3"><span class="fas fa-user"></span></span> <input type="text" class="form-control" placeholder="نام خانوادگی" id="LastName" required=""></div>
+                                                    </div>
+                                                    <div class="form-group mb-4"><label for="email">نام خاواندگی</label>
+                                                        <div class="input-group"> <select id="UserGender" class="form-select" style="height: 40px">
+                                                                <option selected> را انتخاب کنیدجنسیت</option>
+                                                                <option value="1">مرد</option>
+                                                                <option value="2">زن</option>
+                                                                <option value="3">سایر</option>
+                                                              </select></div>
+                                                    </div>
+
+
+                                                </div>
+                                                <div style=" display: flex;justify-content: space-between;">
+                                                    <div class="form-group mb-4"><label for="email">شماره همراه</label>
+                                                        <div class="input-group"><span class="input-group-text" id="basic-addon3"><span class="fas fa-user"></span></span> <input type="number" class="form-control" placeholder="شماره همراه" id="UserNumber" required=""></div>
+                                                    </div>
+                                                    <div class="form-group mb-4"><label for="email">ایمیل</label>
+                                                        <div class="input-group"><span class="input-group-text" id="basic-addon3"><span class="fas fa-envelope"></span></span> <input type="email" class="form-control" placeholder="ایمیل" id="UserEmail" required=""></div>
+                                                    </div>
+                                                </div>
+                                                <div style=" display: flex;justify-content: space-between;">
+                                                    <div class="form-group mb-4"><label for="password">رمز عبور</label>
+                                                        <div class="input-group"><span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span> <input type="password" placeholder="رمز عبور  را وارد کنید" class="form-control" id="UserPassword"
+                                                                required=""></div>
+                                                    </div>
+                                                    <div class="form-group mb-4"><label for="password_confirm">تکرار رمز عبور</label>
+                                                        <div class="input-group"><span class="input-group-text" id="basic-addon5"><span class="fas fa-unlock-alt"></span></span> <input type="password" placeholder="رمز عبور مجدد وارد کنید" class="form-control" id="PasswordVerify"
+                                                                required=""></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-grid"><button id="Submit_User" type="submit" class="btn btn-dark">ثبت نام </button></div>
+
                                             </div>
-
-
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                                <div class="modal-content border-light" style="width:600px;margin-left: 10px;">
+                                    <div class="modal-body p-0">
+                                        <div class="card p-3 p-lg-4"><button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <div class="card-header border-0 text-center pb-0">
+                                                <h2 class="mb-3 h5">ورود</h2>
+                                            </div>
+                                            <div class="card-body p-0 pl-lg-3">
+
+                                                <div class="form-group mb-4"><label for="email">نام کاربری</label>
+                                                    <div class="input-group"><span class="input-group-text" id="basic-addon3"><span class="fas fa-user"></span></span> <input type="text" class="form-control" placeholder="نام کاربری خود را وارد کنید" id="LoginUserName" required=""></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-group mb-4"><label for="password">رمز عبور </label>
+                                                        <div class="input-group"><span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span> <input type="password" placeholder="رمز عبور خود را وارد کنید" class="form-control" id="LoginPassword"
+                                                                required=""></div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="d-grid"><button id="Login_User" type="submit" class="btn btn-dark"> ورود</button></div>
 
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <fieldset>
-                                <div class="row" style="display: none;">
-                                    <div class="col-sm-3 col-lg-2 hidden-xs">
-                                        <img id="User_Avatar" style="vertical-align: middle; width: 150px;  height: 150px;  border-radius: 50%;" class="media-object" src="/images/avatars/Default.png" alt="">
-                                    </div>
-                                    <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                        <textarea id="Comment_Text" class="form-control" id="message" placeholder="Your message" required=""></textarea>
-                                    </div>
-                                    <button id="Submit_Comment" type="submit" class="btn btn-normal pull-right">افزودن نظر</button>
-                                </div>
-                            </fieldset>
-                            <% }else{%>
-                                <fieldset>
-                                    <div class="row" style="display: block;">
-                                        <div class="col-sm-3 col-lg-2 hidden-xs">
-                                            <img id="User_Avatar" style="vertical-align: middle; width: 150px;  height: 150px;  border-radius: 50%;" class="media-object" src="/images/avatars/<%= User.User_Avatar %>" alt="">
-                                        </div>
-                                        <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                            <textarea id="Comment_Text" class="form-control" id="message" placeholder="Your message" required=""></textarea>
-                                        </div>
-                                        <button id="Submit_Comment" type="submit" class="btn btn-normal pull-right">افزودن نظر</button>
-                                    </div>
-                                </fieldset>
-                                <% } %>
-                                    <h3>4 Comments</h3>
 
-                                    <!-- COMMENT 1 - START -->
-                                    <% for (var i = 0; i <Comments.length; i++) { %>
-                                        <div class="media">
-                                            <a class="pull-left" href="#"><img class="media-object" src="/images/avatars/<%= Comments[i].Comment_Owner.User_Avatar %>" alt=""></a>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">
-                                                    <%= Comments[i].Comment_Owner.User_Name %>
-                                                </h4>
-                                                <p>
-                                                    <%= Comments[i].Comment_Text %>
-                                                </p>
-                                                <ul class="list-unstyled list-inline media-detail pull-left">
-                                                    <li><i class="fa fa-calendar"></i>27/02/2014</li>
-                                                    <li><i class="fa fa-thumbs-up"></i>13</li>
-                                                </ul>
-                                                <ul class="list-unstyled list-inline media-detail pull-right">
-                                                    <li class=""><a href="">Like</a></li>
-                                                    <li class=""><a href="">Reply</a></li>
-                                                </ul>
-                                            </div>
+                        </div>
+
+                    </div>
+                    <button id="alertbtn">alert</button>
+
+                    <fieldset>
+                        <div class="row" style="display: none;">
+                            <div class="col-sm-3 col-lg-2 hidden-xs">
+                                <img id="User_Avatar" style="vertical-align: middle; width: 150px;  height: 150px;  border-radius: 50%;" class="media-object" src="/images/avatars/Default.png" alt="">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                <textarea style="width: 600px;height: 150px;" id="Comment_Text" class="form-control" id="message" placeholder="Your message" required=""></textarea>
+                            </div>
+                            <div class="post-meta"> <button id="Submit_Comment" class="btn btn-success" style="width: 100%;"><i class="far fa-save me-2"></i>add</button></div>
+                        </div>
+                    </fieldset>
+                    <% }else{%>
+                        <fieldset>
+                            <div class="row" style="display: flex;">
+                                <div class="col-sm-3 col-lg-2 hidden-xs">
+                                    <img id="User_Avatar" style="vertical-align: middle; width: 150px;  height: 150px;  border-radius: 50%;" class="media-object" src="/images/avatars/<%= User.User_Avatar %>" alt="">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                    <textarea style="width: 600px;height: 150px;" id="Comment_Text" class="form-control" id="message" placeholder="Your message" required=""></textarea>
+                                </div>
+                                <div class="post-meta"> <button id="Submit_Comment" class="btn btn-success" style="width: 100%;"><i class="far fa-save me-2"></i>add</button></div>
+                            </div>
+                        </fieldset>
+                        <% } %>
+                            <h3>4 Comments</h3>
+                            <div id="addallcomment">
+                                <% for (var i = 0; i <Comments.length; i++) { %>
+                                    <div class="media">
+                                        <a class="pull-left" href="#"><img class="media-object" src="/images/avatars/<%= Comments[i].Comment_Owner.User_Avatar %>" alt=""></a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">
+                                                <%= Comments[i].Comment_Owner.User_Name %>
+                                            </h4>
+                                            <p>
+                                                <%= Comments[i].Comment_Text %>
+                                            </p>
+                                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                                <li><i class="fa fa-calendar"></i>
+                                                    <%=Comments[i].Comment_CreatedAt.toISOString().slice(0,10)%>
+                                                </li>
+
+                                            </ul>
+
                                         </div>
-                                        <%}%>
+                                    </div>
+                                    <%}%>
+                            </div>
+                            <!-- COMMENT 1 - START -->
+
+
+
+
+            </div>
+
+            <footer class="footer section py-5">
+                <div class="row">
+                    <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                        <p class="mb-0 text-center text-xl-left">Copyright © 2019-<span class="current-year"></span> <a class="text-primary fw-normal" href="https://themesberg.com" target="_blank">Themesberg</a></p>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <!-- List -->
+                        <ul class="list-inline list-group-flush list-group-borderless text-center text-xl-right mb-0">
+                            <li class="list-inline-item px-0 px-sm-2">
+                                <a href="https://themesberg.com/about">About</a>
+                            </li>
+                            <li class="list-inline-item px-0 px-sm-2">
+                                <a href="https://themesberg.com/themes">Themes</a>
+                            </li>
+                            <li class="list-inline-item px-0 px-sm-2">
+                                <a href="https://themesberg.com/blog">Blog</a>
+                            </li>
+                            <li class="list-inline-item px-0 px-sm-2">
+                                <a href="https://themesberg.com/contact">Contact</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <footer class="footer section py-5">
-            <div class="row">
-                <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-                    <p class="mb-0 text-center text-xl-left">Copyright © 2019-<span class="current-year"></span> <a class="text-primary fw-normal" href="https://themesberg.com" target="_blank">Themesberg</a></p>
-                </div>
-
-                <div class="col-12 col-lg-6">
-                    <!-- List -->
-                    <ul class="list-inline list-group-flush list-group-borderless text-center text-xl-right mb-0">
-                        <li class="list-inline-item px-0 px-sm-2">
-                            <a href="https://themesberg.com/about">About</a>
-                        </li>
-                        <li class="list-inline-item px-0 px-sm-2">
-                            <a href="https://themesberg.com/themes">Themes</a>
-                        </li>
-                        <li class="list-inline-item px-0 px-sm-2">
-                            <a href="https://themesberg.com/blog">Blog</a>
-                        </li>
-                        <li class="list-inline-item px-0 px-sm-2">
-                            <a href="https://themesberg.com/contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
+            </footer>
     </main>
 
     <!-- Core -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
     <script src="/Admin/html&css/vendor/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="/Admin/html&css/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://themesberg.com/js/consent.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@15.1.1/dist/lazyload.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@15.1.1/dist/lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js"></script>
+    <script src="https://themesberg.com/js/themesberg.js"></script>
+    <script id="dsq-count-scr" src="//https-themesberg-com.disqus.com/count.js" async=""></script>
+    <script type="text/javascript">
+        (function() {
+            window['__CF$cv$params'] = {
+                r: '64a8489caf194ebc',
+                m: '311f7f76a20cd440262b6fb38b83647b0f3207cc-1620200038-1800-AReT5lbfOe8nhRosow15jokmmX2NSfbJN30GiHlgbskZogwzvgGVXUcwU8r9zuLau2tM0KEVvbHU+VEQ/+PuiTWxqAgyZYl8nlpCKBh/iPm0syw/OPDJD1ZWAFhBUyu+gg==',
+                s: [0x75168bfa23, 0x6b7e76daf5],
+            }
+        })();
+    </script>
+    <script src="https://f.convertkit.com/ckjs/ck.5.js" async="true" crossorigin="anonymous"></script>
     <!-- Vendor JS -->
     <script src="/Admin/html&css/vendor/onscreen/dist/on-screen.umd.min.js"></script>
 
@@ -301,7 +1097,9 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Volt JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="/Admin/html&css/assets/js/volt.js"></script>
+    <script src="/javascripts/ArticlePage.js"></script>
 
 
 </body>

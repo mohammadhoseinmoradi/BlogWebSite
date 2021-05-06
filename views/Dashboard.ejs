@@ -32,7 +32,7 @@
             <i class="fas fa-bars"></i>
         </a>
         <div>
-            <nav style="background:rgba(255,255,255,0.25);box-shadow:10px rgb(31,38,135,0.37);backdrop-filter: blur(6.0px);" id="sidebar" class="sidebar-wrapper rtl" style="direction: rtl; ">
+            <nav style="background-color: rgb(41, 42, 42);" id="sidebar" class="sidebar-wrapper rtl" style="direction: rtl; ">
                 <div class="sidebar-content" style="direction: rtl;   ">
                     <div class="sidebar-brand">
                         <a href="#" style="width: 50%;"> حالت شب</a>
@@ -55,7 +55,7 @@
                             <img class="img-responsive img-rounded" src='/images/avatars/<%= existUser[0].User_Avatar %>' alt="User picture">
                         </div>
                         <div class="user-info">
-                            <span class="user-name">
+                            <span class="user-name" style="color: rgb(152, 148, 148);">
                                 <%= existUser[0].User_First_Name %> <%= existUser[0].User_Last_Name %>
                       <strong> <%= existUser[0].User_Name %></strong>
                     </span>
@@ -221,9 +221,9 @@
                         <input type='text' class='form-control' value='<%= existUser[0].User_Last_Name %>' id='User-LastName'>
                         <div class='text-danger collapse' id='valLastName'>Action Title is required.</div>
                         <label for='User-Email' class='text-primary'>ایمیل </label>
-                        <input type='text' class='form-control' value='<%= existUser[0].User_Email %>' id='User-Email' class='text-primary'>'>
+                        <input type='text' class='form-control' value='<%= existUser[0].User_Email %>' id='User-Email' class='text-primary'>
                         <div class='text-danger collapse' id='valEmail'>Action Title is required.</div>
-                        <label for='User-Number' class='text-primary'>شماره همراه </label>
+                        <label for='User-Number' class='text-primary'> شماره همراه </label>
                         <input type='text' class='form-control' value='<%= existUser[0].User_Number %>' id='User-Number'>
                         <div class='text-danger collapse' id='valNumber'>Action Title is required.</div>
 
@@ -232,7 +232,7 @@
                     <!-- Begin Action Dept/Due/Assigned -->
                     <div class='form-group row'>
                         <div class='col'>
-                            <label for='samsDept' class='text-primary'> جنسیت </label>
+                            <label for='samsDept' class='text-primary'>(آخرین جنسیت شما <%= existUser[0].User_Gender %>:) جنسیت </label>
                             <select class='form-control' id='Gender'>
                                     <option value=0>جنسیت خود را انتخاب کنید</option>
                                         <option value=1>مرد</option>
@@ -344,11 +344,12 @@
                 <div class='border border-dark p-4 rounded' id='basicInfo'>
 
                     <!-- <input type="file" name="avatar" value="" id="New_User_Avatar" /> -->
-                    <form action="/DashboardUser/DashboardAvatar" method="post" enctype="multipart/form-data">
 
-                        <input type="file" name="avatar" />
-                        <input type="submit" value="submit" />
-                    </form>
+
+                    <input type="file" name="avatar" id="UserAvatar" />
+                    <input type="submit" value="submit" id="SubmitUserAvatar" />
+
+
                     <br>
                     <!-- <a target="_blank" class="btn btn-sm btn-primary mr-2" id='Btn_Edit_Avatar_Submit' style='margin-top:30px'>
                                 اعمال تغییرات</a> -->
@@ -449,7 +450,33 @@
 
 
         </main>
+        <!-- Footer -->
+        <footer style="direction: rtl;" style="z-index: -10;">
+            <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 82%;margin-left: 260px;">
+                <a class="navbar-brand" href="#">فارسی بلاگ</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> خانه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">درباره ما </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">تماس با ما </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">همه مقالات</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </footer>
 
+        <!-- Footer -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

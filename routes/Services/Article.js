@@ -62,11 +62,12 @@ const PersonalArticle = (req, res) => {
     })
 }
 const UploadPhotos = (req, res) => {
-
+    console.log(PhotoArticle.uploadAvatar.single());
+    console.log(req.file);
     const upload = PhotoArticle.uploadAvatar.single('upload');
     upload(req, res, function(err) {
         if (err instanceof multer.MulterError) {
-
+            console.log(err);
             res.status(500).send('Server Error!')
         } else if (err) {
 
@@ -230,6 +231,7 @@ const ArticlePage = (req, res) => {
                     let url = articles[0].Article_File_Location.split('public')
                     articles[0].Article_File_Location = url[1]
                     console.log("Not Login");
+                    console.log(articles, Comments, User);
                     res.render('ArticlePage', { articles, User, Comments })
                 })
 
@@ -257,14 +259,27 @@ const SubmitComment = (req, res) => {
 
     let ArticleId = req.body.Article_Id
     let CommentText = req.body.Comment
+    console.log("============================ ADD");
+    console.log(req.body);
     const New_Comment = new Comment_Information({
         Comment_Article: ArticleId,
         Comment_Owner: req.session.user.User_id,
         Comment_Text: CommentText
     })
+    console.log(New_Comment);
     New_Comment.save({}, (err, CommentSaved) => {
+        console.log(err);
         if (err) return res.status(500).send();
-        res.send("User Has Been Created :)")
+        User_Information.find({}, (err, Users) => {
+            console.log(err);
+            Comment_Information.find({ Comment_Article: ArticleId }).populate("Comment_Owner").sort({ Comment_CreatedAt: -1 }).exec((err, Comments) => {
+                console.log(err);
+                if (err) return res.status(500).json({ msg: "Not Found" })
+                console.log("========================= omments =======================");
+                res.json(Comments)
+            })
+        })
+
     })
 
 }
@@ -296,6 +311,9 @@ const UserArticles = (req, res) => {
     }
 
 }
+const NewArticlePage = (req, res) => {
+    res.render('newarticle')
+}
 module.exports = {
     PersonalArticle,
     AddArticles,
@@ -308,6 +326,6 @@ module.exports = {
     ArticlePage,
     SubmitComment,
     DeleteArticle,
-
+    NewArticlePage,
     UserArticles
 }

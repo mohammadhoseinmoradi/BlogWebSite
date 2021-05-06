@@ -147,26 +147,38 @@ const DashboardDelete = (req, res) => {
     User_Information.findOneAndDelete({ _id: req.params.id }, (err, existUser) => {
         console.log(err);
         if (err) return res.status(500).send();
-        Article_Information.Delete({ Article_Owner: req.params.id }, (err, Articles) => {
+        Article_Information.find({ Article_Owner: req.params.id }, (err, ArticleOwner) => {
             if (err) return res.status(500).send();
-            Comment_Information.Delete({ Comment_Owner: req.params.id }, (err, Comments) => {
-                if (err) return res.status(500).send()
-            })
+            if (ArticleOwner.length != 0) {
+                Article_Information.Delete({ Article_Owner: req.params.id }, (err, Articles) => {
+                    if (err) return res.status(500).send();
+                    Comment_Information.find({ Comment_Owner: req.params.id }, (err, CommentOwner) => {
+                        if (err) return res.status(500).send();
+                        if (CommentOwner.length != 0) {
+                            Comment_Information.Delete({ Comment_Owner: req.params.id }, (err, Comments) => {
+                                if (err) return res.status(500).send()
+                            })
+                        }
+                    })
+                })
+            }
         })
-        if (req.session.user.User_Role == "admin") {
-            User_Information.find({}, (err, Users) => {
-                if (err) return res.status(500).send();
-                res.json(Users)
-            })
-
-        } else {
-            req.session.destroy(function(err) {
-                if (err) return res.status(500).send();
-            });
-            res.redirect('/LoginUser')
-        }
 
     })
+    if (req.session.user.User_Role == "admin") {
+        User_Information.find({}, (err, Users) => {
+            if (err) return res.status(500).send();
+            res.json(Users)
+        })
+
+    } else {
+        req.session.destroy(function(err) {
+            if (err) return res.status(500).send();
+        });
+        res.redirect('/LoginUser')
+    }
+
+
 }
 const DashboardAvatar = (req, res) => {
 

@@ -28,12 +28,14 @@
             <div class="row active-with-click">
                 <% if(articles.length>0){ %>
                     <% for(let i = 0; i < articles.length; i++){ %>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-md-4 col-sm-6 col-xs-12" style="margin:60px 0px 20px 0px;">
 
                             <article class="material-card Red">
                                 <h2>
                                     <span><%= articles[i].Article_Title %><img  src='/images/avatars/<%= articles[i].Article_Owner.User_Avatar %>' alt="Avatar" class="avatar" style="vertical-align: middle; width: 50px;  height: 50px;  border-radius: 50%;"></span>
-
+                                    <p style="text-align: left;">
+                                        <%= articles[i].Article_LastUpdate.toISOString().slice(0,10) %>
+                                    </p>
                                     <div id="container">
                                         <button class="learn-more">
                                   <span class="circle" aria-hidden="true">

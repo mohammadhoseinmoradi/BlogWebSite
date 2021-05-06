@@ -1,6 +1,8 @@
 jQuery(function($) {
 
-
+    $("#alertbtn").on("click", function() {
+        alert("alert")
+    })
     $("#Submit_User").on("click", function() {
         let PasswordVerify = $("#PasswordVerify").val()
         let UserPassword = $("#UserPassword").val()
@@ -20,9 +22,9 @@ jQuery(function($) {
         } else if (Gender == 3) {
             User_Gender = "Other"
         }
-        console.log(PasswordVerify, UserPassword, UserGender, UserNumber, UserEmail, LastName, FirstName, Username);
+        console.log(PasswordVerify, UserPassword, User_Gender, UserNumber, UserEmail, LastName, FirstName, Username);
 
-        if (PasswordVerify == "" || UserPassword == "" || UserGender == "" || UserNumber == "" || UserEmail == "" || LastName == "" || FirstName == "" || Username == "") {
+        if (PasswordVerify == "" || UserPassword == "" || User_Gender == "" || UserNumber == "" || UserEmail == "" || LastName == "" || FirstName == "" || Username == "") {
             console.log(5345345);
             Swal.fire({
                 icon: 'error',
@@ -56,9 +58,7 @@ jQuery(function($) {
                 },
                 success: function(data) {
                     console.log(data);
-                    $(".row").css("display", "block")
-                    $("#ModalLogin").css("display", "none")
-                    $("#User_Avatar").attr("src", `/images/avatars/${data.User_Avatar}`)
+                    Login(Username, UserPassword)
                 },
                 error: function() { alert("ERROR") }
             })
@@ -68,6 +68,10 @@ jQuery(function($) {
     $("#Login_User").on("click", () => {
         let Password = $("#LoginPassword").val()
         let User_Name = $("#LoginUserName").val()
+        Login(User_Name, Password)
+    })
+
+    function Login(User_Name, Password) {
         if (User_Name == "" && Password == "") {
             Swal.fire({
                 icon: 'error',
@@ -107,7 +111,7 @@ jQuery(function($) {
 
             }
         })
-    })
+    }
     $("body").on("click", "#Submit_Comment", function() {
         console.log(window.location.href);
         let ArticleId = window.location.href
@@ -125,13 +129,70 @@ jQuery(function($) {
 
 
             },
-            success: function() { alert("OK") },
+
+            success: function(data) {
+                alert("OK")
+                set_Comment(data)
+
+            },
             error: function() { alert("Error") }
         })
     })
+
+    function set_Comment(data) {
+        $("#addallcomment").html("")
+        for (let i = 0; i < data.length; i++) {
+            let Comments = `
+            <div class="media" style="padding:10px;border: 2px solid black">
+            <a class="pull-left" href="#"><img class="media-object" src="/images/avatars/${data[i].Comment_Owner.User_Avatar}" alt=""></a>
+            <div class="media-body">
+                <h4 class="media-heading">
+                    ${data[i].Comment_Owner.User_Name}
+                </h4>
+                <p>
+                    ${ data[i].Comment_Text }
+                </p>
+                <ul class="list-unstyled list-inline media-detail pull-left">
+                    <li><i class="fa fa-calendar"></i>${data[i].Comment_CreatedAt.toISOString().slice(0,10)}</li>
+               
+                </ul>
+            </div>
+        </div>
+            `
+            $("#addallcomment").append(Comments)
+        }
+
+    }
 })
 
 function setData(event) {
     console.log(event);
     $("#Summary").load(`../../${event}`)
+}
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }

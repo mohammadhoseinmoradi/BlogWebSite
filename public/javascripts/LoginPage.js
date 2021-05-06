@@ -9,10 +9,10 @@ $(document).ready(function() {
         let Password = $("#UserPassword").val()
         if (User_Name == "" && Password == "") {
             Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: '<a href>Why do I have this issue?</a>'
+                icon: 'خطا',
+                title: 'اوپس...',
+                text: ' لطفا ورودی های خود را چک کنین',
+                footer: '<a href>رفتن به خانه?</a>'
             })
         }
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Your work has been saved',
+                    title: ' به ناحیه کاربری خود خوش آمدید ',
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -40,10 +40,12 @@ $(document).ready(function() {
             },
             error: function() {
                 Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href>Why do I have this issue?</a>'
+                    icon: 'خطا',
+                    title: 'اوپس...',
+                    text: ' لطفا ورودی های خود را چک کنین',
+                    footer: '<a href>رفتن به خانه?</a>',
+                    timer: 1500
+
                 })
                 window.location.replace(`/LoginUser`);
 

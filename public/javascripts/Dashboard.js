@@ -34,17 +34,17 @@ jQuery(function($) {
         let Verify_New_Password = $("#VerifyNewPassword").val();
         if (Old_Password == "" && New_Password == "" && Verify_New_Password == "") {
             Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: '<a href>Why do I have this issue?</a>'
+                icon: 'خطا',
+                title: 'اوپس...',
+                text: '  لطفا ورودی های خود را چک کنید',
+
             })
         } else if (New_Password !== Verify_New_Password) {
             Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: '<a href>Why do I have this issue?</a>'
+                icon: 'خطا',
+                title: 'اوپس...',
+                text: '  لطفا ورودی های خود را چک کنید',
+
             })
         }
         console.log(Old_Password, New_Password);
@@ -59,7 +59,7 @@ jQuery(function($) {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Your work has been saved',
+                    title: '   رمز عبور شما با موفقیت تغییر یافت ',
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -67,56 +67,55 @@ jQuery(function($) {
             },
             error: function() {
                 Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href>Why do I have this issue?</a>'
+                    icon: 'خطا',
+                    title: 'اوپس...',
+                    text: '  مشکلی پیش آمده است لطفا دوباره امتحان کنید',
+
                 })
             }
 
         })
     })
-    $("body").on("click", "#Btn_Edit_Avatar_Submit", function() {
+    $("body").on("click", "#SubmitUserAvatar", function() {
 
-        // let New_Avatar = $("#New_User_Avatar").file()
-        let New_Avatar = $('#New_User_Avatar').get(0).files;
-        console.log(typeof New_Avatar);
-        if (New_Avatar == "") {
+
+        console.log($("#UserAvatar")[0].files[0]);
+        if (!$("#UserAvatar")[0].files[0]) {
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: '<a href>Why do I have this issue?</a>'
+                title: 'با خطا مواجه شدید',
+                text: '  لطفا عکس خود را دوباره بارگزاری کنید',
+                footer: '<button  class="btn btn-sm btn-primary mr-2 ReloadDashboard">بازگشت به صفحه همه مقالات</button>'
             })
+        } else {
+            var data = new FormData();
+            data.append('avatar', $("#UserAvatar")[0].files[0]);
+            $.ajax({
+                type: "POST",
+                url: '/DashboardUser/DashboardAvatar',
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'تغییر انجام شد ',
+                        text: '  عکس شاخص مقاله با موفقیت ویرایش شد',
+                        footer: '<button  class="btn btn-sm btn-primary mr-2 ReloadDashboard">بازگشت به صفحه همه مقالات</button>'
+                    })
+                    window.location.reload("/Dashboard/DashboardPage")
+                },
+                error: function(jqXHR, textStatus, errorMessage) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'با خطا مواجه شدید',
+                        text: '  لطفا عکس خود را دوباره بارگزاری کنید',
+                        footer: '<button  class="btn btn-sm btn-primary mr-2 ReloadDashboard">بازگشت به صفحه همه مقالات</button>'
+                    })
+                }
+            });
         }
-        console.log(New_Avatar);
-        $.ajax({
-            type: "POST",
-            url: "/DashboardUser/DashboardAvatar",
-            datatype: "multipart/form-data",
-            data: New_Avatar
 
-            ,
-            success: function() {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Your work has been saved',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                window.location.reload("/Dashboard/DashboardPage")
-            },
-            error: function() {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href>Why do I have this issue?</a>'
-                })
-            }
-
-        })
 
     })
     $("body").on("click", "#Btn_Submit", function() {
@@ -139,9 +138,9 @@ jQuery(function($) {
         if (New_User_Name == "" && New_User_Number == "" && New_User_Email == "" && New_User_First_Name == "" && New_User_Last_Name == "") {
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: '<a href>Why do I have this issue?</a>'
+                title: 'اوپس...',
+                text: ' ورودی های خود را چک کنید',
+
             })
         } else {
             if (New_Gender == "NoSelected") {
@@ -159,7 +158,7 @@ jQuery(function($) {
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
-                            title: 'Your work has been saved',
+                            title: '    ویرایش اطلاعات با موفقیت انجام شد',
                             showConfirmButton: false,
                             timer: 1500
                         })
@@ -168,9 +167,9 @@ jQuery(function($) {
                     error: function() {
                         Swal.fire({
                             icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!',
-                            footer: '<a href>Why do I have this issue?</a>'
+                            title: 'اوپس...',
+                            text: ' لطفا دوباره درخواست کنید',
+
                         })
                     }
 
@@ -191,7 +190,7 @@ jQuery(function($) {
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
-                            title: 'Your work has been saved',
+                            title: 'ویرایش اطلاعات با موفقیت انجام شد',
                             showConfirmButton: false,
                             timer: 1500
                         })
@@ -200,9 +199,9 @@ jQuery(function($) {
                     error: function() {
                         Swal.fire({
                             icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!',
-                            footer: '<a href>Why do I have this issue?</a>'
+                            title: 'اوپس...',
+                            text: 'لطفا دوباره امتحان فرمایید',
+
                         })
                     }
 
@@ -241,13 +240,12 @@ jQuery(function($) {
         $("#Edit_Avatar").css("display", "none")
     })
     $("body").on("click", "#Btn_Edit_Avatar", function() {
-            $("#Edit_Info").css("display", "none")
-            $("#Edit_Password").css("display", "none")
-            $("#User_Articles").css("display", "none")
-            $("#New_Article").css("display", "none")
-            $("#Edit_Avatar").css("display", "block")
-        })
-        // !========================================================================================================================================================================
+        $("#Edit_Info").css("display", "none")
+        $("#Edit_Password").css("display", "none")
+        $("#User_Articles").css("display", "none")
+        $("#New_Article").css("display", "none")
+        $("#Edit_Avatar").css("display", "block")
+    })
     $("body").on("click", "#btn-AddArticle", function() {
         $("#AddArticle").css("display", "block")
         $("#AddName").css("display", "block")
@@ -266,7 +264,7 @@ jQuery(function($) {
                 Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Your work has been saved',
+                        title: 'مقاله با موفقیت ایجاد شد',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -277,9 +275,9 @@ jQuery(function($) {
             error: function() {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href>Why do I have this issue?</a>'
+                    title: 'اوپس...',
+                    text: 'مشکلی پیش آماده لطفا دوباره تلاش کنید',
+
                 })
             }
         })
@@ -289,9 +287,9 @@ jQuery(function($) {
         if (Article_Name == "") {
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: '<a href>Why do I have this issue?</a>'
+                title: 'اوپس...',
+                text: 'لطفا ورودی های خود را چک کنید',
+
             })
         }
         $.ajax({
@@ -302,7 +300,7 @@ jQuery(function($) {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Your work has been saved',
+                    title: 'نام مقاله با موفقیت ثبت شد',
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -313,9 +311,9 @@ jQuery(function($) {
             error: function() {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href>Why do I have this issue?</a>'
+                    title: 'اوپس...',
+                    text: 'مشکلی رخ داده لطفا دوباره تلاش کنید',
+
                 })
             }
         })
@@ -328,35 +326,45 @@ jQuery(function($) {
     $("body").on("click", "#Btn_Add_Article", function() {
 
         console.log($("#ArticleAvatars")[0].files[0]);
-        var data = new FormData();
-        data.append('avatar', $("#ArticleAvatars")[0].files[0]);
+        if (!$("#ArticleAvatars")[0].files[0]) {
+            Swal.fire({
+                icon: 'error',
+                title: 'اوپس...',
+                text: 'ورودی خود را چک کنید',
 
-        $.ajax({
-            type: "POST",
-            url: '../Articles/UploadAvatarArticle',
-            data: data,
-            contentType: false,
-            processData: false,
-            success: function(response) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Your work has been saved',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                $("#TextEditor").css("display", "block")
-                $("#ArticleAvatar").css("display", "none")
-            },
-            error: function(jqXHR, textStatus, errorMessage) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href>Why do I have this issue?</a>'
-                })
-            }
-        });
+            })
+        } else {
+            var data = new FormData();
+            data.append('avatar', $("#ArticleAvatars")[0].files[0]);
+
+            $.ajax({
+                type: "POST",
+                url: '../Articles/UploadAvatarArticle',
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'عکس شاخص مقاله شما با موفقیت ثبت گردید',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    $("#TextEditor").css("display", "block")
+                    $("#ArticleAvatar").css("display", "none")
+                },
+                error: function(jqXHR, textStatus, errorMessage) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'اوپس...',
+                        text: 'مشکلی پیش آمده لطفا مجدد امتحان کنید',
+
+                    })
+                }
+            });
+        }
+
 
     })
     $("body").on("click", "#Btn_Edit_Avatatr", function() {
@@ -474,32 +482,42 @@ function EditeArticle(event) {
                 $("body").on("click", "#btn-submit-EditArticleAvatar", function() {
 
                     console.log($("#ArticleEditAvatars")[0].files[0]);
-                    var data = new FormData();
-                    data.append('avatar', $("#ArticleEditAvatars")[0].files[0]);
+                    if (!$("#ArticleEditAvatars")[0].files[0]) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'با خطا مواجه شدید',
+                            text: '  لطفا عکس خود را دوباره بارگزاری کنید',
+                            footer: '<button  class="btn btn-sm btn-primary mr-2 ReloadDashboard">بازگشت به صفحه همه مقالات</button>'
+                        })
+                    } else {
+                        var data = new FormData();
+                        data.append('avatar', $("#ArticleEditAvatars")[0].files[0]);
 
-                    $.ajax({
-                        type: "POST",
-                        url: '../Articles/UploadAvatarArticle',
-                        data: data,
-                        contentType: false,
-                        processData: false,
-                        success: function(response) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'تغییر انجام شد ',
-                                text: '  عکس شاخص مقاله با موفقیت ویرایش شد',
-                                footer: '<button  class="btn btn-sm btn-primary mr-2 ReloadDashboard">بازگشت به صفحه همه مقالات</button>'
-                            })
-                        },
-                        error: function(jqXHR, textStatus, errorMessage) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'با خطا مواجه شدید',
-                                text: '  لطفا عکس خود را دوباره بارگزاری کنید',
-                                footer: '<button  class="btn btn-sm btn-primary mr-2 ReloadDashboard">بازگشت به صفحه همه مقالات</button>'
-                            })
-                        }
-                    });
+                        $.ajax({
+                            type: "POST",
+                            url: '../Articles/UploadAvatarArticle',
+                            data: data,
+                            contentType: false,
+                            processData: false,
+                            success: function(response) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'تغییر انجام شد ',
+                                    text: '  عکس شاخص مقاله با موفقیت ویرایش شد',
+                                    footer: '<button  class="btn btn-sm btn-primary mr-2 ReloadDashboard">بازگشت به صفحه همه مقالات</button>'
+                                })
+                            },
+                            error: function(jqXHR, textStatus, errorMessage) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'با خطا مواجه شدید',
+                                    text: '  لطفا عکس خود را دوباره بارگزاری کنید',
+                                    footer: '<button  class="btn btn-sm btn-primary mr-2 ReloadDashboard">بازگشت به صفحه همه مقالات</button>'
+                                })
+                            }
+                        });
+                    }
+
 
                 })
                 $("body").on("click", "#btn-submit-EditArticleData", function() {

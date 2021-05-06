@@ -15,6 +15,15 @@
 
 */
 
+
+/* For other boilerplate styles, see: /docs/general-configuration-guide/boilerplate-content-css/ */
+
+
+/*
+* For rendering images inserted using the image plugin.
+* Includes image captions using the HTML5 figure element.
+*/
+
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700&display=swap");
 .datepicker {
     display: none;
