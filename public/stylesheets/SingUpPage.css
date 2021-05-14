@@ -3,7 +3,17 @@
 /* * {
     margin: 0px;
     padding: 0px;
+
 } */
+
+.error {
+    color: red;
+    size: 80%
+}
+
+.hidden {
+    display: none;
+}
 
 .area {
     background: #4e54c8;

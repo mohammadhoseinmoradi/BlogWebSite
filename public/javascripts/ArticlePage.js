@@ -161,6 +161,7 @@ jQuery(function($) {
             `
             $("#addallcomment").append(Comments)
         }
+        $("#numberofcomments").append(`${data.length}`)
 
     }
 })

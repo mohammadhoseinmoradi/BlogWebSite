@@ -2,65 +2,878 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="stylesheets/Home.css">
-    <!-- -================================== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
-    <title>Document</title>
+    <meta charset="utf-8">
+    <title>فارسی بلاگ </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="/Rapid/img/favicon.png" rel="icon">
+    <link href="/Rapid/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="/Rapid/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="/Rapid/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Rapid/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/Rapid/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/Rapid/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/Rapid/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="/Rapid/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    Theme Name: Rapid
+    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
 </head>
 
 <body>
+    <!--==========================
+  Header
+  ============================-->
+    <header id="header">
 
-    <div>
+        <div id="topbar">
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
 
-    </div>
-    <div class="area">
-        <%- include("Menu"); -%>
-            <div id="lineDrawing">
+        <div class="container">
 
-                <svg viewBox="0 0 792 512">
-            <g class="lines">
-            <path class="my-path" d="M296.7,240.8l-11.4,92.1h-20.7l4.9-39.2h-33.2l-4.9,39.2h-20.7l11.4-92.1h20.7l-4.8,38.9h33.2l4.8-38.9H296.7z"
-                />
-            <path class="my-path" d="M332.2,256.6l-2.7,22.2h26l-2,15.3h-25.9l-2.8,22.8h34.3l-2,15.9h-55l11.4-92.1h54.8l-2,15.9H332.2z"/>
-            <path class="my-path" d="M423.3,316.4l-2,16.4h-51.6l11.4-92.1h20.6l-9.4,75.6H423.3z"/>
-            <path class="my-path" d="M485.2,316.4l-2,16.4h-51.6l11.4-92.1h20.6l-9.4,75.6H485.2z"/>
-            <path class="my-path" d="M580.2,280.9c0,19.5-10,38.7-27.8,47.6c-16.6,8.3-38.7,7.5-51.7-6.9c-13-14.5-12.6-37.5-4.3-54.2
-                c8.7-17.5,26.9-28.2,46.4-27.6c10.2,0.3,20.1,4.3,27,11.9C577,259.6,580.2,270.3,580.2,280.9z M559.1,281.4c0-11.3-5-23.5-17.6-25
-                c-11.6-1.4-21.5,5.5-26.1,15.9c-4.5,10.2-5.8,24.5-0.8,34.7c5.3,10.6,18.5,13.1,28.6,7.9C555.3,308.6,559.1,293.9,559.1,281.4z"/>
-              </g>
-            </svg>
+            <div class="logo float-left">
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <h1 class="text-light"><a href="#intro" class="scrollto"><span>فارسی بلاگ</span></a></h1>
+                <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
+            </div>
+
+            <nav class="main-nav float-right d-none d-lg-block">
+                <ul style="font-size:25px">
+                    <li><a href="#footer">ارتباط با ما</a></li>
+                    <li><a href="#about">دربارع ما</a></li>
+                    <li><a href="#portfolio">رزومه من</a></li>
+                    <li><a href="#team">تیم ما</a></li>
+                    <li><a href="#services">خدمات ما</a></li>
+                    <li><a href="/LoginUser"> ورود</a></li>
+                    <li><a href="/SingUpUser"> ثبت نام</a></li>
+                    <li><a href="/Articles"> همه مقالات</a></li>
+                    <li class="active"><a href="/">خانه</a></li>
+                </ul>
+            </nav>
+            <!-- .main-nav -->
+
+        </div>
+    </header>
+    <!-- #header -->
+
+    <!--==========================
+    Intro Section
+  ============================-->
+    <section id="intro" class="clearfix">
+        <div class="container d-flex h-100">
+            <div class="row justify-content-center align-self-center">
+                <div class="col-md-6 intro-info order-md-first order-last">
+                    <h2>فارسی بلاگ<br>مرجع مقالات <span>فارسی</span></h2>
+                    <div>
+                        <a href="/LoginUser" class="btn-get-started scrollto">نوشتن اولین مقاله</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 intro-img order-md-last order-first">
+                    <img src="/Rapid/img/intro-img.svg" alt="" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- #intro -->
+
+    <main id="main">
+
+        <!--==========================
+      About Us Section
+    ============================-->
+        <section id="about">
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-5 col-md-6">
+                        <div class="about-img">
+                            <img src="/Rapid/img/about-img.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 col-md-6">
+                        <div class="about-content">
+                            <h2> درباره ما</h2>
+                            <h3>تیم فارسی بلاگ ایجاد بستری مناسب برای اشتراک گزاری مقالات شما ایجاد شده</h3>
+                            <p>شما میتونید به راحتی با ثبت نام و ایجاد حساب کاربری فعالیت خود را شروع و دانش خود را در اختیار سایر افراد بگذارید</p>
+                            <p> ایرانیان سالیانه بیش از هزاران مقاله و جورنال در حوزه های ورزشی و علمی و مذهبی و تاریخی و علوم خاص مانند نجوم و یا علوم هسته ای یا علوم نانو منتشر میکنند و فارسی بلاگ در نظر دارد با ایجاد بستری راحت و کارا به شما کمک کند تا
+                                به این مقالات دسترسی داشته باشید</p>
+                            <ul>
+                                <li><i class="ion-android-checkmark-circle"></i>نوشتن مقالات به زبان های مختلف دیا.</li>
+                                <li><i class="ion-android-checkmark-circle"></i> استفاده از انواع ویدیو ها و تصاویر در مقالات.</li>
+                                <li><i class="ion-android-checkmark-circle"></i>امکان ویرایش و همچنینی نظر دهی افراد در مورد مقالات .</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- #about -->
+
+
+        <!--==========================
+      Services Section
+    ============================-->
+        <section id="services" class="section-bg">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>خدمات ما</h3>
+                    <p>ایجاد انواع وبسایت ها و اپلیکشن و آموزش برنامه نویسی از جمله خدمات ما در تیم قیفطولی است.</p>
+                </header>
+
+                <div class="row">
+
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                            <h4 class="title"><a href="">تیم قیفطولی</a></h4>
+                            <p class="description">تیمی جوان و پر انرژی در فضایی پر انرژی آماده خدمت رسانی به شما عزیزان میباشد</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
+                            <h4 class="title"><a href="">آموزش برنامه نویسی</a></h4>
+                            <p class="description">آموزش برنامه نویسی از مبتدی تا حرفه ای و پروژه محور</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
+                            <h4 class="title"><a href="">قفیطولی بلاگ</a></h4>
+                            <p class="description">پلتفرمی جدا برای ارائه برنامه نویسان جهان تا دانش خود را به اشتراک بگذارند</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #eafde7;"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>
+                            <h4 class="title"><a href="">سریع اما با کیفیت</a></h4>
+                            <p class="description">تیم قیفطولی در سریع ترین زمان با کیفیت ترین خدمات را به شما ارائه میدهد</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #e1eeff;"><i class="ion-ios-world-outline" style="color: #2282ff;"></i></div>
+                            <h4 class="title"><a href="">طراحی وب سایت و وب اپلیکشن</a></h4>
+                            <p class="description">طراحی به روز ترین سایت و اپلیکشن های خود را به ما بسپارید</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #ecebff;"><i class="ion-ios-clock-outline" style="color: #8660fe;"></i></div>
+                            <h4 class="title"><a href="">پشتیبانی 24 ساعته</a></h4>
+                            <p class="description">قیفطولی ارایه پتیبانی به بهترین و سریع ترین شکل را سر لوحه خود قرار داده و تمایز خود با سایر شرکت ها میداند.</p>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
-            <ul class="circles">
+        </section>
+        <!-- #services -->
 
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-    </div>
+        <!--==========================
+      Why Us Section
+    ============================-->
+        <section id="why-us" class="wow fadeIn">
+            <div class="container-fluid">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
-    <script src="javascripts/Home.js"></script>
+                <header class="section-header">
+                    <h3>چرا ما?</h3>
+                    <p>تیم برنامه قیفطولی در سال 99 با 4 نفر جوان برنامه نویس شروع به کار کرد.</p>
+                </header>
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <div class="why-us-img">
+                            <img src="/Rapid/img/why-us.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="why-us-content">
+                            <p>با شیوع کرونا تیم قیفطولی با تمرکز بر یادگیری صحیح نیرو های خود نیروهایخود را به دوره های بوت کمپ برتر ایران فرستاد.</p>
+                            <p>
+                                یکی از بهترین تجربه های کار با قیفطولی بودن نیروی کار بسیار جوان و خلاق بوده که کمک کیکند تا باعث بهتذین و بروز ترین محصول شود
+                            </p>
+
+                            <div class="features wow bounceInUp clearfix">
+                                <i class="fa fa-diamond" style="color: #f058dc;"></i>
+                                <h4>پشتبانی و همراهی مشتری</h4>
+                                <p>از زمان ثبت نام کاربر تا ایجاد سایت و زیر بار رفتن سایت متخصصان قیفطولی همیشه و در همه زمان آماده خدمت رسانی به شما کاربران هستند</p>
+                            </div>
+
+                            <div class="features wow bounceInUp clearfix">
+                                <i class="fa fa-object-group" style="color: #ffb774;"></i>
+                                <h4>به روز بودن قیفطولی</h4>
+                                <p>همکاری با شرکت های خارجی و نیروی جوان باعث این شد تا ما به روز ترین خدمات را به مشتریان خود ارائه دهیم</p>
+                            </div>
+
+                            <div class="features wow bounceInUp clearfix">
+                                <i class="fa fa-language" style="color: #589af1;"></i>
+                                <h4>قیفطولی در همه جا</h4>
+                                <p>قیفطولی با افتخار در تمامی کشور های آماده انجام انواع پروژ] های برنامه نویسی است.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="container">
+                <div class="row counters">
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">274</span>
+                        <p>مشتریان</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">421</span>
+                        <p>پروژه</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">1,364</span>
+                        <p>ساعات پشتیبانی تا کنون</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">18</span>
+                        <p>پروژهای بزرگ</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!--==========================
+      Call To Action Section
+    ============================-->
+        <section id="call-to-action" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 text-center text-lg-left">
+                        <h3 class="cta-title">همکاری با قیفطولی</h3>
+                        <p class="cta-text"> تیم قیفطولی بسیار خرسند است تا افراد مستعد و توانا را جذب خود نماید در صورت همکاری با ما رزومه خود را ارسال نمایید</p>
+                    </div>
+                    <div class="col-lg-3 cta-btn-container text-center">
+                        <a class="cta-btn align-middle" href="#">ارسال رزومه</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- #call-to-action -->
+
+        <!--==========================
+      Features Section
+    ============================-->
+
+        <!-- #about -->
+
+        <!--==========================
+      Portfolio Section
+    ============================-->
+        <section id="portfolio" class="section-bg">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3 class="section-title">درباره ما</h3>
+                </header>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">همه</li>
+                            <li data-filter=".filter-app">اپلیکشن ها</li>
+                            <li data-filter=".filter-card">وب سایت ها</li>
+                            <li data-filter=".filter-web">نرم افزار ها</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row portfolio-container">
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        <div class="portfolio-wrap">
+                            <img src="/Rapid/img/portfolio/app1.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4><a href="#">App 1</a></h4>
+                                <p>App</p>
+                                <div>
+                                    <a href="/Rapid/img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-wow-delay="0.1s">
+                        <div class="portfolio-wrap">
+                            <img src="/Rapid/img/portfolio/web3.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4><a href="#">Web 3</a></h4>
+                                <p>Web</p>
+                                <div>
+                                    <a href="/Rapid/img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
+                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app" data-wow-delay="0.2s">
+                        <div class="portfolio-wrap">
+                            <img src="/Rapid/img/portfolio/app2.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4><a href="#">App 2</a></h4>
+                                <p>App</p>
+                                <div>
+                                    <a href="/Rapid/img/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
+                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                        <div class="portfolio-wrap">
+                            <img src="/Rapid/img/portfolio/card2.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4><a href="#">Card 2</a></h4>
+                                <p>Card</p>
+                                <div>
+                                    <a href="/Rapid/img/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
+                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-wow-delay="0.1s">
+                        <div class="portfolio-wrap">
+                            <img src="/Rapid/img/portfolio/web2.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4><a href="#">Web 2</a></h4>
+                                <p>Web</p>
+                                <div>
+                                    <a href="/Rapid/img/portfolio/web2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
+                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app" data-wow-delay="0.2s">
+                        <div class="portfolio-wrap">
+                            <img src="/Rapid/img/portfolio/app3.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4><a href="#">App 3</a></h4>
+                                <p>App</p>
+                                <div>
+                                    <a href="/Rapid/img/portfolio/app3.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>
+                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                        <div class="portfolio-wrap">
+                            <img src="/Rapid/img/portfolio/card1.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4><a href="#">Card 1</a></h4>
+                                <p>Card</p>
+                                <div>
+                                    <a href="/Rapid/img/portfolio/card1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>
+                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card" data-wow-delay="0.1s">
+                        <div class="portfolio-wrap">
+                            <img src="/Rapid/img/portfolio/card3.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4><a href="#">Card 3</a></h4>
+                                <p>Card</p>
+                                <div>
+                                    <a href="/Rapid/img/portfolio/card3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 3" title="Preview"><i class="ion ion-eye"></i></a>
+                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-wow-delay="0.2s">
+                        <div class="portfolio-wrap">
+                            <img src="/Rapid/img/portfolio/web1.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4><a href="#">Web 1</a></h4>
+                                <p>Web</p>
+                                <div>
+                                    <a href="/Rapid/img/portfolio/web1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
+                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- #portfolio -->
+
+        <!--==========================
+      Clients Section
+    ============================-->
+        <section id="testimonials">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>قیفطولی بلاگ</h3>
+                </header>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+
+                        <div class="owl-carousel testimonials-carousel wow fadeInUp">
+
+                            <div class="testimonial-item">
+                                <img src="/Rapid/img/testimonial-1.jpg" class="testimonial-img" alt="">
+                                <h3>Saul Goodman</h3>
+                                <h4>Ceo &amp; Founder</h4>
+                                <p>
+                                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                </p>
+                            </div>
+
+                            <div class="testimonial-item">
+                                <img src="/Rapid/img/testimonial-2.jpg" class="testimonial-img" alt="">
+                                <h3>Sara Wilsson</h3>
+                                <h4>Designer</h4>
+                                <p>
+                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                                </p>
+                            </div>
+
+                            <div class="testimonial-item">
+                                <img src="/Rapid/img/testimonial-3.jpg" class="testimonial-img" alt="">
+                                <h3>Jena Karlis</h3>
+                                <h4>Store Owner</h4>
+                                <p>
+                                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                                </p>
+                            </div>
+
+                            <div class="testimonial-item">
+                                <img src="/Rapid/img/testimonial-4.jpg" class="testimonial-img" alt="">
+                                <h3>Matt Brandon</h3>
+                                <h4>Freelancer</h4>
+                                <p>
+                                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+        <!-- #testimonials -->
+
+        <!--==========================
+      Team Section
+    ============================-->
+        <section id="team" class="section-bg">
+            <div class="container">
+                <div class="section-header">
+                    <h3>تیم ما</h3>
+                    <p>هسته اصلی قیفطولی با بیش از 10 سال سابقه </p>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp">
+                        <div class="member">
+                            <img src="/Rapid/img/team-1.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Walter White</h4>
+                                    <span>Chief Executive Officer</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="member">
+                            <img src="/Rapid/img/team-2.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Sarah Jhonson</h4>
+                                    <span>Product Manager</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="member">
+                            <img src="/Rapid/img/team-3.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>William Anderson</h4>
+                                    <span>CTO</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="member">
+                            <img src="/Rapid/img/team-4.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Amanda Jepson</h4>
+                                    <span>Accountant</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- #team -->
+
+        <!--==========================
+      Clients Section
+    ============================-->
+        <section id="clients" class="wow fadeInUp">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>برخی مشتریان ما</h3>
+                </header>
+
+                <div class="owl-carousel clients-carousel">
+                    <img src="/Rapid/img/clients/client-1.png" alt="">
+                    <img src="/Rapid/img/clients/client-2.png" alt="">
+                    <img src="/Rapid/img/clients/client-3.png" alt="">
+                    <img src="/Rapid/img/clients/client-4.png" alt="">
+                    <img src="/Rapid/img/clients/client-5.png" alt="">
+                    <img src="/Rapid/img/clients/client-6.png" alt="">
+                    <img src="/Rapid/img/clients/client-7.png" alt="">
+                    <img src="/Rapid/img/clients/client-8.png" alt="">
+                </div>
+
+            </div>
+        </section>
+        <!-- #clients -->
+
+
+        <!--==========================
+      Pricing Section
+    ============================-->
+        <section id="pricing" class="wow fadeInUp section-bg">
+
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>قیمت ها</h3>
+                    <p>شما میتوانید بسته بهنیاز خود پلتفرم مورد نیاز خود را انتخاب کنید</p>
+                </header>
+
+                <div class="row flex-items-xs-middle flex-items-xs-center">
+
+                    <!-- Basic Plan  -->
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="currency">$</span>19<span class="period">/month</span></h3>
+                            </div>
+                            <div class="card-block">
+                                <h4 class="card-title">
+                                    پلتفرم پایه
+                                </h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Odio animi voluptates</li>
+                                    <li class="list-group-item">Inventore quisquam et</li>
+                                    <li class="list-group-item">Et perspiciatis suscipit</li>
+                                    <li class="list-group-item">24/7 Support System</li>
+                                </ul>
+                                <a href="#" class="btn">انتخاب</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regular Plan  -->
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="currency">$</span>29<span class="period">/month</span></h3>
+                            </div>
+                            <div class="card-block">
+                                <h4 class="card-title">
+                                    پلتفرم اقتصادی
+                                </h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Odio animi voluptates</li>
+                                    <li class="list-group-item">Inventore quisquam et</li>
+                                    <li class="list-group-item">Et perspiciatis suscipit</li>
+                                    <li class="list-group-item">24/7 Support System</li>
+                                </ul>
+                                <a href="#" class="btn">انتخاب</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium Plan  -->
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="currency">$</span>39<span class="period">/month</span></h3>
+                            </div>
+                            <div class="card-block">
+                                <h4 class="card-title">
+                                    پلتفرم نا محدود
+                                </h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Odio animi voluptates</li>
+                                    <li class="list-group-item">Inventore quisquam et</li>
+                                    <li class="list-group-item">Et perspiciatis suscipit</li>
+                                    <li class="list-group-item">24/7 Support System</li>
+                                </ul>
+                                <a href="#" class="btn">انتخاب</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <!-- #pricing -->
+
+        <!--==========================
+      Frequently Asked Questions Section
+    ============================-->
+        <!-- #faq -->
+
+    </main>
+    <!--==========================
+    Footer
+  ============================-->
+    <footer id="footer" class="section-bg">
+        <div class="footer-top">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+
+                        <div class="row">
+
+                            <div class="col-sm-6">
+
+                                <div class="footer-info">
+                                    <h3>فارسی بلاگ</h3>
+                                    <p>در فارسی بلاک به راحتی به اوناع مقالات و جورنال ها دست پیدا کنید</p>
+                                </div>
+
+                                <div class="footer-newsletter">
+                                    <h4>درباره ما</h4>
+                                    <p>قیفطولی بزرگ ترین پلتفرم برنامه نویسی</p>
+                                    <form action="" method="post">
+                                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                                    </form>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="footer-links">
+                                    <h4>منوی کاربردی</h4>
+                                    <ul>
+                                        <li><a href="#">خانه</a></li>
+                                        <li><a href="#">همه  مقالات</a></li>
+                                        <li><a href="#">درباره ما</a></li>
+                                        <li><a href="#">خدمات</a></li>
+                                        <li><a href="#">ورود</a></li>
+                                        <li><a href="#">ثبت نام</a></li>
+
+                                    </ul>
+                                </div>
+
+                                <div class="footer-links">
+                                    <h4>ارتباط با ما</h4>
+                                    <p>
+                                        طبس <br> خراسان جنوبی<br> ایران <br>
+                                        <strong>تماس با ما:</strong> +1 5589 55488 55<br>
+                                        <strong>Email:</strong> info@example.com<br>
+                                    </p>
+                                </div>
+
+                                <div class="social-links">
+                                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <div class="form">
+
+                            <h4>ارتباط با ما</h4>
+                            <p>قیفطولی پذیرای انتقادات و پیشنهادات شما می باشد.</p>
+                            <form action="" method="post" role="form" class="contactForm">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                    <div class="validation"></div>
+                                </div>
+
+                                <div id="sendmessage">Your message has been sent. Thank you!</div>
+                                <div id="errormessage"></div>
+
+                                <div class="text-center"><button type="submit" title="Send Message">ارسال پیام</button></div>
+                            </form>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; تهیه شده توسط <strong>قیفطولی</strong>.طراح محمد حسین مرادی
+            </div>
+            <div class="credits">
+                <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
+        -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer>
+    <!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <!-- Uncomment below i you want to use a preloader -->
+    <!-- <div id="preloader"></div> -->
+
+    <!-- JavaScript Libraries -->
+    <script src="/Rapid/lib/jquery/jquery.min.js"></script>
+    <script src="/Rapid/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/Rapid/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/Rapid/lib/easing/easing.min.js"></script>
+    <script src="/Rapid/lib/mobile-nav/mobile-nav.js"></script>
+    <script src="/Rapid/lib/wow/wow.min.js"></script>
+    <script src="/Rapid/lib/waypoints/waypoints.min.js"></script>
+    <script src="/Rapid/lib/counterup/counterup.min.js"></script>
+    <script src="/Rapid/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/Rapid/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/Rapid/lib/lightbox/js/lightbox.min.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="/Rapid/contactform/contactform.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="/Rapid/js/main.js"></script>
+
 </body>
 
 </html>

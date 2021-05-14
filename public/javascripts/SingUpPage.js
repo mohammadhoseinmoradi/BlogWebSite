@@ -5,8 +5,6 @@ $(document).ready(function() {
 
     $("body").on("click", "#Submit_User", () => {
         let User_Info = Get_User_Info()
-
-        console.log(User_Info);
         $.ajax({
             type: "POST",
             url: "/SingUpUser/Register",
@@ -20,14 +18,14 @@ $(document).ready(function() {
                 User_Number: User_Info.User_Number
             },
             success: function() {
-                // Swal.fire({
-                //     position: 'top-end',
-                //     icon: 'success',
-                //     title: 'Your work has been saved',
-                //     showConfirmButton: false,
-                //     timer: 1500
-                // })
-                console.log("LoginPage");
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+
                 window.location.replace("/LoginUser")
             },
             error: function() {
@@ -43,7 +41,7 @@ $(document).ready(function() {
     })
 
     function Get_User_Info() {
-        console.log(123123123);
+
         let User_Name = $("#Username").val()
         let First_Name = $("#FirstName").val()
         let Last_Name = $("#LastName").val()
@@ -104,3 +102,21 @@ container.classList.add("right-panel-active");
 // signUpButton.addEventListener('click', () => {
 //     container.classList.add("right-panel-active");
 // });
+// function validatePhoneNumber(input_str) {
+//     var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
+//     return re.test(input_str);
+// }
+
+// function validateForm(event) {
+//     var phone = document.getElementById('UserNumber').value;
+//     if (!validatePhoneNumber(phone)) {
+//         document.getElementById('phone_error').classList.remove('hidden');
+//     } else {
+
+//         alert("validation success")
+//     }
+//     event.preventDefault();
+// }
+
+// document.getElementById('formLogin').addEventListener('Submit_User', validateForm);

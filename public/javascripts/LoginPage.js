@@ -5,7 +5,6 @@ $(document).ready(function() {
 
     $("body").on("click", "#Submit_User", () => {
         let User_Name = $("#Username").val()
-
         let Password = $("#UserPassword").val()
         if (User_Name == "" && Password == "") {
             Swal.fire({
@@ -15,10 +14,6 @@ $(document).ready(function() {
                 footer: '<a href>رفتن به خانه?</a>'
             })
         }
-
-        console.log(User_Name, Password);
-
-
         $.ajax({
             type: "POST",
             url: "/LoginUser/UserLogin",
